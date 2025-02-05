@@ -23,8 +23,9 @@ int choix(int choice){
     return choice;
 }
 
-int leChoix(int nombre){
-    choix(nombre);
+int leChoix(){
+    int nombre;
+    scanf("%d",&nombre);
     if (nombre == 1) {
         chosenSupemon = Supmander;
         printf("You chose Supmander !\n");
