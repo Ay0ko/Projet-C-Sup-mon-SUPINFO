@@ -18,8 +18,27 @@ struct Starter Supasaur = {1,9, 1, 1, 3, 2, 2};
 struct Starter Supirtle = {1,11, 1, 2, 2, 1, 2};
 struct Starter chosenSupemon;
 
-void choix(int choice){
+int choix(int choice){
     scanf("%d", &choice);
+    return choice;
+}
+
+int leChoix(int nombre){
+    choix(nombre);
+    if (nombre == 1) {
+        chosenSupemon = Supmander;
+        printf("You chose Supmander !\n");
+    } else if (nombre == 2) {
+        chosenSupemon = Supasaur;
+        printf("You chose Supasaur !\n");
+    } else if (nombre == 3) {
+        chosenSupemon = Supirtle;
+        printf("You chose Supirtle !\n");
+    } else {
+        printf("Invalid choice! Chose your Supemon ! \n");
+        printf("Enter 1, 2, or 3: ");
+        choix(nombre);
+    }
 }
 
 int main(){
@@ -28,31 +47,26 @@ int main(){
     scanf("%s", name);
     printf("Hello %s !\n Welcome in Supemon World ! \n", name);
 
-    printf("Choose your starter Supémon: \n");
-    printf("1 - Supmander (Balanced)\n");
-    printf("2 - Supasaur (Evasive)\n");
-    printf("3 - Supirtle (Defensive)\n");
+    printf("+-----------------------------------+\n");
+    printf("| Choose your starter Supémon:      |\n");
+    printf("|                                   |\n");
+    printf("| 1 - Supmander (Balanced)          |\n");
+    printf("| 2 - Supasaur (Evasive)            |\n");
+    printf("| 3 - Supirtle (Defensive)          |\n");
+    printf("+-----------------------------------+\n");
     printf("Enter 1, 2, or 3: ");
 
     int choisi;
-    switch (choisi) {
-        case 1:
-            chosenSupemon = Supmander;
-            printf("You chose Supmander!\n");
-            break;
-        case 2:
-            chosenSupemon = Supasaur;
-            printf("You chose Supasaur!\n");
-            break;
-        case 3:
-            chosenSupemon = Supirtle;
-            printf("You chose Supirtle!\n");
-            break;
-        default:
-            printf("Invalid choice! Chose your Supemon ! \n");
-            choix(choisi);
-    }
+    leChoix(choisi);
 
+    printf("+-----------------------------------+\n");
+    printf("| Where do you want to go ?         |\n");
+    printf("|      1 - Into the Wild            |\n");
+    printf("|      2 - In the shop              |\n");
+    printf("|      3 - In the Supémon center    |\n");
+    printf("|      4 - Leave the game           |\n");
+    printf("+-----------------------------------+\n");
+    printf("Enter 1, 2, 3 or 4");
 
 
     return 0;
