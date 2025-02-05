@@ -65,7 +65,7 @@ int main(){
     printf("| Where do you want to go ?         |\n");
     printf("|      1 - Into the Wild            |\n");
     printf("|      2 - In the shop              |\n");
-    printf("|      3 - In the Supémon center    |\n");
+    printf("|      3 - In the Supemon center    |\n");
     printf("|      4 - Leave the game           |\n");
     printf("+-----------------------------------+\n");
     printf("Enter 1, 2, 3 or 4 \n");
