@@ -18,27 +18,29 @@ struct Starter Supasaur = {1,9, 1, 1, 3, 2, 2};
 struct Starter Supirtle = {1,11, 1, 2, 2, 1, 2};
 struct Starter chosenSupemon;
 
-int choix(int choice){
+int choix(){
+    int choice;
     scanf("%d", &choice);
     return choice;
 }
 
-int leChoix(){
-    int nombre;
-    scanf("%d",&nombre);
+void leChoix(){
+    int nombre = choix();
+        while (nombre < 1 || nombre > 3) {  
+        printf("Invalid choice! Choose your Supemon again!\n");
+        printf("Enter 1, 2, or 3: ");
+        nombre = choix();  
+    }
+
     if (nombre == 1) {
         chosenSupemon = Supmander;
-        printf("You chose Supmander !\n");
+        printf("You chose Supmander!\n");
     } else if (nombre == 2) {
         chosenSupemon = Supasaur;
-        printf("You chose Supasaur !\n");
-    } else if (nombre == 3) {
-        chosenSupemon = Supirtle;
-        printf("You chose Supirtle !\n");
+        printf("You chose Supasaur!\n");
     } else {
-        printf("Invalid choice! Chose your Supemon ! \n");
-        printf("Enter 1, 2, or 3: ");
-        choix(nombre);
+        chosenSupemon = Supirtle;
+        printf("You chose Supirtle!\n");
     }
 }
 
@@ -55,7 +57,7 @@ int main(){
     printf("| 2 - Supasaur (Evasive)            |\n");
     printf("| 3 - Supirtle (Defensive)          |\n");
     printf("+-----------------------------------+\n");
-    printf("Enter 1, 2, or 3: ");
+    printf("Enter 1, 2, or 3: \n");
 
     int choisi;
     leChoix(choisi);
@@ -67,7 +69,7 @@ int main(){
     printf("|      3 - In the Supémon center    |\n");
     printf("|      4 - Leave the game           |\n");
     printf("+-----------------------------------+\n");
-    printf("Enter 1, 2, 3 or 4");
+    printf("Enter 1, 2, 3 or 4 \n");
 
 
     return 0;
