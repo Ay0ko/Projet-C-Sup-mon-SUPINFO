@@ -56,9 +56,9 @@ int main(){
     printf("+-----------------------------------+\n");
     printf("| Choose your starter Supémon:      |\n");
     printf("|                                   |\n");
-    printf("| 1 - Supmander (Balanced)          |\n");
-    printf("| 2 - Supasaur (Evasive)            |\n");
-    printf("| 3 - Supirtle (Defensive)          |\n");
+    printf("| 1 - Supmander                     |\n");
+    printf("| 2 - Supasaur                      |\n");
+    printf("| 3 - Supirtle                      |\n");
     printf("+-----------------------------------+\n");
     printf("Enter 1, 2, or 3: \n");
 
@@ -73,7 +73,21 @@ int main(){
     printf("|      4 - Leave the game           |\n");
     printf("+-----------------------------------+\n");
     printf("Enter 1, 2, 3 or 4 \n");
+    scanf("%d", &choice2);
 
+    
+
+
+    void healSupemons(struct Player *player) {
+    printf("\n Welcome to the Supemon Center!\n");
+    for (int i = 0; i < player->SupemonCount; i++) {
+        player->Supemons[i].HP = player->Supemons[i].maxHP; 
+        printf("%s has been fully healed! (HP: %d/%d)\n",
+               player->Supemons[i].name, player->Supemons[i].HP, player->Supemons[i].maxHP);
+    }
+    printf("All your Supemons are now at full health!\n\n");
+}
 
     return 0;
 }
+
