@@ -10,7 +10,7 @@
 struct Player {
     char name;
     char Supemons[500];
-    char SelectedSupemon;
+    int SelectedSupemon;
     int Supcoins;
     char Items[500];
 };
