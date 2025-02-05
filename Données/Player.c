@@ -6,3 +6,11 @@
 #include <assert.h>
 #include <time.h>
 #include "DossierH.h"
+
+struct Player {
+    char name;
+    char Supemons[500];
+    char SelectedSupemon;
+    int Supcoins;
+    char Items[500];
+};

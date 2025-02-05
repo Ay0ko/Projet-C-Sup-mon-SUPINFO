@@ -6,3 +6,9 @@
 #include <assert.h>
 #include <time.h>
 #include "DossierH.h"
+
+struct Shop {
+    int Potion[3];
+    int SuperPotion[3];
+    int RareCandy[3];
+};
