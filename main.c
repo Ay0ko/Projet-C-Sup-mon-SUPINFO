@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <string.h>
+#include <math.h>
+#include <ctype.h>
+#include <assert.h>
+#include <time.h>
+#include <Données/DossierH.h>
 
 struct Starter {
     int lvl;
@@ -73,8 +77,3 @@ int main(){
 
     return 0;
 }
-
-
-
-
-
