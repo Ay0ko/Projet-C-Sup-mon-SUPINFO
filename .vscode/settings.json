@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "dossierh.h": "c"
+        "dossierh.h": "c",
+        "shop": "cpp"
     }
 }

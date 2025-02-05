@@ -5,9 +5,10 @@
 #include <ctype.h>
 #include <assert.h>
 #include <time.h>
-#ifndef DOSSIERH_H_INCLUDED
-#define DOSSIERH_H_INCLUDED
+#include "DossierH.h"
 
-
-
-#endif // DOSSIERH_H_INCLUDED
+struct Shop {
+    int Potion[3];
+    int SuperPotion[3];
+    int RareCandy[3];
+};
