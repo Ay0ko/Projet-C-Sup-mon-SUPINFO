@@ -31,7 +31,6 @@ void leChoix(){
         printf("Enter 1, 2, or 3: ");
         nombre = choix();  
     }
-
     if (nombre == 1) {
         chosenSupemon = Supmander;
         printf("You chose Supmander!\n");
