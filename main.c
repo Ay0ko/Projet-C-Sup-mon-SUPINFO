@@ -45,7 +45,7 @@ int leChoix(){
 int main(){
     char name[50];
     printf("Hello trainer, what's your name ? \n");
-    scanf("%s", name);
+    scanf("%[^\n]s", name);
     printf("Hello %s !\n Welcome in Supemon World ! \n", name);
 
     printf("+-----------------------------------+\n");
