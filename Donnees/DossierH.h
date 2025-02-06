@@ -25,20 +25,16 @@ struct Player {
     char Items[500];
 };
 
-struct Starter {
-    int id;
-    int lvl;
-    int xp;
-    int HP;
-    int maxHP;
-    int ATK;
-    int DEF;
-    int evasion;
-    int accuracy;
-    int speed;
+struct Move {
+    char name[20];
+    int damage;
+    int BoostDEF;
+    int BoostATK;
+    int BoostEvasion;
 };
 
-struct Supemon{
+
+struct Supemon {
     int id;
     int lvl;
     int xprap;
@@ -49,16 +45,24 @@ struct Supemon{
     int evasion;
     int accuracy;
     int speed;
+    struct Move moves[2];
 };
 
-extern struct Starter Supmander;
-extern struct Starter Supasaur;
-extern struct Starter Supirtle;
+extern struct Move Scratch; 
+extern struct Move Grawl; 
+extern struct Move Foliage; 
+extern struct Move Pound;  
+extern struct Move Shell;
+extern struct Supemon Supmander;
+extern struct Supemon Supasaur;
+extern struct Supemon Supirtle;
 extern struct Supemon Patrat;
 extern struct Supemon Eevee;
 extern struct Supemon Grimer;
 extern struct Supemon Abra;
 extern struct Supemon Turtwig;
 extern struct Supemon Glaceon;
+
+void initializeSupemons();
 
 #endif // DOSSIERH_H_INCLUDED

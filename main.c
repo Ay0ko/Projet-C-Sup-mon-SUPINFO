@@ -6,6 +6,7 @@
 #include <assert.h>
 #include <time.h>
 #include "Donnees/DossierH.h"
+#include "Donnees/Supemon.c"
 
 int choix(){
     int choice;
@@ -33,41 +34,42 @@ void leChoix(struct Player *joueur){
 }
 
 int main(){
+    initializeSupemons();
     struct Player Supdresseur;
 
     printf("Hello trainer, what's your name ? \n");
     scanf("%49s", Supdresseur.name);
     printf("Hello %s !\n Welcome in Supemon World ! \n", Supdresseur.name);
 
-    printf("+-----------------------------------+\n");
-    printf("| Choose your starter Supémon:      |\n");
-    printf("|                                   |\n");
-    printf("| 1 - Supmander                     |\n");
-    printf("| 2 - Supasaur                      |\n");
-    printf("| 3 - Supirtle                      |\n");
-    printf("+-----------------------------------+\n");
+    printf("+--------------------------------------+\n");
+    printf("| Choose your starter Supémon:         |\n");
+    printf("|                                      |\n");
+    printf("| 1 - Supmander                        |\n");
+    printf("| 2 - Supasaur                         |\n");
+    printf("| 3 - Supirtle                         |\n");
+    printf("+--------------------------------------+\n");
     printf("Enter 1, 2, or 3: \n");
 
     leChoix(&Supdresseur);
 
     int choice2;
-    printf("+-----------------------------------+\n");
-    printf("| Where do you want to go ?         |\n");
-    printf("|      1 - Into the Wild            |\n");
-    printf("|      2 - In the shop              |\n");
-    printf("|      3 - In the Supemon center    |\n");
-    printf("|      4 - Leave the game           |\n");
-    printf("+-----------------------------------+\n");
+    printf("+--------------------------------------+\n");
+    printf("| Where do you want to go ?            |\n");
+    printf("|      1 - Into the Wild               |\n");
+    printf("|      2 - In the shop                 |\n");
+    printf("|      3 - In the Supemon center       |\n");
+    printf("|      4 - Leave the game              |\n");
+    printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4 \n");
     scanf("%d", &choice2);
 
 
-    printf("+-----------------------------------+\n");
-    printf("| What do you want to do ?          |\n");
-    printf("|      1 - Buy                      |\n");
-    printf("|      2 - Sell                     |\n");
-    printf("|      3 - Cancel                   |\n");
-    printf("+-----------------------------------+\n");
+    printf("+--------------------------------------+\n");
+    printf("| What do you want to do ?             |\n");
+    printf("|      1 - Buy                         |\n");
+    printf("|      2 - Sell                        |\n");
+    printf("|      3 - Cancel                      |\n");
+    printf("+--------------------------------------+\n");
     printf("Enter 1, 2 or 3\n");
     
     printf("+--------------------------------------+\n");
