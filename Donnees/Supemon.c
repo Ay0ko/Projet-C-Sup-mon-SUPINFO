@@ -24,6 +24,7 @@ struct Move Pound = {"Pound", 2, 0, 0, 0};
 struct Move Shell = {"Shell", 0, 1, 0, 0};
 
 struct Starter {
+    int id;
     int lvl;
     int xp;
     int HP;
@@ -36,9 +37,9 @@ struct Starter {
     struct Move moves[MAX_MOVES];
 };
 
-struct Starter Supmander = {1,0,10,10,1, 1, 1, 2, 1,{Scratch,Grawl}};
-struct Starter Supasaur = {1,0,9,9,1, 1, 3, 2, 2,{Pound,Foliage}};
-struct Starter Supirtle = {1,0,11,11,1, 2, 2, 1, 2,{Pound,Shell}};
+struct Starter Supmander = {1, 1,0,10,10,1, 1, 1, 2, 1,{Scratch,Grawl}};
+struct Starter Supasaur = {2, 1,0,9,9,1, 1, 3, 2, 2,{Pound,Foliage}};
+struct Starter Supirtle = {3, 1,0,11,11,1, 2, 2, 1, 2,{Pound,Shell}};
 
 struct Supemon{
     int id;
