@@ -26,6 +26,7 @@ struct Player {
 };
 
 struct Starter {
+    int id;
     int lvl;
     int xp;
     int HP;
