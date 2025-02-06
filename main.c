@@ -65,6 +65,8 @@ int main(){
     int choisi;
     leChoix(choisi);
 
+    int choice2;
+
     printf("+-----------------------------------+\n");
     printf("| Where do you want to go ?         |\n");
     printf("|      1 - Into the Wild            |\n");
