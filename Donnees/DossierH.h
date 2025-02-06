@@ -14,6 +14,8 @@ struct Shop {
     int RareCandy[3];
 };
 
+extern struct Shop shop;
+
 struct Player {
     char name;
     int Supemons[6];
