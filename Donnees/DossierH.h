@@ -51,11 +51,6 @@ struct Supemon{
     int speed;
 };
 
-extern struct Move Scratch; 
-extern struct Move Grawl; 
-extern struct Move Foliage; 
-extern struct Move Pound;  
-extern struct Move Shell;
 extern struct Starter Supmander;
 extern struct Starter Supasaur;
 extern struct Starter Supirtle;

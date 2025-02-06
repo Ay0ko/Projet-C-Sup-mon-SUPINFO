@@ -44,10 +44,10 @@ struct Supemon{
     struct Move moves[MAX_MOVES];
 };
 
-struct Move Scratch = {"Scratch", 3, 0, 0, 0}; 
-struct Move Grawl = {"Grawl", 0, 0, 1, 0}; 
-struct Move Foliage = {"Foliage", 0, 0, 0, 1}; 
-struct Move Pound = {"Pound", 2, 0, 0, 0};  
+struct Move Scratch = {"Scratch", 3, 0, 0, 0};
+struct Move Grawl = {"Grawl", 0, 0, 1, 0};
+struct Move Foliage = {"Foliage", 0, 0, 0, 1};
+struct Move Pound = {"Pound", 2, 0, 0, 0};
 struct Move Shell = {"Shell", 0, 1, 0, 0};
 
 struct Starter Supmander = {1, 1, 0, 10, 10, 1, 1, 1, 2, 1, {Scratch, Grawl}};
