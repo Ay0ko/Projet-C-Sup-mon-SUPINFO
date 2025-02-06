@@ -22,7 +22,7 @@ struct Player {
     int SupemonCount;
     int SelectedSupemon[6];
     int Supcoins;
-    char Items[500];
+    int Items[10];
 };
 
 struct Move {
