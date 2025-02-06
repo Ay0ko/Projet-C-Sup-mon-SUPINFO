@@ -9,9 +9,9 @@
 #define DOSSIERH_H_INCLUDED
 
 struct Shop {
-    int Potion[3];
-    int SuperPotion[3];
-    int RareCandy[3];
+    int Potion[4];
+    int SuperPotion[4];
+    int RareCandy[4];
 };
 
 extern struct Shop shop;

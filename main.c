@@ -77,18 +77,18 @@ int main(){
     
     printf("+--------------------------------------+\n");
     printf("| What do you want to buy ?            |\n");
-    printf("|      1 - Potion (%d Supcoins)       |\n", shop.Potion[1]);
-    printf("|      2 - Super Potion (%d Supcoins) |\n", shop.SuperPotion[1]);
-    printf("|      4 - Rare Candy (%d Supcoins)   |\n", shop.RareCandy[1]);
+    printf("|      1 - Potion (%d Supcoins)       |\n", shop.Potion[2]);
+    printf("|      2 - Super Potion (%d Supcoins) |\n", shop.SuperPotion[2]);
+    printf("|      4 - Rare Candy (%d Supcoins)   |\n", shop.RareCandy[2]);
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4 \n");
 
     printf("+--------------------------------------+\n");
     printf("| What do you want to sell ?           |\n");
-    printf("|      1 - Potion (%d Supcoins)        |\n", shop.Potion[2]);
-    printf("|      2 - Super Potion (%d Supcoins) |\n", shop.SuperPotion[2]);
-    printf("|      4 - Rare Candy (%d Supcoins)   |\n", shop.RareCandy[2]);
+    printf("|      1 - Potion (%d Supcoins)        |\n", shop.Potion[3]);
+    printf("|      2 - Super Potion (%d Supcoins) |\n", shop.SuperPotion[3]);
+    printf("|      4 - Rare Candy (%d Supcoins)   |\n", shop.RareCandy[3]);
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4");
