@@ -13,7 +13,7 @@ int choix(){
     return choice;
 }
 
-void leChoix(joueur){
+void leChoix(struct Player *joueur){
     int nombre = choix();
         while (nombre < 1 || nombre > 3) {  
         printf("Invalid choice! Choose your Supemon again!\n");

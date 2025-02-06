@@ -20,7 +20,7 @@ struct Player {
     char name[50];
     int Supemons[6];
     int SupemonCount;
-    int SelectedSupemon;
+    int SelectedSupemon[6];
     int Supcoins;
     char Items[500];
 };
