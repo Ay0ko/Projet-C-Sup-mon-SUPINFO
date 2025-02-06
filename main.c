@@ -13,7 +13,7 @@ int choix(){
     return choice;
 }
 
-void leChoix(struct Player joueur){
+void leChoix(joueur){
     int nombre = choix();
         while (nombre < 1 || nombre > 3) {  
         printf("Invalid choice! Choose your Supemon again!\n");
@@ -35,10 +35,9 @@ void leChoix(struct Player joueur){
 int main(){
     struct Player Supdresseur;
 
-    char mc[50];
     printf("Hello trainer, what's your name ? \n");
-    scanf("%s", mc);
-    printf("Hello %s !\n Welcome in Supemon World ! \n", mc);
+    scanf("%49s", Supdresseur.name);
+    printf("Hello %s !\n Welcome in Supemon World ! \n", Supdresseur.name);
 
     printf("+-----------------------------------+\n");
     printf("| Choose your starter Supémon:      |\n");
@@ -49,11 +48,9 @@ int main(){
     printf("+-----------------------------------+\n");
     printf("Enter 1, 2, or 3: \n");
 
-    int choisi;
     leChoix(Supdresseur);
 
     int choice2;
-
     printf("+-----------------------------------+\n");
     printf("| Where do you want to go ?         |\n");
     printf("|      1 - Into the Wild            |\n");

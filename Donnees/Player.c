@@ -8,7 +8,7 @@
 #include "DossierH.h"
 
 struct Player {
-    char name;
+    char name[50];
     int Supemons[6];
     int SupemonCount;
     int SelectedSupemon;

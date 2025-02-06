@@ -17,7 +17,7 @@ struct Shop {
 extern struct Shop shop;
 
 struct Player {
-    char name;
+    char name[50];
     int Supemons[6];
     int SupemonCount;
     int SelectedSupemon;
