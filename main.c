@@ -46,7 +46,7 @@ void choisirDirection() {
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4: ");
     scanf("%d", &choice2);
-        while (choice2 < 1 || choice2 > 3) {  
+        while (choice2 < 1 || choice2 > 4) {  
         printf("Invalid choice ! Please try again !\n");
         printf("Enter 1, 2, 3 or 4 : ");  
     }
