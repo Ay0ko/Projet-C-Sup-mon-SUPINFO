@@ -80,3 +80,11 @@ int main(){
     printf("|      4 - Rare Candy (700 Supcoins)   |\n");
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
+
+    printf("+--------------------------------------+\n");
+    printf("| What do you want to sell ?           |\n");
+    printf("|      1 - Potion (50 Supcoins)        |\n");
+    printf("|      2 - Super Potion (150 Supcoins) |\n");
+    printf("|      4 - Rare Candy (350 Supcoins)   |\n");
+    printf("|      4 - Cancel                      |\n");
+    printf("+--------------------------------------+\n");
