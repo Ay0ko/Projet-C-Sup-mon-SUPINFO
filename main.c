@@ -21,22 +21,24 @@ void leChoix(struct Player joueur){
         nombre = choix();  
     }
     if (nombre == 1) {
-        joueur.SelectedSupemon[0] = Supmander;
+        joueur.SelectedSupemon[0] = Supmander.id;
         printf("You chose Supmander!\n");
     } else if (nombre == 2) {
-        joueur.SelectedSupemon[0] = Supasaur;
+        joueur.SelectedSupemon[0] = Supasaur.id;
         printf("You chose Supasaur!\n");
     } else {
-        joueur.SelectedSupemon[0] = Supirtle;
+        joueur.SelectedSupemon[0] = Supirtle.id;
         printf("You chose Supirtle!\n");
     }
 }
 
 int main(){
-    char name[50];
+    struct Player Supdresseur;
+
+    char mc[50];
     printf("Hello trainer, what's your name ? \n");
-    scanf("%[^\n]s", name);
-    printf("Hello %s !\n Welcome in Supemon World ! \n", name);
+    scanf("%s", mc);
+    printf("Hello %s !\n Welcome in Supemon World ! \n", mc);
 
     printf("+-----------------------------------+\n");
     printf("| Choose your starter Supémon:      |\n");
@@ -48,7 +50,7 @@ int main(){
     printf("Enter 1, 2, or 3: \n");
 
     int choisi;
-    leChoix(choisi);
+    leChoix(Supdresseur);
 
     int choice2;
 
