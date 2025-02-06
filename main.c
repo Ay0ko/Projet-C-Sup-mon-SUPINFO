@@ -50,6 +50,10 @@ void choisirDirection() {
     printf("|      4 - Leave the game              |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4: ");
+<<<<<<< HEAD
+=======
+    scanf("%d", &choice2);
+>>>>>>> 05212822ec90e137dba6b0041a76d250f10534e5
         while (choice2 < 1 || choice2 > 4) {  
         printf("Invalid choice ! Please try again !\n");
         printf("Enter 1, 2, 3 or 4 : ");
