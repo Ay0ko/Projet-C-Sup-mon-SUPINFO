@@ -7,6 +7,8 @@
 #include <time.h>
 #include "Donnees/DossierH.h"
 #include "Donnees/Supemon.c"
+#include "Donnees/Shop.c"
+#include "Donnees/Player.c"
 
 int choix(){
     int choice;
@@ -35,6 +37,7 @@ void leChoix(struct Player *joueur){
 
 int main(){
     initializeSupemons();
+    initializeShop();
     struct Player Supdresseur;
 
     printf("Hello trainer, what's your name ? \n");
@@ -74,18 +77,18 @@ int main(){
     
     printf("+--------------------------------------+\n");
     printf("| What do you want to buy ?            |\n");
-    printf("|      1 - Potion (100 Supcoins)       |\n");
-    printf("|      2 - Super Potion (300 Supcoins) |\n");
-    printf("|      4 - Rare Candy (700 Supcoins)   |\n");
+    printf("|      1 - Potion (%d Supcoins)       |\n", shop.Potion[1]);
+    printf("|      2 - Super Potion (%d Supcoins) |\n", shop.SuperPotion[1]);
+    printf("|      4 - Rare Candy (%d Supcoins)   |\n", shop.RareCandy[1]);
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4 \n");
 
     printf("+--------------------------------------+\n");
     printf("| What do you want to sell ?           |\n");
-    printf("|      1 - Potion (50 Supcoins)        |\n");
-    printf("|      2 - Super Potion (150 Supcoins) |\n");
-    printf("|      4 - Rare Candy (350 Supcoins)   |\n");
+    printf("|      1 - Potion (%d Supcoins)        |\n", shop.Potion[2]);
+    printf("|      2 - Super Potion (%d Supcoins) |\n", shop.SuperPotion[2]);
+    printf("|      4 - Rare Candy (%d Supcoins)   |\n", shop.RareCandy[2]);
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4");

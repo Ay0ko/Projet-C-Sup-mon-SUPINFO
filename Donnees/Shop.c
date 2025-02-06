@@ -7,14 +7,8 @@
 #include <time.h>
 #include "DossierH.h"
 
-struct Shop {
-    int Potion[3];
-    int SuperPotion[3];
-    int RareCandy[3];
-};
+struct Shop shop;
 
-struct Shop shop = {
-    {5, 100, 50},
-    {10, 300, 150},
-    {1, 700, 350}
+void initializeShop() {
+    shop = (struct Shop) {{5, 100, 50}, {10, 300, 150}, {1, 700, 350}};
 };

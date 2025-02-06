@@ -64,5 +64,6 @@ extern struct Supemon Turtwig;
 extern struct Supemon Glaceon;
 
 void initializeSupemons();
+void initializeShop();
 
 #endif // DOSSIERH_H_INCLUDED
