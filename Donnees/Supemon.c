@@ -27,7 +27,7 @@ struct Starter {
     int lvl;
     int xp;
     int HP;
-    int maxHP:
+    int maxHP;
     int ATK;
     int DEF;
     int evasion;
