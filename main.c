@@ -35,6 +35,34 @@ void leChoix(struct Player *joueur){
     }
 }
 
+void choisirDirection() {
+    int choice2;
+    printf("+--------------------------------------+\n");
+    printf("| Where do you want to go ?            |\n");
+    printf("|      1 - Into the Wild               |\n");
+    printf("|      2 - In the shop                 |\n");
+    printf("|      3 - In the Supemon center       |\n");
+    printf("|      4 - Leave the game              |\n");
+    printf("+--------------------------------------+\n");
+    printf("Enter 1, 2, 3 or 4: ");
+    scanf("%d", &choice2);
+        while (choice2 < 1 || choice2 > 3) {  
+        printf("Invalid choice ! Please try again !\n");
+        printf("Enter 1, 2, 3 or 4 : ");  
+    }
+    if (choice2 == 1) {
+        printf("You venture into the wild !\n");
+    } else if (choice2 == 2) {
+        printf("Welcome to the shop !\n");
+    } else if (choice2 == 3){
+        printf("Welcome to the Supemon Center !\n");
+    }
+    else {
+        printf("You leave the game. Goodbye!\n");
+        exit(0);
+    }
+}
+
 int main(){
     initializeSupemons();
     initializeShop();
@@ -55,16 +83,7 @@ int main(){
 
     leChoix(&Supdresseur);
 
-    int choice2;
-    printf("+--------------------------------------+\n");
-    printf("| Where do you want to go ?            |\n");
-    printf("|      1 - Into the Wild               |\n");
-    printf("|      2 - In the shop                 |\n");
-    printf("|      3 - In the Supemon center       |\n");
-    printf("|      4 - Leave the game              |\n");
-    printf("+--------------------------------------+\n");
-    printf("Enter 1, 2, 3 or 4 \n");
-    scanf("%d", &choice2);
+    choisirDirection();
 
 
     printf("+--------------------------------------+\n");
