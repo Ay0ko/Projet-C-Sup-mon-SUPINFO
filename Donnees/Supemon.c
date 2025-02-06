@@ -61,5 +61,3 @@ struct Supemon Grimer = {6, 2, 150, 11, 11, 2, 1, 1, 2, 1, {Pound, Shell}};
 struct Supemon Abra = {7, 2, 170, 11, 11, 1, 1, 2, 2, 0, {Foliage, Grawl}};
 struct Supemon Turtwig = {8, 3, 190, 12, 12, 3, 2, 1, 2, 2, {Scratch, Foliage}};
 struct Supemon Glaceon = {9, 3, 200, 12, 12, 2, 1, 2, 1, 3, {Pound, Shell}};
-
-
