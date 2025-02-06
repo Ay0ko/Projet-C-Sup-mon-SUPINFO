@@ -63,3 +63,28 @@ int main(){
 
     return 0;
 }
+
+
+    printf("+-----------------------------------+\n");
+    printf("| What do you want to do ?          |\n");
+    printf("|      1 - Buy                      |\n");
+    printf("|      2 - Sell                     |\n");
+    printf("|      3 - Cancel                   |\n");
+    printf("+-----------------------------------+\n");
+    printf("Enter 1, 2 or 3\n")
+    
+    printf("+--------------------------------------+\n");
+    printf("| What do you want to buy ?            |\n");
+    printf("|      1 - Potion (100 Supcoins)       |\n");
+    printf("|      2 - Super Potion (300 Supcoins) |\n");
+    printf("|      4 - Rare Candy (700 Supcoins)   |\n");
+    printf("|      4 - Cancel                      |\n");
+    printf("+--------------------------------------+\n");
+
+    printf("+--------------------------------------+\n");
+    printf("| What do you want to sell ?           |\n");
+    printf("|      1 - Potion (50 Supcoins)        |\n");
+    printf("|      2 - Super Potion (150 Supcoins) |\n");
+    printf("|      4 - Rare Candy (350 Supcoins)   |\n");
+    printf("|      4 - Cancel                      |\n");
+    printf("+--------------------------------------+\n");
