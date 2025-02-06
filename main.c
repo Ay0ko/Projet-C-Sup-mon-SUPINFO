@@ -68,7 +68,7 @@ int main(){
     printf("|      2 - Sell                     |\n");
     printf("|      3 - Cancel                   |\n");
     printf("+-----------------------------------+\n");
-    printf("Enter 1, 2 or 3\n")
+    printf("Enter 1, 2 or 3\n");
     
     printf("+--------------------------------------+\n");
     printf("| What do you want to buy ?            |\n");
@@ -77,7 +77,7 @@ int main(){
     printf("|      4 - Rare Candy (700 Supcoins)   |\n");
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
-    printf("Enter 1, 2, 3 or 4 \n")
+    printf("Enter 1, 2, 3 or 4 \n");
 
     printf("+--------------------------------------+\n");
     printf("| What do you want to sell ?           |\n");
@@ -86,7 +86,7 @@ int main(){
     printf("|      4 - Rare Candy (350 Supcoins)   |\n");
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
-    printf("Enter 1, 2, 3 or 4")
+    printf("Enter 1, 2, 3 or 4");
 
     return 0;
 }
