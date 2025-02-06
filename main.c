@@ -7,21 +7,6 @@
 #include <time.h>
 #include "Données/DossierH.h"
 
-struct Starter {
-    int lvl;
-    int HP;
-    int ATK;
-    int DEF;
-    int evasion;
-    int accuracy;
-    int speed;
-};
-
-struct Starter Supmander = {1,10, 1, 1, 1, 2, 1};
-struct Starter Supasaur = {1,9, 1, 1, 3, 2, 2};
-struct Starter Supirtle = {1,11, 1, 2, 2, 1, 2};
-struct Starter chosenSupemon;
-
 int choix(){
     int choice;
     scanf("%d", &choice);

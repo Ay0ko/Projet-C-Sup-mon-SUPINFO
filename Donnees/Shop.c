@@ -12,3 +12,9 @@ struct Shop {
     int SuperPotion[3];
     int RareCandy[3];
 };
+
+struct Shop shop = {
+    {5, 100, 50},
+    {10, 300, 150},
+    {1, 700, 350}
+};
