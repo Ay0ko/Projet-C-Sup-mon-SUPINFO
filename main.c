@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include <assert.h>
 #include <time.h>
-#include "Données/DossierH.h"
+#include "Donnees/DossierH.h"
 
 int choix(){
     int choice;
@@ -13,7 +13,7 @@ int choix(){
     return choice;
 }
 
-void leChoix(){
+void leChoix(struct Player joueur){
     int nombre = choix();
         while (nombre < 1 || nombre > 3) {  
         printf("Invalid choice! Choose your Supemon again!\n");
