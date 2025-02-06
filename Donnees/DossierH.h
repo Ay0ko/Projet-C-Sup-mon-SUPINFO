@@ -66,4 +66,7 @@ extern struct Supemon Glaceon;
 void initializeSupemons();
 void initializeShop();
 
+int aleaSupemon();
+int aleaArrondi(float val);
+
 #endif // DOSSIERH_H_INCLUDED
