@@ -35,8 +35,13 @@ void leChoix(struct Player *joueur){
     }
 }
 
-void choisirDirection() {
+int choixDirection(){
     int choice2;
+    scanf("%d", &choice2);
+    return choice2;
+}
+void choisirDirection() {
+    int choice2 = choixDirection();
     printf("+--------------------------------------+\n");
     printf("| Where do you want to go ?            |\n");
     printf("|      1 - Into the Wild               |\n");
@@ -45,10 +50,10 @@ void choisirDirection() {
     printf("|      4 - Leave the game              |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4: ");
-    scanf("%d", &choice2);
-        while (choice2 < 1 || choice2 > 3) {  
+        while (choice2 < 1 || choice2 > 4) {  
         printf("Invalid choice ! Please try again !\n");
-        printf("Enter 1, 2, 3 or 4 : ");  
+        printf("Enter 1, 2, 3 or 4 : ");
+        choice2=choixDirection();  
     }
     if (choice2 == 1) {
         printf("You venture into the wild !\n");
