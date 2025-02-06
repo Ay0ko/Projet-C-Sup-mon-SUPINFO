@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include <assert.h>
 #include <time.h>
-#include <Données/DossierH.h>
+#include "Données/DossierH.h"
 
 struct Starter {
     int lvl;
@@ -76,19 +76,6 @@ int main(){
     printf("+-----------------------------------+\n");
     printf("Enter 1, 2, 3 or 4 \n");
     scanf("%d", &choice2);
-
-    
-
-
-    void healSupemons(struct Player *player) {
-    printf("\n Welcome to the Supemon Center!\n");
-    for (int i = 0; i < player->SupemonCount; i++) {
-        player->Supemons[i].HP = player->Supemons[i].maxHP; 
-        printf("%s has been fully healed! (HP: %d/%d)\n",
-               player->Supemons[i].name, player->Supemons[i].HP, player->Supemons[i].maxHP);
-    }
-    printf("All your Supemons are now at full health!\n\n");
-}
 
     return 0;
 }
