@@ -47,6 +47,12 @@ void buyOption(struct Player *joueur) {
         choice = choix();
     }
     if (choice == 1) {
+        printf("+--------------------------------------+\n");
+        printf("| This is a 'Potion', its a common     |");
+        printf("| item that restores additional 5hps   |");
+        printf("| to your Supemon's current health. It |");
+        printf("| cost 100 Supcoins and you can sell   |");
+        printf("| it for half the price : 50 Supcoins. |");
         if (checkMoula(Potion.cost, joueur)) {
             if (addItem(Potion, joueur)) {
                 printf("Your '%s' has been successfuly bought !\n", Potion.nameItem);
