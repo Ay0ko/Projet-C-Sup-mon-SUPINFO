@@ -25,13 +25,13 @@ void leChoix(struct Player *joueur){
         nombre = choix();  
     }
     if (nombre == 1) {
-        joueur->SelectedSupemon[0] = Supmander.id;
+        joueur->selectedSupemon = Supmander;
         printf("You chose Supmander!\n");
     } else if (nombre == 2) {
-        joueur->SelectedSupemon[0] = Supasaur.id;
+        joueur->selectedSupemon = Supasaur;
         printf("You chose Supasaur!\n");
     } else {
-        joueur->SelectedSupemon[0] = Supirtle.id;
+        joueur->selectedSupemon = Supirtle;
         printf("You chose Supirtle!\n");
     }
 };
@@ -113,7 +113,19 @@ int main(){
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4");
 
-    printf("Your turn...\n----------------------------------------\n");
+    printf("Your turn...\n");
+    printf("%s\n", Supasaur.nameSupe);
+    printf("----------------------------------------\n");
+    printf("HP: %d/ %d            Lvl: %d", Supasaur.HP, Supasaur.maxHP, Supasaur.lvl);
+    printf("Atk: %d               Def: %d", Supasaur.ATK, Supasaur.DEF);
+    printf("Acc: %d               Eva: %d", Supasaur.speed, Supasaur.evasion);
+    printf("----------------------------------------\n");
+    printf("%s\n", Supdresseur.selectedSupemon.nameSupe);
+    printf("----------------------------------------\n");
+    printf("HP: %d/ %d            Lvl: %d", Supdresseur.selectedSupemon.HP, Supdresseur.selectedSupemon.maxHP, Supdresseur.selectedSupemon.lvl);
+    printf("Atk: %d               Def: %d", Supdresseur.selectedSupemon.ATK, Supdresseur.selectedSupemon.DEF);
+    printf("Acc: %d               Eva: %d", Supdresseur.selectedSupemon.speed, Supdresseur.selectedSupemon.evasion);
+    printf("----------------------------------------\n");
 
     return 0;
 }

@@ -9,22 +9,6 @@
 #ifndef DOSSIERH_H_INCLUDED
 #define DOSSIERH_H_INCLUDED
 
-struct Shop {
-    int Potion[4];
-    int SuperPotion[4];
-    int RareCandy[4];
-};
-
-extern struct Shop shop;
-
-struct Player {
-    char name[50];
-    int Supemons[6];
-    int SupemonCount;
-    int SelectedSupemon[6];
-    int Supcoins;
-    int Items[10];
-};
 
 struct Move {
     char name[20];
@@ -51,6 +35,23 @@ struct Supemon {
     struct Move moves[2];
 };
 
+struct Shop {
+    int Potion[4];
+    int SuperPotion[4];
+    int RareCandy[4];
+};
+
+extern struct Shop shop;
+
+struct Player {
+    char name[50];
+    int Supemons[6];
+    int SupemonCount;
+    struct Supemon selectedSupemon;
+    int Supcoins;
+    int Items[10];
+};
+
 extern struct Move Scratch; 
 extern struct Move Grawl; 
 extern struct Move Foliage; 
@@ -71,5 +72,6 @@ void initializeShop();
 
 int aleaSupemon();
 int aleaArrondi(float val);
+
 
 #endif // DOSSIERH_H_INCLUDED
