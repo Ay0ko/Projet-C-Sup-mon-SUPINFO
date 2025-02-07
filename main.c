@@ -15,7 +15,7 @@ int choix(){
     int choice;
     scanf("%d", &choice);
     return choice;
-}
+};
 
 void leChoix(struct Player *joueur){
     int nombre = choix();
@@ -34,7 +34,7 @@ void leChoix(struct Player *joueur){
         joueur->SelectedSupemon[0] = Supirtle.id;
         printf("You chose Supirtle!\n");
     }
-}
+};
 
 void choisirDirection() {
     printf("+--------------------------------------+\n");
@@ -62,7 +62,7 @@ void choisirDirection() {
         printf("You leave the game. Goodbye!\n");
         exit(0);
     }
-}
+};
 
 int main(){
     initializeSupemons();
