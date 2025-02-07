@@ -20,8 +20,15 @@ bool checkMoula(int price, struct Player *joueur) {
     return joueur->Supcoins >= price;
 };
 
-void addItem(char nomItem, struct Player *joueur) {
-    int i;
+bool addItem(struct Item popo, struct Player *joueur) {
+    for (int i = 0; i < 11; i++) {
+        if (joueur->Items[i] == 0) {
+            joueur->Items[i] = popo.nameItem;
+            return true;
+            break;
+        }
+    }
+    return false;
 };
 
 void buyOption(struct Player *joueur) {
@@ -41,8 +48,12 @@ void buyOption(struct Player *joueur) {
     }
     if (choice == 1) {
         if (checkMoula(Potion.cost, joueur)) {
-            char toma[1];
+            if (addItem(Potion, joueur)) {
+                printf("Your 'Potion' has been successfuly bought !\n");
+            }
+            printf("Your inventory is full ! Please sell items or use them in battles.\n");
         }
+        printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
     }
 };
 

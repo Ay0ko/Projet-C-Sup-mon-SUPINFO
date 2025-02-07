@@ -75,6 +75,7 @@ void initializeSupemons();
 void initializeItems();
 
 bool checkMoula(int price, struct Player *joueur);
+bool addItem(struct Item *addedItem, struct Player *joueur);
 void buyOption(struct Player *joueur);
 void shopOption(struct Player *joueur);
 
