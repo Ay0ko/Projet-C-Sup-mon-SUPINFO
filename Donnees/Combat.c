@@ -40,19 +40,22 @@ bool captureSupemon(struct Supemon *opSupemon) {
 };
 
 void niveauSup(struct Supemon *jSupemon) {
-    float stat = 0;
-    stat = jSupemon->maxHP * 1.30;
-    jSupemon->maxHP = aleaArrondi(stat);
-    stat = jSupemon->DEF * 1.30;
-    jSupemon->DEF = aleaArrondi(stat);
-    stat = jSupemon->evasion * 1.30;
-    jSupemon->evasion = aleaArrondi(stat);
-    stat = jSupemon->accuracy * 1.30;
-    jSupemon->accuracy = aleaArrondi(stat);
-    stat = jSupemon->speed * 1.30;
-    jSupemon->speed = aleaArrondi(stat);
-    stat = jSupemon->moves[0].damage * 1.30;
-    jSupemon->moves[0].damage = aleaArrondi(stat);
-    stat = jSupemon->moves[1].damage * 1.30;
-    jSupemon->moves[1].damage = aleaArrondi(stat);
-}
+    if (jSupemon->xprap > jSupemon->lvl-1 * 1000 + 500) {
+        jSupemon->lvl+=1;
+        float stat = 0;
+        stat = jSupemon->maxHP * 1.30;
+        jSupemon->maxHP = aleaArrondi(stat);
+        stat = jSupemon->DEF * 1.30;
+        jSupemon->DEF = aleaArrondi(stat);
+        stat = jSupemon->evasion * 1.30;
+        jSupemon->evasion = aleaArrondi(stat);
+        stat = jSupemon->accuracy * 1.30;
+        jSupemon->accuracy = aleaArrondi(stat);
+        stat = jSupemon->speed * 1.30;
+        jSupemon->speed = aleaArrondi(stat);
+        stat = jSupemon->moves[0].damage * 1.30;
+        jSupemon->moves[0].damage = aleaArrondi(stat);
+        stat = jSupemon->moves[1].damage * 1.30;
+        jSupemon->moves[1].damage = aleaArrondi(stat);
+    }
+};
