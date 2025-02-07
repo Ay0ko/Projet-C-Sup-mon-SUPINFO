@@ -27,4 +27,8 @@ int aleaArrondi(float val) {
     }
 }
 
-bool 
+bool chanceFuite(struct Supemon *jSupemon, struct Supemon *supemon) {
+    float fuite = 0.0;
+    fuite = jSupemon->accuracy / (jSupemon->accuracy + supemon->evasion) + 0.1;
+    return (rand()/(double)RAND_MAX) < fuite ? 1 : 0;
+}
