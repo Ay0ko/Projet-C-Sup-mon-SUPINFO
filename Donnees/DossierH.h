@@ -35,15 +35,17 @@ struct Supemon {
     struct Move moves[2];
 };
 
-struct Shop {
-    char name[12];
-    int id;
-    int Potion[4];
-    int SuperPotion[4];
-    int RareCandy[4];
+struct Item {
+    char nameItem[12];
+    int idItem;
+    int effect;
+    int cost;
+    int sell;
 };
 
-extern struct Shop shop;
+extern struct Item Potion;
+extern struct Item SuperPotion;
+extern struct Item RareCandy;
 
 struct Player {
     char name[50];
@@ -70,14 +72,17 @@ extern struct Supemon Turtwig;
 extern struct Supemon Glaceon;
 
 void initializeSupemons();
-void initializeShop();
+void initializeItems();
 
-void checkMoula(int price, struct Player *joueur);
+bool checkMoula(int price, struct Player *joueur);
 void buyOption(struct Player *joueur);
 void shopOption(struct Player *joueur);
 
 int aleaSupemon();
 int aleaArrondi(float val);
+bool chanceFuite(struct Supemon *jSupemon, struct Supemon *opSupemon);
+bool captureSupemon(struct Supemon *opSupemon);
+void niveauSup(struct Supemon *jSupemon);
 
 int choix();
 

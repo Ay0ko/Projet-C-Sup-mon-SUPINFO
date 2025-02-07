@@ -8,23 +8,29 @@
 #include <time.h>
 #include "DossierH.h"
 
-struct Shop shop;
 
-void initializeShop() {
-    shop = (struct Shop) {{"Potion", 1, 5, 100, 50}, {"SuperPotion", 2, 10, 300, 150}, {"RareCandy", 3, 1, 700, 350}};
+void initializeItems() {
+    Potion = (struct Item) {"Potion", 1, 5, 100, 50};
+    SuperPotion = (struct Item) {"Super Potion", 2, 10, 300, 150};
+    RareCandy = (struct Item) {"Rare Candy", 3, 1, 700, 350};
+
 };
 
-void checkMoula(int price, struct Player *joueur) {
+bool checkMoula(int price, struct Player *joueur) {
     return joueur->Supcoins >= price;
+};
+
+void addItem(char nomItem, struct Player *joueur) {
+    int i;
 };
 
 void buyOption(struct Player *joueur) {
     int choice = choix();
     printf("+--------------------------------------+\n");
     printf("| What do you want to buy ?            |\n");
-    printf("|      1 - Potion (%3d Supcoins)       |\n", shop.Potion[2]);
-    printf("|      2 - Super Potion (%3d Supcoins) |\n", shop.SuperPotion[2]);
-    printf("|      4 - Rare Candy (%3d Supcoins)   |\n", shop.RareCandy[2]);
+    printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.cost);
+    printf("|      2 - Super Potion (%3d Supcoins) |\n", SuperPotion.cost);
+    printf("|      4 - Rare Candy (%3d Supcoins)   |\n", RareCandy.cost);
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4  ");
@@ -34,8 +40,8 @@ void buyOption(struct Player *joueur) {
         choice = choix();
     }
     if (choice == 1) {
-        if (checkMoula(shop.Potion[2], joueur)) {
-
+        if (checkMoula(Potion.cost, joueur)) {
+            char toma[1];
         }
     }
 };

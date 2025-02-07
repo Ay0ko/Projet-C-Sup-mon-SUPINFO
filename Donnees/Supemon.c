@@ -8,6 +8,7 @@
 #include <time.h>
 #include "DossierH.h"
 
+
 #define MAX_MOVES 2
 
 struct Move Scratch = {"Scratch", 3, 0, 0, 0};
