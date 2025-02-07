@@ -53,13 +53,21 @@ void buyOption(struct Player *joueur) {
         printf("| to your Supemon's current health. It |");
         printf("| cost 100 Supcoins and you can sell   |");
         printf("| it for half the price : 50 Supcoins. |");
-        if (checkMoula(Potion.cost, joueur)) {
-            if (addItem(Potion, joueur)) {
-                printf("Your '%s' has been successfuly bought !\n", Potion.nameItem);
+        printf("+--------------------------------------+\n");
+        printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+        int buy = choix();
+        if (buy == 1) {
+            if (checkMoula(Potion.cost, joueur)) {
+                if (addItem(Potion, joueur)) {
+                    printf("Your '%s' has been successfuly bought !\n", Potion.nameItem);
+                }
+                printf("Your inventory is full ! Please sell items or use them in battles.\n");
             }
-            printf("Your inventory is full ! Please sell items or use them in battles.\n");
+            printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
         }
-        printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
+        else {
+            // Going back
+        }
     }
     else if (choice == 2) {
         if (checkMoula(SuperPotion.cost, joueur)) {
