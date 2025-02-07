@@ -20,10 +20,10 @@ bool checkMoula(int price, struct Player *joueur) {
     return joueur->Supcoins >= price;
 };
 
-bool addItem(struct Item popo, struct Player *joueur) {
+bool addItem(struct Item object, struct Player *joueur) {
     for (int i = 0; i < 11; i++) {
         if (joueur->Items[i] == 0) {
-            joueur->Items[i] = popo.nameItem;
+            joueur->Items[i] = object.nameItem;
             return true;
             break;
         }
@@ -49,11 +49,32 @@ void buyOption(struct Player *joueur) {
     if (choice == 1) {
         if (checkMoula(Potion.cost, joueur)) {
             if (addItem(Potion, joueur)) {
-                printf("Your 'Potion' has been successfuly bought !\n");
+                printf("Your '%s' has been successfuly bought !\n", Potion.nameItem);
             }
             printf("Your inventory is full ! Please sell items or use them in battles.\n");
         }
         printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
+    }
+    else if (choice == 2) {
+        if (checkMoula(SuperPotion.cost, joueur)) {
+            if (addItem(SuperPotion, joueur)) {
+                printf("Your '%s' has been successfuly bought !\n", SuperPotion.nameItem);
+            }
+            printf("Your inventory is full ! Please sell items or use them in battles.\n");
+        }
+        printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
+    }
+    else if (choice == 3) {
+        if (checkMoula(RareCandy.cost, joueur)) {
+            if (addItem(RareCandy, joueur)) {
+                printf("Your '%s' has been successfuly bought !\n", RareCandy.nameItem);
+            }
+            printf("Your inventory is full ! Please sell items or use them in battles.\n");
+        }
+        printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
+    }
+    else {
+        // Going back
     }
 };
 
