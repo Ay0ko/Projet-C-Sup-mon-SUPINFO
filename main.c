@@ -80,7 +80,7 @@ int main(){
     printf("| 2 - Supasaur                         |\n");
     printf("| 3 - Supirtle                         |\n");
     printf("+--------------------------------------+\n");
-    printf("Enter 1, 2, or 3: \n");
+    printf("Enter 1, 2, or 3: ");
 
     leChoix(&Supdresseur);
 
@@ -93,7 +93,7 @@ int main(){
     printf("|      2 - Sell                        |\n");
     printf("|      3 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
-    printf("Enter 1, 2 or 3\n");
+    printf("Enter 1, 2 or 3 ");
     
     printf("+--------------------------------------+\n");
     printf("| What do you want to buy ?            |\n");
@@ -102,7 +102,7 @@ int main(){
     printf("|      4 - Rare Candy (%d Supcoins)   |\n", shop.RareCandy[2]);
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
-    printf("Enter 1, 2, 3 or 4 \n");
+    printf("Enter 1, 2, 3 or 4  ");
 
     printf("+--------------------------------------+\n");
     printf("| What do you want to sell ?           |\n");
@@ -111,21 +111,35 @@ int main(){
     printf("|      4 - Rare Candy (%d Supcoins)   |\n", shop.RareCandy[3]);
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
-    printf("Enter 1, 2, 3 or 4");
+    printf("Enter 1, 2, 3 or 4 ");
 
     printf("Your turn...\n");
-    printf("%s\n", Supasaur.nameSupe);
+    printf("%s  (enemy)\n", Supasaur.nameSupe);
     printf("----------------------------------------\n");
-    printf("HP: %d/ %d            Lvl: %d", Supasaur.HP, Supasaur.maxHP, Supasaur.lvl);
-    printf("Atk: %d               Def: %d", Supasaur.ATK, Supasaur.DEF);
-    printf("Acc: %d               Eva: %d", Supasaur.speed, Supasaur.evasion);
+    printf("    HP: %d/ %d            Lvl: %d\n", Supasaur.HP, Supasaur.maxHP, Supasaur.lvl);
+    printf("    Atk: %d               Def: %d\n", Supasaur.ATK, Supasaur.DEF);
+    printf("    Acc: %d               Eva: %d\n", Supasaur.speed, Supasaur.evasion);
     printf("----------------------------------------\n");
-    printf("%s\n", Supdresseur.selectedSupemon.nameSupe);
+    printf("%s  (%s)\n", Supdresseur.selectedSupemon.nameSupe, Supdresseur.name);
     printf("----------------------------------------\n");
-    printf("HP: %d/ %d            Lvl: %d", Supdresseur.selectedSupemon.HP, Supdresseur.selectedSupemon.maxHP, Supdresseur.selectedSupemon.lvl);
-    printf("Atk: %d               Def: %d", Supdresseur.selectedSupemon.ATK, Supdresseur.selectedSupemon.DEF);
-    printf("Acc: %d               Eva: %d", Supdresseur.selectedSupemon.speed, Supdresseur.selectedSupemon.evasion);
+    printf("    HP: %d/ %d            Lvl: %d\n", Supdresseur.selectedSupemon.HP, Supdresseur.selectedSupemon.maxHP, Supdresseur.selectedSupemon.lvl);
+    printf("    Atk: %d               Def: %d\n", Supdresseur.selectedSupemon.ATK, Supdresseur.selectedSupemon.DEF);
+    printf("    Acc: %d               Eva: %d\n", Supdresseur.selectedSupemon.speed, Supdresseur.selectedSupemon.evasion);
     printf("----------------------------------------\n");
+
+    printf("\n+--------------------------------------+\n");
+    printf("| What will you do ?                    |\n");
+    printf("|   1 - Move                            |\n");
+    printf("|   2 - Change Supemon                  |\n");
+    printf("|   3 - Use item                        |\n");
+    printf("|   4 - Capture                         |\n");
+    printf("|   5 - Run away                        |\n");
+    printf("+--------------------------------------+\n");
+    printf("1, 2, 3, 4 or 5: ");
+
+    printf("1 - %s\n", Supdresseur.selectedSupemon.moves[0].name);
+    printf("2 - %s\n", Supdresseur.selectedSupemon.moves[1].name);
+    printf("3 - Cancel\n");
 
     return 0;
 }
