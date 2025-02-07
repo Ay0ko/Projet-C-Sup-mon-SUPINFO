@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <math.h>
 #include <ctype.h>
 #include <assert.h>
@@ -25,3 +26,5 @@ int aleaArrondi(float val) {
             break;
     }
 }
+
+bool 
