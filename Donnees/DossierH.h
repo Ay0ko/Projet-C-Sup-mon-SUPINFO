@@ -36,6 +36,7 @@ struct Move {
 
 
 struct Supemon {
+    char nameSupe[50];
     int id;
     int lvl;
     int xp;
