@@ -18,16 +18,16 @@ int choix(){
     return choice;
 };
 
-typedef struct Supemon{
+struct Supemon{
     char name[MAX_NAME_LENGTH];
-} ;
+};
 
-typedef struct Item{
+struct Item{
     char name[MAX_NAME_LENGTH];
     int effect;
 };
 
-typedef struct Player {
+struct Player {
     char name[MAX_NAME_LENGTH];
     Supemon supemons[MAX_SUPEMONS];
     int supemon_count;
