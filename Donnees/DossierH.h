@@ -36,6 +36,8 @@ struct Supemon {
 };
 
 struct Shop {
+    char name[12];
+    int id;
     int Potion[4];
     int SuperPotion[4];
     int RareCandy[4];
@@ -70,8 +72,14 @@ extern struct Supemon Glaceon;
 void initializeSupemons();
 void initializeShop();
 
+void checkMoula(int price, struct Player *joueur);
+void buyOption(struct Player *joueur);
+void shopOption(struct Player *joueur);
+
 int aleaSupemon();
 int aleaArrondi(float val);
+
+int choix();
 
 
 #endif // DOSSIERH_H_INCLUDED

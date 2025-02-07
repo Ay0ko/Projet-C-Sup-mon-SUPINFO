@@ -11,16 +11,10 @@
 #include "Donnees/Shop.c"
 #include "Donnees/Player.c"
 
-int choix(){
-    int choice;
-    scanf("%d", &choice);
-    return choice;
-};
-
 void leChoix(struct Player *joueur){
     int nombre = choix();
         while (nombre < 1 || nombre > 3) {  
-        printf("Invalid choice! Choose your Supemon again!\n");
+        printf("Invalid choice ! Choose your Supemon again!\n");
         printf("Enter 1, 2, or 3: ");
         nombre = choix();  
     }
@@ -85,24 +79,6 @@ int main(){
     leChoix(&Supdresseur);
 
     choisirDirection();
-
-
-    printf("+--------------------------------------+\n");
-    printf("| What do you want to do ?             |\n");
-    printf("|      1 - Buy                         |\n");
-    printf("|      2 - Sell                        |\n");
-    printf("|      3 - Cancel                      |\n");
-    printf("+--------------------------------------+\n");
-    printf("Enter 1, 2 or 3 ");
-    
-    printf("+--------------------------------------+\n");
-    printf("| What do you want to buy ?            |\n");
-    printf("|      1 - Potion (%3d Supcoins)       |\n", shop.Potion[2]);
-    printf("|      2 - Super Potion (%3d Supcoins) |\n", shop.SuperPotion[2]);
-    printf("|      4 - Rare Candy (%3d Supcoins)   |\n", shop.RareCandy[2]);
-    printf("|      4 - Cancel                      |\n");
-    printf("+--------------------------------------+\n");
-    printf("Enter 1, 2, 3 or 4  ");
 
     printf("+--------------------------------------+\n");
     printf("| What do you want to sell ?           |\n");
