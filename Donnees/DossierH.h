@@ -38,6 +38,7 @@ struct Move {
 struct Supemon {
     int id;
     int lvl;
+    int xp;
     int xprap;
     int HP;
     int maxHP;

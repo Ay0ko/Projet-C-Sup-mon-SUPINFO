@@ -40,7 +40,7 @@ bool captureSupemon(struct Supemon *opSupemon) {
 };
 
 void niveauSup(struct Supemon *jSupemon) {
-    if (jSupemon->xprap > jSupemon->lvl-1 * 1000 + 500) {
+    if (jSupemon->xp > jSupemon->lvl-1 * 1000 + 500) {
         jSupemon->lvl+=1;
         float stat = 0;
         stat = jSupemon->maxHP * 1.30;
