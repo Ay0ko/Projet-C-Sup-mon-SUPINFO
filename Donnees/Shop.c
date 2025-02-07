@@ -66,7 +66,7 @@ void buyOption(struct Player *joueur) {
             printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
         }
         else {
-            // Going back
+            buyOption(struct Player *joueur);
         }
     }
     else if (choice == 2) {
@@ -88,7 +88,7 @@ void buyOption(struct Player *joueur) {
         printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
     }
     else {
-        // Going back
+        buyOption(struct Player *joueur);
     }
 };
 

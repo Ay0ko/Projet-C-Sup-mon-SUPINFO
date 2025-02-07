@@ -48,7 +48,7 @@ void choisirDirection() {
     if (choice2 == 1) {
         printf("You venture into the wild !\n");
     } else if (choice2 == 2) {
-        printf("Welcome to the shop !\n");
+        ;
     } else if (choice2 == 3){
         printf("Welcome to the Supemon Center !\n");
     }
