@@ -20,12 +20,11 @@ bool checkMoula(int price, struct Player *joueur) {
     return joueur->Supcoins >= price;
 };
 
-bool addItem(struct Item object, struct Player *joueur) {
+bool addItem(struct Item *object, struct Player *joueur) {
     for (int i = 0; i < 11; i++) {
-        if (joueur->Items[i] == 0) {
-            joueur->Items[i] = object.nameItem;
+        if (&joueur->inventory[i] == NULL) {
+            joueur->inventory[i] = *object;
             return true;
-            break;
         }
     }
     return false;
@@ -42,23 +41,23 @@ void buyOption(struct Player *joueur) {
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4  ");
     while (choice < 1 || choice > 4) {
-        printf("Invalid choice ! Choose an item please.");
+        printf("Invalid choice ! Choose a valid option.");
         printf("Enter 1, 2, 3 or 4: ");
         choice = choix();
     }
     if (choice == 1) {
         printf("+--------------------------------------+\n");
         printf("| This is a 'Potion', its a common     |");
-        printf("| item that restores additional 5hps   |");
+        printf("| item that restores additional 5 HP   |");
         printf("| to your Supemon's current health. It |");
-        printf("| cost 100 Supcoins and you can sell   |");
-        printf("| it for half the price : 50 Supcoins. |");
+        printf("| costs 100 Supcoins and you can sell  |");
+        printf("| it for half its price : 50 Supcoins. |");
         printf("+--------------------------------------+\n");
         printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
         int buy = choix();
         if (buy == 1) {
             if (checkMoula(Potion.cost, joueur)) {
-                if (addItem(Potion, joueur)) {
+                if (addItem(&Potion, joueur)) {
                     printf("Your '%s' has been successfuly bought !\n", Potion.nameItem);
                 }
                 printf("Your inventory is full ! Please sell items or use them in battles.\n");
@@ -66,29 +65,88 @@ void buyOption(struct Player *joueur) {
             printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
         }
         else {
-            buyOption(struct Player *joueur);
+            buyOption(joueur);
         }
     }
     else if (choice == 2) {
-        if (checkMoula(SuperPotion.cost, joueur)) {
-            if (addItem(SuperPotion, joueur)) {
-                printf("Your '%s' has been successfuly bought !\n", SuperPotion.nameItem);
+        printf("+--------------------------------------+\n");
+        printf("| This is a 'Super Potion', its a      |");
+        printf("| rare item that restores additional   |");
+        printf("| 10 HP to your Supemon's current      |");
+        printf("| health. It costs 300 Supcoins and    |");
+        printf("| you can sell it for half its price : |");
+        printf("| 150 Supcoins.                        |");
+        printf("+--------------------------------------+\n");
+        printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+        int buy = choix();
+        if (buy == 1) {
+            if (checkMoula(SuperPotion.cost, joueur)) {
+                if (addItem(&SuperPotion, joueur)) {
+                    printf("Your '%s' has been successfuly bought !\n", SuperPotion.nameItem);
+                }
+                printf("Your inventory is full ! Please sell items or use them in battles.\n");
             }
-            printf("Your inventory is full ! Please sell items or use them in battles.\n");
+            printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
         }
-        printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
+        else {
+            buyOption(joueur);
+        }
     }
     else if (choice == 3) {
-        if (checkMoula(RareCandy.cost, joueur)) {
-            if (addItem(RareCandy, joueur)) {
-                printf("Your '%s' has been successfuly bought !\n", RareCandy.nameItem);
+        printf("+--------------------------------------+\n");
+        printf("| This is a 'Rare Candy', its a super  |");
+        printf("| rare item that adds 1 additional     |");
+        printf("| level to your Supemon's current      |");
+        printf("| level. It costs 700 Supcoins and     |");
+        printf("| you can sell it for half its price : |");
+        printf("| 350 Supcoins.                        |");
+        printf("+--------------------------------------+\n");
+        printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+        int buy = choix();
+        if (buy == 1) {
+            if (checkMoula(RareCandy.cost, joueur)) {
+                if (addItem(&RareCandy, joueur)) {
+                    printf("Your '%s' has been successfuly bought !\n", RareCandy.nameItem);
+                }
+                printf("Your inventory is full ! Please sell items or use them in battles.\n");
             }
-            printf("Your inventory is full ! Please sell items or use them in battles.\n");
+            printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
         }
-        printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.");
+        else {
+            buyOption(joueur);
+        }
     }
     else {
-        buyOption(struct Player *joueur);
+        // Going back
+    }
+};
+
+void sellOption(struct Player *joueur) {
+    int choice = choix();
+    printf("+--------------------------------------+\n");
+    printf("| What do you want to sell ?           |\n");
+    printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.sell);
+    printf("|      2 - Super Potion (%3d Supcoins) |\n", SuperPotion.sell);
+    printf("|      4 - Rare Candy (%3d Supcoins)   |\n", RareCandy.sell);
+    printf("|      4 - Cancel                      |\n");
+    printf("+--------------------------------------+\n");
+    printf("Enter 1, 2, 3 or 4 ");
+    while (choice < 1 || choice > 4) {
+        printf("Invalid choice ! Choose a valid option.");
+        printf("Enter 1, 2, 3 or 4: ");
+        choice = choix();
+    }
+    if (choice == 1) {
+
+    }
+    else if (choice == 2) {
+
+    }
+    else if (choice == 3) {
+        
+    }
+    else {
+        sellOption(joueur);
     }
 };
 

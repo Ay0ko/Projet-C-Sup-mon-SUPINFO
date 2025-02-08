@@ -80,15 +80,6 @@ int main(){
 
     choisirDirection();
 
-    printf("+--------------------------------------+\n");
-    printf("| What do you want to sell ?           |\n");
-    printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.sell);
-    printf("|      2 - Super Potion (%3d Supcoins) |\n", SuperPotion.sell);
-    printf("|      4 - Rare Candy (%3d Supcoins)   |\n", RareCandy.sell);
-    printf("|      4 - Cancel                      |\n");
-    printf("+--------------------------------------+\n");
-    printf("Enter 1, 2, 3 or 4 ");
-
     printf("Your turn...\n");
     printf("%s  (enemy)\n", Supasaur.nameSupe);
     printf("----------------------------------------\n");
