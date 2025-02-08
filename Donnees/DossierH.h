@@ -71,6 +71,8 @@ extern struct Supemon Abra;
 extern struct Supemon Turtwig;
 extern struct Supemon Glaceon;
 
+int choix();
+
 void initializeSupemons();
 void initializeItems();
 void initializePlayer(struct Player *player, const char *name);
@@ -88,8 +90,6 @@ int aleaArrondi(float val);
 bool chanceFuite(struct Supemon *jSupemon, struct Supemon *opSupemon);
 bool captureSupemon(struct Supemon *opSupemon);
 void niveauSup(struct Supemon *jSupemon);
-
-int choix();
 
 
 #endif // DOSSIERH_H_INCLUDED
