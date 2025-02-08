@@ -24,6 +24,7 @@ bool addItem(struct Item *object, struct Player *joueur) {
     for (int i = 0; i < 11; i++) {
         if (&joueur->inventory[i] == NULL) {
             joueur->inventory[i] = *object;
+            joueur->Supcoins-=object->cost;
             return true;
         }
     }
@@ -33,11 +34,19 @@ bool addItem(struct Item *object, struct Player *joueur) {
 bool checkItem(struct Item *object, struct Player *joueur) {
     for (int i = 0; i < 11; i++) {
         if (&joueur->inventory[i] == object) {
-            joueur->inventory[i] = (struct Item) {0};
             return true;
         }
     }
     return false;
+};
+
+void removeItem(struct Item *object, struct Player *joueur) {
+    for (int i = 0; i < 11; i++) {
+        if (&joueur->inventory[i] == object) {
+            joueur->inventory[i] = (struct Item) {0};
+            joueur->Supcoins+=object->sell;
+        }
+    }
 };
 
 void buyOption(struct Player *joueur) {
@@ -150,18 +159,58 @@ void sellOption(struct Player *joueur) {
         printf("+--------------------------------------+\n");
         printf("| Quick reminder: you are going to     |");
         printf("| sell a 'Potion' half its price :     |");
-        printf("| 50 Supcoins.                        |");
+        printf("| 50 Supcoins.                         |");
         printf("+--------------------------------------+\n");
         printf("Are you sure you want to sell one (1 for yes, 0 for no) ? ");
+        int sell = choix();
+        if (sell == 1) {
+            if (checkItem(&Potion, joueur)) {
+                removeItem(&Potion, joueur);
+            }
+            printf("You don't have any '%s' in your inventory !", Potion.nameItem);
+        }
+        else {
+            sellOption(joueur);
+        }
     }
     else if (choice == 2) {
-
+        printf("+--------------------------------------+\n");
+        printf("| Quick reminder: you are going to     |");
+        printf("| sell a 'Super Potion' half its price |");
+        printf("| : 150 Supcoins.                      |");
+        printf("+--------------------------------------+\n");
+        printf("Are you sure you want to sell one (1 for yes, 0 for no) ? ");
+        int sell = choix();
+        if (sell == 1) {
+            if (checkItem(&SuperPotion, joueur)) {
+                removeItem(&SuperPotion, joueur);
+            }
+            printf("You don't have any '%s' in your inventory !", SuperPotion.nameItem);
+        }
+        else {
+            sellOption(joueur);
+        }  
     }
     else if (choice == 3) {
-
+        printf("+--------------------------------------+\n");
+        printf("| Quick reminder: you are going to     |");
+        printf("| sell a 'Rare Candy' half its price : |");
+        printf("| 350 Supcoins.                        |");
+        printf("+--------------------------------------+\n");
+        printf("Are you sure you want to sell one (1 for yes, 0 for no) ? ");
+        int sell = choix();
+        if (sell == 1) {
+            if (checkItem(&RareCandy, joueur)) {
+                removeItem(&RareCandy, joueur);
+            }
+            printf("You don't have any '%s' in your inventory !", RareCandy.nameItem);
+        }
+        else {
+            sellOption(joueur);
+        }
     }
     else {
-        sellOption(joueur);
+        // Going back
     }
 };
 

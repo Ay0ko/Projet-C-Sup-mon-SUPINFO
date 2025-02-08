@@ -78,6 +78,7 @@ void initializePlayer(struct Player *player, const char *name);
 bool checkMoula(int price, struct Player *joueur);
 bool addItem(struct Item *addedItem, struct Player *joueur);
 bool checkItem(struct Item *object, struct Player *joueur);
+void removeItem(struct Item *object, struct Player *joueur);
 void buyOption(struct Player *joueur);
 void sellOption(struct Player *joueur);
 void shopOption(struct Player *joueur);
