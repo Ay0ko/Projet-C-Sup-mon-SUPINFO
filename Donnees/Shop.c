@@ -224,11 +224,17 @@ void shopOption(struct Player *joueur) {
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2 or 3: ");
     while (choice < 1 || choice > 3) {
-        printf("Invalid choice ! Choose wisely.");
+        printf("Invalid choice ! Choose a valid option.");
         printf("Enter 1, 2 or 3: ");
         choice = choix();
     }
     if (choice == 1) {
-
+        buyOption(joueur);
+    }
+    else if (choice == 2) {
+        sellOption(joueur);
+    }
+    else {
+        // Going back
     }
 };
