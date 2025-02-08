@@ -19,14 +19,14 @@ void leChoix(struct Player *joueur){
         nombre = choix();  
     }
     if (nombre == 1) {
-        joueur->selectedSupemon = Supmander;
-        printf("You chose Supmander!\n");
+        joueur->selectedSupemon = &Supmander;
+        printf("You chose Supmander !\n");
     } else if (nombre == 2) {
-        joueur->selectedSupemon = Supasaur;
-        printf("You chose Supasaur!\n");
+        joueur->selectedSupemon = &Supasaur;
+        printf("You chose Supasaur !\n");
     } else {
-        joueur->selectedSupemon = Supirtle;
-        printf("You chose Supirtle!\n");
+        joueur->selectedSupemon = &Supirtle;
+        printf("You chose Supirtle !\n");
     }
 };
 
