@@ -51,9 +51,9 @@ struct Player {
     char name[50];
     int Supemons[6];
     int SupemonCount;
-    struct Supemon selectedSupemon;
+    struct Supemon *selectedSupemon;
     int Supcoins;
-    int Items[10];
+    struct Item inventory[10];
 };
 
 extern struct Move Scratch; 
@@ -73,6 +73,7 @@ extern struct Supemon Glaceon;
 
 void initializeSupemons();
 void initializeItems();
+void initializePlayer(struct Player *player, const char *name);
 
 bool checkMoula(int price, struct Player *joueur);
 bool addItem(struct Item *addedItem, struct Player *joueur);
