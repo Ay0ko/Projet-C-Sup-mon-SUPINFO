@@ -30,6 +30,16 @@ bool addItem(struct Item *object, struct Player *joueur) {
     return false;
 };
 
+bool checkItem(struct Item *object, struct Player *joueur) {
+    for (int i = 0; i < 11; i++) {
+        if (&joueur->inventory[i] == object) {
+            joueur->inventory[i] = (struct Item) {0};
+            return true;
+        }
+    }
+    return false;
+};
+
 void buyOption(struct Player *joueur) {
     int choice = choix();
     printf("+--------------------------------------+\n");
@@ -137,13 +147,18 @@ void sellOption(struct Player *joueur) {
         choice = choix();
     }
     if (choice == 1) {
-
+        printf("+--------------------------------------+\n");
+        printf("| Quick reminder: you are going to     |");
+        printf("| sell a 'Potion' half its price :     |");
+        printf("| 50 Supcoins.                        |");
+        printf("+--------------------------------------+\n");
+        printf("Are you sure you want to sell one (1 for yes, 0 for no) ? ");
     }
     else if (choice == 2) {
 
     }
     else if (choice == 3) {
-        
+
     }
     else {
         sellOption(joueur);
