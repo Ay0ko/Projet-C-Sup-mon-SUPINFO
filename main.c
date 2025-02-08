@@ -60,7 +60,7 @@ void choisirDirection() {
 
 int main(){
     initializeSupemons();
-    initializeShop();
+    initializeItems();
     struct Player Supdresseur;
 
     printf("Hello trainer, what's your name ? \n");
@@ -79,6 +79,8 @@ int main(){
     leChoix(&Supdresseur);
 
     choisirDirection();
+
+    shopOption(&Supdresseur);
 
     printf("Your turn...\n");
     printf("%s  (enemy)\n", Supasaur.nameSupe);
