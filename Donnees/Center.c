@@ -35,5 +35,5 @@ void restore_hp(struct Player *joueur, struct Supemon *supemon) {
     else {
         choisirDirection(joueur);
     }
-}
+};
  
