@@ -6,7 +6,6 @@
 #include <ctype.h>
 #include <assert.h>
 #include <time.h>
-#include <unistd.h>
 #include "DossierH.h"
 
 
@@ -28,12 +27,12 @@ void choisirDirection() {
     if (choice2 == 1) {
         printf("You venture into the wild !\n");
     } else if (choice2 == 2) {
-        ;
+        printf("Welcome to the shop !");
     } else if (choice2 == 3){
         printf("Welcome to the Supemon Center !\n");
     }
     else {
-        printf("You leave the game. Goodbye!\n");
+        printf("You leave the game. Goodbye !\n");
         exit(0);
     }
 };

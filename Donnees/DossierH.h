@@ -6,7 +6,6 @@
 #include <ctype.h>
 #include <assert.h>
 #include <time.h>
-#include <unistd.h>
 #ifndef DOSSIERH_H_INCLUDED
 #define DOSSIERH_H_INCLUDED
 
