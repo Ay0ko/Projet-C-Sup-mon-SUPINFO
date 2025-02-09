@@ -60,3 +60,26 @@ void leChoix(struct Player *joueur) {
         printf("\nYou chose Supirtle !\n");
     }
 };
+
+void addSupemon(struct Supemon *sup, struct Player *dresseur) {
+    for (int i = 0; i < 7; i++) {
+        if (dresseur->team[i].id == 0) {
+            strcpy(dresseur->team[i].nameSupe, sup->nameSupe);
+            dresseur->team[i].id = sup->id;
+            dresseur->team[i].lvl = sup->lvl;
+            dresseur->team[i].xp = sup->xp;
+            dresseur->team[i].xprap = sup->xprap;
+            dresseur->team[i].HP = sup->HP;
+            dresseur->team[i].maxHP = sup-> maxHP;
+            dresseur->team[i].ATK = sup->ATK;
+            dresseur->team[i].DEF = sup->DEF;
+            dresseur->team[i].evasion = sup->evasion;
+            dresseur->team[i].accuracy = sup->accuracy;
+            dresseur->team[i].speed = sup->speed;
+            for (int j = 0; j < MAX_MOVES; j++) {
+                dresseur->team[i].moves[j] = sup->moves[j];
+            }
+            return;
+        }
+    }
+};

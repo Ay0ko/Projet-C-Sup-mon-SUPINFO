@@ -17,7 +17,7 @@ int choix(){
 
 void initializePlayer(struct Player *player, const char *name) {
     strncpy(player->name, name, 50);
-    player->SupemonCount = 0;
+    memset(player->team, 0, sizeof(player->team));
     player->selectedSupemon = NULL;
     player->Supcoins = 1100;
     memset(player->inventory, 0, sizeof(player->inventory));
