@@ -38,3 +38,22 @@ void initializeSupemons() {
     Turtwig = (struct Supemon){"TURTWIG", 8, 3, 7500, 190, 12, 12, 3, 2, 1, 2, 2, {Scratch, Foliage}};
     Glaceon = (struct Supemon){"GLACEON", 9, 3, 8500, 200, 12, 12, 2, 1, 2, 1, 3, {Pound, Shell}};
 };
+
+void leChoix(struct Player *joueur) {
+    int nombre = choix();
+        while (nombre < 1 || nombre > 3) {  
+        printf("\nInvalid choice ! Choose your Supemon again!\n");
+        printf("Enter 1, 2, or 3: ");
+        nombre = choix();  
+    }
+    if (nombre == 1) {
+        joueur->selectedSupemon = &Supmander;
+        printf("\nYou chose Supmander !\n");
+    } else if (nombre == 2) {
+        joueur->selectedSupemon = &Supasaur;
+        printf("\nYou chose Supasaur !\n");
+    } else {
+        joueur->selectedSupemon = &Supirtle;
+        printf("\nYou chose Supirtle !\n");
+    }
+};

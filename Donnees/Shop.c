@@ -42,7 +42,7 @@ bool addItem(struct Item *object, struct Player *joueur) {
 
 bool checkItem(struct Item *object, struct Player *joueur) {
     for (int i = 0; i < 11; i++) {
-        if (&joueur->inventory[i] == object) {
+        if (joueur->inventory[i].idItem == object->idItem) {
             return true;
         }
     }
@@ -69,7 +69,7 @@ void buyOption(struct Player *joueur) {
     printf("Enter 1, 2, 3 or 4: ");
     int choice = choix();
     while (choice < 1 || choice > 4) {
-        printf("Invalid choice ! Choose a valid option.\n");
+        printf("\nInvalid choice ! Choose a valid option.\n");
         printf("Enter 1, 2, 3 or 4: ");
         choice = choix();
     }
@@ -86,15 +86,15 @@ void buyOption(struct Player *joueur) {
         if (buy == 1) {
             if (checkMoula(Potion.cost, joueur)) {
                 if (addItem(&Potion, joueur)) {
-                    printf("Your '%s' has been successfuly bought !\n", Potion.nameItem);
+                    printf("\nYour '%s' has been successfuly bought !\n\n", Potion.nameItem);
                     usleep(300000);
                     buyOption(joueur);
                 }
-                printf("Your inventory is full ! Please sell items or use them in battles.\n");
+                printf("\nYour inventory is full ! Please sell items or use them in battles.\n\n");
                 usleep(300000);
                 buyOption(joueur);
             }
-            printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
+            printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n\n");
             usleep(300000);
             buyOption(joueur);
         }
@@ -116,15 +116,15 @@ void buyOption(struct Player *joueur) {
         if (buy == 1) {
             if (checkMoula(SuperPotion.cost, joueur)) {
                 if (addItem(&SuperPotion, joueur)) {
-                    printf("Your '%s' has been successfuly bought !\n", SuperPotion.nameItem);
+                    printf("\nYour '%s' has been successfuly bought !\n\n", SuperPotion.nameItem);
                     usleep(300000);
                     buyOption(joueur);
                 }
-                printf("Your inventory is full ! Please sell items or use them in battles.\n");
+                printf("\nYour inventory is full ! Please sell items or use them in battles.\n\n");
                 usleep(300000);
                 buyOption(joueur);
             }
-            printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
+            printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n\n");
             usleep(300000);
             buyOption(joueur);
         }
@@ -146,15 +146,15 @@ void buyOption(struct Player *joueur) {
         if (buy == 1) {
             if (checkMoula(RareCandy.cost, joueur)) {
                 if (addItem(&RareCandy, joueur)) {
-                    printf("Your '%s' has been successfuly bought !\n", RareCandy.nameItem);
+                    printf("\nYour '%s' has been successfuly bought !\n\n", RareCandy.nameItem);
                     usleep(300000);
                     buyOption(joueur);
                 }
-                printf("Your inventory is full ! Please sell items or use them in battles.\n");
+                printf("\nYour inventory is full ! Please sell items or use them in battles.\n\n");
                 usleep(300000);
                 buyOption(joueur);
             }
-            printf("You don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
+            printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n\n");
             usleep(300000);
             buyOption(joueur);
         }
@@ -178,7 +178,7 @@ void sellOption(struct Player *joueur) {
     printf("Enter 1, 2, 3 or 4: ");
     int choice = choix();
     while (choice < 1 || choice > 4) {
-        printf("Invalid choice ! Choose a valid option.\n");
+        printf("\nInvalid choice ! Choose a valid option.\n");
         printf("Enter 1, 2, 3 or 4: ");
         choice = choix();
     }
@@ -193,11 +193,11 @@ void sellOption(struct Player *joueur) {
         if (sell == 1) {
             if (checkItem(&Potion, joueur)) {
                 removeItem(&Potion, joueur);
-                printf("You have successfuly sold your '%s' for %d Supcoins.", Potion.nameItem, Potion.sell);
+                printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n\n", Potion.nameItem, Potion.sell);
                 usleep(300000);
                 sellOption(joueur);
             }
-            printf("You don't have any '%s' in your inventory !\n", Potion.nameItem);
+            printf("\nYou don't have any '%s' in your inventory !\n\n", Potion.nameItem);
             usleep(300000);
             sellOption(joueur);
         }
@@ -216,11 +216,11 @@ void sellOption(struct Player *joueur) {
         if (sell == 1) {
             if (checkItem(&SuperPotion, joueur)) {
                 removeItem(&SuperPotion, joueur);
-                printf("You have successfuly sold your '%s' for %d Supcoins.\n", SuperPotion.nameItem, SuperPotion.sell);
+                printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n\n", SuperPotion.nameItem, SuperPotion.sell);
                 usleep(300000);
                 sellOption(joueur);
             }
-            printf("You don't have any '%s' in your inventory !\n", SuperPotion.nameItem);
+            printf("\nYou don't have any '%s' in your inventory !\n\n", SuperPotion.nameItem);
             usleep(300000);
             sellOption(joueur);
         }
@@ -239,11 +239,11 @@ void sellOption(struct Player *joueur) {
         if (sell == 1) {
             if (checkItem(&RareCandy, joueur)) {
                 removeItem(&RareCandy, joueur);
-                printf("You have successfuly sold your '%s' for %d Supcoins.\n", RareCandy.nameItem, RareCandy.sell);
+                printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n\n", RareCandy.nameItem, RareCandy.sell);
                 usleep(300000);
                 sellOption(joueur);
             }
-            printf("You don't have any '%s' in your inventory !\n", RareCandy.nameItem);
+            printf("\nYou don't have any '%s' in your inventory !\n\n", RareCandy.nameItem);
             usleep(300000);
             sellOption(joueur);
         }
@@ -266,7 +266,7 @@ void shopOption(struct Player *joueur) {
     printf("Enter 1, 2 or 3: ");
     int choice = choix();
     while (choice < 1 || choice > 3) {
-        printf("Invalid choice ! Choose a valid option.\n");
+        printf("\nInvalid choice ! Choose a valid option.\n");
         printf("Enter 1, 2 or 3: ");
         choice = choix();
     }

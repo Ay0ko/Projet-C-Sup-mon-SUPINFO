@@ -20,19 +20,19 @@ void choisirDirection() {
     printf("Enter 1, 2, 3 or 4: ");
     int choice2 = choix();
         while (choice2 < 1 || choice2 > 4) {  
-        printf("Invalid choice ! Please try again !\n");
+        printf("\nInvalid choice ! Please try again !\n");
         printf("Enter 1, 2, 3 or 4 : ");
         choice2 = choix();  
     }
     if (choice2 == 1) {
-        printf("You venture into the wild !\n");
+        printf("\nYou venture into the wild !\n");
     } else if (choice2 == 2) {
-        printf("Welcome to the shop !\n");
+        printf("\nWelcome to the shop !\n");
     } else if (choice2 == 3){
-        printf("Welcome to the Supemon Center !\n");
+        printf("\nWelcome to the Supemon Center !\n");
     }
     else {
-        printf("You leave the game. Goodbye !\n");
+        printf("\nYou leave the game. Goodbye !\n");
         exit(0);
     }
 };

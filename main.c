@@ -12,26 +12,7 @@
 #include "Donnees/Player.c"
 #include "Donnees/Direction.c"
 
-void leChoix(struct Player *joueur){
-    int nombre = choix();
-        while (nombre < 1 || nombre > 3) {  
-        printf("Invalid choice ! Choose your Supemon again!\n");
-        printf("Enter 1, 2, or 3: ");
-        nombre = choix();  
-    }
-    if (nombre == 1) {
-        joueur->selectedSupemon = &Supmander;
-        printf("You chose Supmander !\n");
-    } else if (nombre == 2) {
-        joueur->selectedSupemon = &Supasaur;
-        printf("You chose Supasaur !\n");
-    } else {
-        joueur->selectedSupemon = &Supirtle;
-        printf("You chose Supirtle !\n");
-    }
-};
-
-void restore_hp(Supemon *supemon) {
+void restore_hp(struct Supemon *supemon) {
     printf("+---------------------------------------+\n");
     printf("| Would you like to heal your Supemons ?|\n");
     printf("|      1 - Yes                          |\n");
@@ -65,7 +46,7 @@ int main(){
     printf("Hello trainer, what's your name ? \n");
     scanf("%49s", &namePlayer);
     initializePlayer(&Supdresseur, &namePlayer);
-    printf("Hello %s !\n Welcome in Supemon World ! \n", Supdresseur.name);
+    printf("\nHello %s !\n Welcome in Supemon World ! \n", Supdresseur.name);
 
     printf("+--------------------------------------+\n");
     printf("| Choose your starter Supémon:         |\n");
