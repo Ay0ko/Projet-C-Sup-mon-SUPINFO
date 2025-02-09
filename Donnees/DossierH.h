@@ -94,5 +94,7 @@ void niveauSup(struct Supemon *jSupemon);
 
 void choisirDirection();
 
+void restore_hp(struct Supemon *supemon);
+
 
 #endif // DOSSIERH_H_INCLUDED
