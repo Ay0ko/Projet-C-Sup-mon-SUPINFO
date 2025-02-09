@@ -60,3 +60,4 @@ void niveauSup(struct Supemon *jSupemon) {
         jSupemon->moves[1].damage = aleaArrondi(stat);
     }
 };
+
