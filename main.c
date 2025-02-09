@@ -39,9 +39,10 @@ int main(){
     initializeSupemons();
     initializeItems();
     struct Player Supdresseur;
-
+    char namePlayer;
     printf("Hello trainer, what's your name ? \n");
-    scanf("%49s", Supdresseur.name);
+    scanf("%49s", &namePlayer);
+    initializePlayer(&Supdresseur, &namePlayer);
     printf("Hello %s !\n Welcome in Supemon World ! \n", Supdresseur.name);
 
     printf("+--------------------------------------+\n");

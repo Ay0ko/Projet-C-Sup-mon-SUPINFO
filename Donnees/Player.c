@@ -19,5 +19,6 @@ void initializePlayer(struct Player *player, const char *name) {
     strncpy(player->name, name, 50);
     player->SupemonCount = 0;
     player->selectedSupemon = NULL;
-    player->Supcoins = 0;
+    player->Supcoins = 10000;
+    memset(player->inventory, 0, sizeof(player->inventory));
 };
