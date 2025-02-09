@@ -168,7 +168,7 @@ void sellOption(struct Player *joueur) {
     printf("| What do you want to sell ?           |\n");
     printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.sell);
     printf("|      2 - Super Potion (%3d Supcoins) |\n", SuperPotion.sell);
-    printf("|      4 - Rare Candy (%3d Supcoins)   |\n", RareCandy.sell);
+    printf("|      3 - Rare Candy (%3d Supcoins)   |\n", RareCandy.sell);
     printf("|      4 - Go back                     |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4 ");
