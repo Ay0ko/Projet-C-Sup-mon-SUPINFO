@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <assert.h>
 #include <time.h>
+#include <unistd.h>
 #include "DossierH.h"
 
 

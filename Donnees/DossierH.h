@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <assert.h>
 #include <time.h>
+#include <unistd.h>
 #ifndef DOSSIERH_H_INCLUDED
 #define DOSSIERH_H_INCLUDED
 
@@ -90,6 +91,8 @@ int aleaArrondi(float val);
 bool chanceFuite(struct Supemon *jSupemon, struct Supemon *opSupemon);
 bool captureSupemon(struct Supemon *opSupemon);
 void niveauSup(struct Supemon *jSupemon);
+
+void choisirDirection();
 
 
 #endif // DOSSIERH_H_INCLUDED
