@@ -31,6 +31,10 @@ void leChoix(struct Player *joueur){
     }
 };
 
+void restore_hp(Supemon *supemon) {
+    supemon->HP = supemon->maxHP;
+}
+
 int main(){
     initializeSupemons();
     initializeItems();
@@ -54,6 +58,8 @@ int main(){
     choisirDirection();
 
     shopOption(&Supdresseur);
+
+    restore_hp(Supdresseur.selectedSupemon);
 
     printf("Your turn...\n");
     printf("%s  (enemy)\n", Supasaur.nameSupe);
