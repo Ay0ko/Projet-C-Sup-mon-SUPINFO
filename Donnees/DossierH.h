@@ -28,9 +28,13 @@ struct Supemon {
     int HP;
     int maxHP;
     int ATK;
+    int actuATK;
     int DEF;
+    int actuDEF;
     int evasion;
+    int actuEvasion;
     int accuracy;
+    int actuAccuracy;
     int speed;
     struct Move moves[2];
 };
