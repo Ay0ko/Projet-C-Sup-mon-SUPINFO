@@ -88,7 +88,7 @@ void shopOption(struct Player *joueur);
 
 int aleaSupemon();
 int aleaArrondi(float val);
-bool chanceFuite(struct Supemon *jSupemon, struct Supemon *opSupemon);
+bool chanceEsquive(struct Supemon *jSupemon, struct Supemon *opSupemon);
 bool captureSupemon(struct Supemon *opSupemon);
 void niveauSup(struct Supemon *jSupemon);
 
