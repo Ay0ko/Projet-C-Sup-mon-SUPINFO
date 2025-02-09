@@ -11,6 +11,7 @@
 #include "Donnees/Shop.c"
 #include "Donnees/Player.c"
 #include "Donnees/Direction.c"
+#include "Donnees/Center.c"
 
 
 int main(){
@@ -21,7 +22,8 @@ int main(){
     printf("Hello trainer, what's your name ? \n");
     scanf("%49s", &namePlayer);
     initializePlayer(&Supdresseur, &namePlayer);
-    printf("\nHello %s !\n Welcome in Supemon World ! \n", Supdresseur.name);
+    system("clear");
+    printf("\nHello %s !\nWelcome in Supemon World ! \n", Supdresseur.name);
 
     printf("+--------------------------------------+\n");
     printf("| Choose your starter Supémon:         |\n");

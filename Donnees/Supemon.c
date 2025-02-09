@@ -48,12 +48,15 @@ void leChoix(struct Player *joueur) {
     }
     if (nombre == 1) {
         joueur->selectedSupemon = &Supmander;
+        system("clear");
         printf("\nYou chose Supmander !\n");
     } else if (nombre == 2) {
         joueur->selectedSupemon = &Supasaur;
+        system("clear");
         printf("\nYou chose Supasaur !\n");
     } else {
         joueur->selectedSupemon = &Supirtle;
+        system("clear");
         printf("\nYou chose Supirtle !\n");
     }
 };
