@@ -9,7 +9,7 @@
 #include "DossierH.h"
 
 
-void restore_hp(struct Supemon *supemon) {
+void restore_hp(struct Player *joueur, struct Supemon *supemon) {
     printf("+---------------------------------------+\n");
     printf("| Would you like to heal your Supemons ?|\n");
     printf("|      1 - Yes                          |\n");
@@ -31,6 +31,6 @@ void restore_hp(struct Supemon *supemon) {
         printf("+---------------------------------------+\n");
     }
     else {
-        choisirDirection();
+        choisirDirection(joueur);
     }
 }

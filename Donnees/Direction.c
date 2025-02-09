@@ -9,7 +9,7 @@
 #include "DossierH.h"
 
 
-void choisirDirection() {
+void choisirDirection(struct Player *joueuractu) {
     printf("+--------------------------------------+\n");
     printf("| Where do you want to go ?            |\n");
     printf("|      1 - Into the Wild               |\n");
@@ -30,7 +30,8 @@ void choisirDirection() {
     } else if (choice2 == 2) {
         system("clear");
         printf("\nWelcome to the shop !\n");
-    } else if (choice2 == 3){
+        shopOption(joueuractu);
+    } else if (choice2 == 3) {
         system("clear");
         printf("\nWelcome to the Supemon Center !\n");
     }

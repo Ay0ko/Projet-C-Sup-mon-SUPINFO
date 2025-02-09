@@ -92,9 +92,9 @@ bool chanceFuite(struct Supemon *jSupemon, struct Supemon *opSupemon);
 bool captureSupemon(struct Supemon *opSupemon);
 void niveauSup(struct Supemon *jSupemon);
 
-void choisirDirection();
+void choisirDirection(struct Player *joueuractu);
 
-void restore_hp(struct Supemon *supemon);
+void restore_hp(struct Player *joueur, struct Supemon *supemon);
 
 
 #endif // DOSSIERH_H_INCLUDED
