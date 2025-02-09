@@ -18,7 +18,6 @@ void initializeItems() {
     Potion = (struct Item) {"Potion", 1, 5, 100, 50};
     SuperPotion = (struct Item) {"Super Potion", 2, 10, 300, 150};
     RareCandy = (struct Item) {"Rare Candy", 3, 1, 700, 350};
-
 };
 
 bool checkMoula(int price, struct Player *joueur) {
@@ -285,7 +284,7 @@ void sellOption(struct Player *joueur) {
     }
 };
 
-int shopOption(struct Player *joueur) {
+void shopOption(struct Player *joueur) {
     printf("+--------------------------------------+\n");
     printf("| What do you want to do ?             |\n");
     printf("|      1 - Buy                         |\n");
@@ -309,6 +308,6 @@ int shopOption(struct Player *joueur) {
     }
     else {
         system("clear");
-        return 0;
+        choisirDirection(joueur);
     }
 };
