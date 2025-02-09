@@ -57,12 +57,12 @@ int main(){
     printf("----------------------------------------\n");
 
     printf("\n+--------------------------------------+\n");
-    printf("| What will you do ?                    |\n");
-    printf("|   1 - Move                            |\n");
-    printf("|   2 - Change Supemon                  |\n");
-    printf("|   3 - Use item                        |\n");
-    printf("|   4 - Capture                         |\n");
-    printf("|   5 - Run away                        |\n");
+    printf("| What will you do ?                   |\n");
+    printf("|   1 - Move                           |\n");
+    printf("|   2 - Change Supemon                 |\n");
+    printf("|   3 - Use item                       |\n");
+    printf("|   4 - Capture                        |\n");
+    printf("|   5 - Run away                       |\n");
     printf("+--------------------------------------+\n");
     printf("1, 2, 3, 4 or 5: ");
 

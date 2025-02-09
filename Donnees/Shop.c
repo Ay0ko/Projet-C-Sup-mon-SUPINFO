@@ -285,7 +285,7 @@ void sellOption(struct Player *joueur) {
     }
 };
 
-void shopOption(struct Player *joueur) {
+int shopOption(struct Player *joueur) {
     printf("+--------------------------------------+\n");
     printf("| What do you want to do ?             |\n");
     printf("|      1 - Buy                         |\n");
@@ -309,6 +309,6 @@ void shopOption(struct Player *joueur) {
     }
     else {
         system("clear");
-        choisirDirection();
+        return 0;
     }
 };

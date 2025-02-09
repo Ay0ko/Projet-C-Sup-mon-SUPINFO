@@ -84,7 +84,7 @@ bool checkItem(struct Item *object, struct Player *joueur);
 void removeItem(struct Item *object, struct Player *joueur);
 void buyOption(struct Player *joueur);
 void sellOption(struct Player *joueur);
-void shopOption(struct Player *joueur);
+int shopOption(struct Player *joueur);
 
 int aleaSupemon();
 int aleaArrondi(float val);
