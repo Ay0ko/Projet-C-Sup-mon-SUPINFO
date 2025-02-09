@@ -8,6 +8,9 @@
 #include <time.h>
 #include "DossierH.h"
 
+struct Item Potion;
+struct Item SuperPotion;
+struct Item RareCandy;
 
 void initializeItems() {
     Potion = (struct Item) {"Potion", 1, 5, 100, 50};
@@ -50,7 +53,6 @@ void removeItem(struct Item *object, struct Player *joueur) {
 };
 
 void buyOption(struct Player *joueur) {
-    int choice = choix();
     printf("+--------------------------------------+\n");
     printf("| What do you want to buy ?            |\n");
     printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.cost);
@@ -59,6 +61,7 @@ void buyOption(struct Player *joueur) {
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4  ");
+    int choice = choix();
     while (choice < 1 || choice > 4) {
         printf("Invalid choice ! Choose a valid option.");
         printf("Enter 1, 2, 3 or 4: ");
@@ -141,7 +144,6 @@ void buyOption(struct Player *joueur) {
 };
 
 void sellOption(struct Player *joueur) {
-    int choice = choix();
     printf("+--------------------------------------+\n");
     printf("| What do you want to sell ?           |\n");
     printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.sell);
@@ -150,6 +152,7 @@ void sellOption(struct Player *joueur) {
     printf("|      4 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2, 3 or 4 ");
+    int choice = choix();
     while (choice < 1 || choice > 4) {
         printf("Invalid choice ! Choose a valid option.");
         printf("Enter 1, 2, 3 or 4: ");
@@ -215,7 +218,6 @@ void sellOption(struct Player *joueur) {
 };
 
 void shopOption(struct Player *joueur) {
-    int choice = choix();
     printf("+--------------------------------------+\n");
     printf("| What do you want to do ?             |\n");
     printf("|      1 - Buy                         |\n");
@@ -223,8 +225,9 @@ void shopOption(struct Player *joueur) {
     printf("|      3 - Cancel                      |\n");
     printf("+--------------------------------------+\n");
     printf("Enter 1, 2 or 3: ");
+    int choice = choix();
     while (choice < 1 || choice > 3) {
-        printf("Invalid choice ! Choose a valid option.");
+        printf("Invalid choice ! Choose a valid option.\n");
         printf("Enter 1, 2 or 3: ");
         choice = choix();
     }
