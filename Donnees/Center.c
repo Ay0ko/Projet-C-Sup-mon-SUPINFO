@@ -23,7 +23,9 @@ void restore_hp(struct Player *joueur, struct Supemon *supemon) {
         choice = choix();
     }
     if (choice == 1) {
-        supemon->HP = supemon->maxHP;
+        for (int i = 0; i < joueur->SupemonCount; i++) {
+            joueur->team[i].HP = joueur->team[i].maxHP;
+        }
         printf("+---------------------------------------+\n");
         printf("|                Thanks                 |\n");
         printf("|    Your Supemons have been healed     |\n");
@@ -34,3 +36,4 @@ void restore_hp(struct Player *joueur, struct Supemon *supemon) {
         choisirDirection(joueur);
     }
 }
+ 
