@@ -60,12 +60,35 @@ void niveauSup(struct Supemon *jSupemon) {
     }
 };
 
-void doMove(struct Supemon *opSupemon, struct Player *joueur) {
-    printf("m");
+void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
+   if (joueur->selectedSupemon->moves[choosed].name == "Scratch" || joueur->selectedSupemon->moves[choosed].name == "Pound") {
+        if (!chanceEsquive(opSupemon, joueur->selectedSupemon)) {
+            opSupemon->HP-=aleaArrondi(joueur->selectedSupemon->actuATK*joueur->selectedSupemon->moves[0].damage/opSupemon->actuDEF);
+        }
+        else {
+            printf("Oh no, %s managed to dodge your attack !", opSupemon->nameSupe);
+        }
+   }
+   else if (joueur->selectedSupemon->moves[choosed].name == "Shell") {
+    joueur->selectedSupemon->actuDEF+=joueur->selectedSupemon->moves[choosed].BoostDEF;
+   }
+   else if (joueur->selectedSupemon->moves[choosed].name == "Grawl") {
+    joueur->selectedSupemon->actuATK+=joueur->selectedSupemon->moves[choosed].BoostATK;
+   }
+   else {
+    joueur->selectedSupemon->actuEvasion+=joueur->selectedSupemon->moves[choosed].BoostEvasion;
+   }
 };
 
 void changeSupemon(struct Player *joueur) {
-    printf("m");
+  printf("\n+--------------------------------------+\n");
+    printf("| Supemon : %d/6                       |\n");
+    printf("| -->%49s                              |\n", joueur->team[0].nameSupe);
+    printf("|   2 - Change Supemon                 |\n");
+    printf("|   3 - Use item                       |\n");
+    printf("|   4 - Capture                        |\n");
+    printf("|   5 - Run away                       |\n");
+    printf("+--------------------------------------+\n");
 };
 
 void useItem(struct Player *joueur) {
@@ -110,10 +133,12 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
         option = choix();
     }
     if (option == 1) {
-        printf("m");
+        printf("1 - %s\n", joueur->selectedSupemon->moves[0].name);
+        printf("2 - %s\n", joueur->selectedSupemon->moves[1].name);
+        printf("3 - Cancel\n");
     }
     else if (option == 2) {
-        printf("m");
+        changeSupemon(joueur);
     }
     else if (option == 3) {
         printf("m");

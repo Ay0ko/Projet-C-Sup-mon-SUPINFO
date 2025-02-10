@@ -98,3 +98,7 @@ void addSupemon(struct Supemon *sup, struct Player *dresseur) {
         }
     }
 };
+
+int countSupemons(struct Player*joueur) {
+
+};

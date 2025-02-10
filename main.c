@@ -41,10 +41,5 @@ int main() {
 
     choisirDirection(&Supdresseur);
 
-    // printf("1 - %s\n", Supdresseur.selectedSupemon->moves[0].name);
-    // printf("2 - %s\n", Supdresseur.selectedSupemon->moves[1].name);
-    // printf("3 - Cancel\n");
-    // printf("1, 2 or 3: ");
-
     return 0;
 }
