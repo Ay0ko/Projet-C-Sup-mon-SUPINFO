@@ -8,6 +8,7 @@
 #include <time.h>
 #include "DossierH.h"
 
+
 void displayBattle(struct Supemon *opSupemon, struct Player *joueur) {
     printf("\n%14s  (enemy)\n", opSupemon->nameSupe);
     printf("----------------------------------------\n");
@@ -32,6 +33,20 @@ void displayBattle(struct Supemon *opSupemon, struct Player *joueur) {
     printf("+--------------------------------------+\n");
     printf("1, 2, 3, 4 or 5: ");
 };
+
+void displayTeam(struct Player *joueur) {
+    printf("\n+--------------------------------------+\n");
+    printf("| Supemon : %d/6                        |\n", countSupemons(joueur));
+    printf("| --> %14s                   |\n", joueur->team[0].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[1].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[2].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[3].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[4].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[5].nameSupe);
+    printf("+--------------------------------------+\n");
+};
+
+
 
 void displayShop() {
     printf("+--------------------------------------+\n");
