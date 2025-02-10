@@ -133,7 +133,14 @@ void useItem(struct Player *joueur) {
 };
 
 void enemyMove(struct Supemon *opSupemon, struct Player *joueur) {
-
+    printf("\n%s's turn...\n", opSupemon->nameSupe);
+    usleep(2500000);
+    srand(time(NULL));  
+    int attaque = rand() % 2; 
+    printf("%s uses %s!\n", opSupemon->nameSupe, opSupemon->moves[attaque].name);
+    usleep(2000000);
+    system("clear");
+    doMove(opSupemon, joueur, attaque + 1); 
 };
 
 
@@ -176,7 +183,6 @@ void SetBattle(struct Supemon *opSupemon, struct Player *joueur) {
                 FuiteCombat(opSupemon, joueur);
             }
         } else {
-            printf("\n%s's turn...\n", opSupemon->nameSupe);
             enemyMove(opSupemon, joueur);
         }
     }
