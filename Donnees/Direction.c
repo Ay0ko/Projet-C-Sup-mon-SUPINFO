@@ -35,6 +35,7 @@ void choisirDirection(struct Player *joueuractu) {
     } else if (choice2 == 3) {
         system("clear");
         printf("\nWelcome to the Supemon Center !\n");
+        restore_hp(joueuractu);
     }
     else {
         system("clear");

@@ -108,7 +108,7 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur);
 
 void choisirDirection(struct Player *joueuractu);
 
-void restore_hp(struct Player *joueur, struct Supemon *supemon);
+void restore_hp(struct Player *joueur);
 
 
 #endif // DOSSIERH_H_INCLUDED

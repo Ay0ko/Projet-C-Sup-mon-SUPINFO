@@ -77,8 +77,8 @@ void catchSupemon(struct Supemon *opSupemon, struct Player *joueur) {
 };
 
 void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
-    printf("You've come across a %s.\n", opSupemon->nameSupe);
-    usleep(600000);
+    printf("\nYou've come across a %s.\n", opSupemon->nameSupe);
+    usleep(3000000);
     system("clear");
     printf("Your turn...\n");
     printf("%49s  (enemy)\n", opSupemon->nameSupe);

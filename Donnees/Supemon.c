@@ -30,7 +30,7 @@ struct Supemon Glaceon;
 struct Supemon listSupemons[9];
 
 void initializeSupemons() {
-    Supmander = (struct Supemon) {"SUPMANDER", 1, 1, 0, 0, 10, 10, 1, 1, 1, 1, 1, 1, 2, 2, 1, {Scratch, Grawl}};
+    Supmander = (struct Supemon) {"SUPMANDER", 1, 1, 0, 0, 8, 10, 1, 1, 1, 1, 1, 1, 2, 2, 1, {Scratch, Grawl}};
     Supasaur = (struct Supemon) {"SUPASAUR", 2, 1, 0, 0, 9, 9, 1, 1, 1, 1, 3, 3, 2, 2, 2, {Pound, Foliage}};
     Supirtle = (struct Supemon) {"SUPIRTLE", 3, 1, 0, 0, 11, 11, 1, 1, 2, 2, 2, 2, 1, 1, 2, {Pound, Shell}};
     Patrat = (struct Supemon) {"PATRAT", 4, 1, 3500, 100, 8, 8, 1, 1, 1, 1, 2, 2, 1, 1, 2, {Pound, Scratch}};
