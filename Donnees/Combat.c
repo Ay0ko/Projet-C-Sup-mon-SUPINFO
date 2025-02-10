@@ -130,11 +130,41 @@ void useItem(struct Player *joueur) {
 };
 
 
-void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
+void SetBattle(struct Supemon *opSupemon, struct Player *joueur) {
     printf("\nYou've come across a %s.\n", opSupemon->nameSupe);
     usleep(3000000);
     system("clear");
     printf("\nYour turn...\n");
+    displayBattle(opSupemon, joueur);
+    int option = choix();
+    while (option < 1 || option > 5) {
+        printf("\nInvalid choice ! Choose a valid option.\n");
+        printf("Enter 1, 2, 3, 4 or 5: ");
+        option = choix();
+    }
+    if (option == 1) {
+        printf("\n1 - %s\n", joueur->selectedSupemon->moves[0].name);
+        printf("2 - %s\n", joueur->selectedSupemon->moves[1].name);
+        printf("3 - Cancel\n");
+        printf("Enter 1, 2 or 3: ");
+        int mvt = choix();
+        doMove(opSupemon, joueur, mvt);
+    }
+    else if (option == 2) {
+        changeSupemon(joueur);
+    }
+    else if (option == 3) {
+        printf("m");
+    }
+    else if (option == 4) {
+        capture(opSupemon, joueur);
+    }
+    else {
+        FuiteCombat(opSupemon, joueur);
+    }
+};
+
+void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     displayBattle(opSupemon, joueur);
     int option = choix();
     while (option < 1 || option > 5) {
