@@ -94,9 +94,26 @@ void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
 void enemyMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
     if (opSupemon->moves[choosed] == "Scratch" || opSupemon->moves[choosed] == "Pound") {
         if (!chanceEsquive(joueur->selectedSupemon, opSupemon)) {
-            joueur->selectedSupemon->HP-=aleaArrondi(opSupemon->actuATK*opSupemon->moves[choosed]);
+            joueur->selectedSupemon->HP-=aleaArrondi(opSupemon->actuATK*opSupemon->moves[choosed].damage/joueur->selectedSupemon->actuDEF);
+            battleOption(opSupemon, joueur);
+        }
+        else {
+            printf("You managed to dodge the attack !");
+            battleOption(opSupemon, joueur);
         }
     }
+    else if (opSupemon->moves[choosed].name == "Shell") {
+        opSupemon->selectedSupemon->actuDEF+=jo->opSupemon->moves[choosed].BoostDEF;
+        battleOption(opSupemon, joueur);
+       }
+       else if (opSupemon->moves[choosed].name == "Grawl") {
+        opSupemon->selectedSupemon->actuATK+=opSupemon->moves[choosed].BoostATK;
+        battleOption(opSupemon, joueur);
+       }
+       else {
+        opSupemon->selectedSupemon->actuEvasion+=opSupemon->moves[choosed].BoostEvasion;
+        battleOption(opSupemon, joueur);
+       }
 };
 
 void changeSupemon(struct Player *joueur) {
