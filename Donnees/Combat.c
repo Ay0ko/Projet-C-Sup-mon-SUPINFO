@@ -28,9 +28,15 @@ int aleaArrondi(float val) {
 };
 
 bool chanceEsquive(struct Supemon *jSupemon, struct Supemon *opSupemon) {
+    float dodge = 0.0;
+    dodge = jSupemon->accuracy / (jSupemon->accuracy + opSupemon->evasion) + 0.1;
+    return (rand()/(double)RAND_MAX) < dodge;
+};
+
+bool chancefuite(struct Supemon *jSupemon, struct Supemon *opSupemon) {
     float fuite = 0.0;
-    fuite = jSupemon->accuracy / (jSupemon->accuracy + opSupemon->evasion) + 0.1;
-    return (rand()/(double)RAND_MAX) < fuite ? 1 : 0;
+    fuite = jSupemon->speed / (jSupemon->speed + opSupemon->speed);
+    return (rand() / (double)RAND_MAX) < fuite;
 };
 
 bool captureSupemon(struct Supemon *opSupemon) {
@@ -107,13 +113,21 @@ void capture(struct Supemon *opSupemon, struct Player *joueur) {
     }
 };
 
+void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur) {
+    if (chancefuite(joueur->selectedSupemon, opSupemon)) {
+        printf("\nYou're on the run !\n");
+        choisirDirection(joueur);
+    }
+    else {
+        printf("\nYou failed to escape !\n");
+        battleOption(opSupemon, joueur);
+    }
+};
+
 void useItem(struct Player *joueur) {
     printf("m");
 };
 
-void catchSupemon(struct Supemon *opSupemon, struct Player *joueur) {
-    printf("m");
-};
 
 void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     printf("\nYou've come across a %s.\n", opSupemon->nameSupe);
@@ -145,6 +159,6 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
         capture(opSupemon, joueur);
     }
     else {
-        printf("m");
+        FuiteCombat(opSupemon, joueur);
     }
 };
