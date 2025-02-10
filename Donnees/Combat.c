@@ -116,6 +116,7 @@ void capture(struct Supemon *opSupemon, struct Player *joueur) {
 void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur) {
     if (chancefuite(joueur->selectedSupemon, opSupemon)) {
         printf("\nYou're on the run !\n");
+        system("clear");
         choisirDirection(joueur);
     }
     else {
@@ -136,7 +137,7 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     printf("\nYour turn...\n");
     displayBattle(opSupemon, joueur);
     int option = choix();
-    while (option < 1 || option > 4) {
+    while (option < 1 || option > 5) {
         printf("\nInvalid choice ! Choose a valid option.\n");
         printf("Enter 1, 2, 3, 4 or 5: ");
         option = choix();
