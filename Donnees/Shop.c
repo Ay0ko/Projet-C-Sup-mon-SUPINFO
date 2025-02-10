@@ -53,13 +53,60 @@ void removeItem(struct Item *object, struct Player *joueur) {
         if (joueur->inventory[i].idItem == object->idItem) {
             joueur->inventory[i] = (struct Item) {0};
             joueur->Supcoins+=object->sell;
+            break;
         }
     }
+};
+
+int getPotion(struct Player *joueur) {
+    int j = 0;
+    for (int i = 0; i < 11; i++) {
+        if (joueur->inventory[i].idItem == 1) {
+            j+=1;
+        }
+    }
+    return j;
+};
+
+int getSuperpotion(struct Player *joueur) {
+    int j = 0;
+    for (int i = 0; i < 11; i++) {
+        if (joueur->inventory[i].idItem == 2) {
+            j+=1;
+        }
+    }
+    return j;
+};
+
+int getRarecandy(struct Player *joueur) {
+    int j = 0;
+    for (int i = 0; i < 11; i++) {
+        if (joueur->inventory[i].idItem == 3) {
+            j+=1;
+        }
+    }
+    return j;
+};
+
+int getNbitems(struct Player *joueur) {
+    int j = 10;
+    for (int i = 0; i < 11; i++) {
+        if (joueur->inventory[i].idItem == 0) {
+            j-=1;
+        }
+    }
+    return j;
 };
 
 void buyOption(struct Player *joueur) {
     printf("+--------------------------------------+\n");
     printf("| You have : %4d Supcoins.            |\n", joueur->Supcoins);
+    printf("|                                      |\n");
+    printf("| Inventory : %2d/10                    |\n", getNbitems(joueur));
+    printf("|                                      |\n");
+    printf("| Potion : %2d    Super Potions : %2d    |\n", getPotion(joueur), getSuperpotion(joueur));
+    printf("|                                      |\n");
+    printf("| Rare Candy : %2d                      |\n", getRarecandy(joueur));
     printf("|                                      |\n");
     printf("| What do you want to buy ?            |\n");
     printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.cost);
@@ -187,6 +234,12 @@ void buyOption(struct Player *joueur) {
 void sellOption(struct Player *joueur) {
     printf("+--------------------------------------+\n");
     printf("| You have : %4d Supcoins.            |\n", joueur->Supcoins);
+    printf("|                                      |\n");
+    printf("| Inventory : %2d/10                    |\n", getNbitems(joueur));
+    printf("|                                      |\n");
+    printf("| Potion : %2d    Super Potions : %2d    |\n", getPotion(joueur), getSuperpotion(joueur));
+    printf("|                                      |\n");
+    printf("| Rare Candy : %2d                      |\n", getRarecandy(joueur));
     printf("|                                      |\n");
     printf("| What do you want to sell ?           |\n");
     printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.sell);
