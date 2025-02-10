@@ -61,6 +61,12 @@ void niveauSup(struct Supemon *jSupemon) {
     }
 };
 
+int supemonAlea() {
+    int i = rand(0, 9);
+    printf("%d", i);
+    return i;
+};
+
 void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     printf("You've come across a %c.\n");
 };
