@@ -120,6 +120,7 @@ void displaySell(struct Player *joueur);
 void displayPotion();
 void displaySuperpotion();
 void displayRarecandy();
+void displayTeam(struct Player *joueur);
 
 
 #endif // DOSSIERH_H_INCLUDED

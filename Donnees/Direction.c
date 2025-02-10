@@ -10,7 +10,7 @@
 
 
 void choisirDirection(struct Player *joueuractu) {
-    printf("+--------------------------------------+\n");
+    printf("\n+--------------------------------------+\n");
     printf("| Where do you want to go ?            |\n");
     printf("|      1 - Into the Wild               |\n");
     printf("|      2 - In the shop                 |\n");
