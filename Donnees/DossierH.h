@@ -108,6 +108,7 @@ void changeSupemon(struct Player *joueur);
 void capture(struct Supemon *opSupemon, struct Player *joueur);
 void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur);
 void useItem(struct Player *joueur);
+void enemyMove(struct Supemon *opSupemon, struct Player *joueur);
 void SetBattle(struct Supemon *opSupemon, struct Player *joueur);
 void battleOption(struct Supemon *opSupemon, struct Player *joueur);
 
