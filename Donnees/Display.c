@@ -83,35 +83,35 @@ void displaySell(struct Player *joueur) {
 
 void displayPotion() {
     printf("+--------------------------------------+\n");
-        printf("| This is a 'Potion', its a common     |\n");
-        printf("| item that restores additional 5 HP   |\n");
-        printf("| to your Supemon's current health. It |\n");
-        printf("| costs 100 Supcoins and you can sell  |\n");
-        printf("| it for half its price : 50 Supcoins. |\n");
-        printf("+--------------------------------------+\n");
-        printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+    printf("| This is a 'Potion', its a common     |\n");
+    printf("| item that restores additional 5 HP   |\n");
+    printf("| to your Supemon's current health. It |\n");
+    printf("| costs 100 Supcoins and you can sell  |\n");
+    printf("| it for half its price : 50 Supcoins. |\n");
+    printf("+--------------------------------------+\n");
+    printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
 };
 
 void displaySuperpotion() {
     printf("+--------------------------------------+\n");
-        printf("| This is a 'Super Potion', its a      |\n");
-        printf("| rare item that restores additional   |\n");
-        printf("| 10 HP to your Supemon's current      |\n");
-        printf("| health. It costs 300 Supcoins and    |\n");
-        printf("| you can sell it for half its price : |\n");
-        printf("| 150 Supcoins.                        |\n");
-        printf("+--------------------------------------+\n");
-        printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+    printf("| This is a 'Super Potion', its a      |\n");
+    printf("| rare item that restores additional   |\n");
+    printf("| 10 HP to your Supemon's current      |\n");
+    printf("| health. It costs 300 Supcoins and    |\n");
+    printf("| you can sell it for half its price : |\n");
+    printf("| 150 Supcoins.                        |\n");
+    printf("+--------------------------------------+\n");
+    printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
 };
 
 void displayRarecandy() {
     printf("+--------------------------------------+\n");
-        printf("| This is a 'Rare Candy', its a super  |\n");
-        printf("| rare item that adds 1 additional     |\n");
-        printf("| level to your Supemon's current      |\n");
-        printf("| level. It costs 700 Supcoins and     |\n");
-        printf("| you can sell it for half its price : |\n");
-        printf("| 350 Supcoins.                        |\n");
-        printf("+--------------------------------------+\n");
-        printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+    printf("| This is a 'Rare Candy', its a super  |\n");
+    printf("| rare item that adds 1 additional     |\n");
+    printf("| level to your Supemon's current      |\n");
+    printf("| level. It costs 700 Supcoins and     |\n");
+    printf("| you can sell it for half its price : |\n");
+    printf("| 350 Supcoins.                        |\n");
+    printf("+--------------------------------------+\n");
+    printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
 };

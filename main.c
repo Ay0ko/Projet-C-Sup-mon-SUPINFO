@@ -13,6 +13,7 @@
 #include "Donnees/Direction.c"
 #include "Donnees/Center.c"
 #include "Donnees/Combat.c"
+#include "Donnees/Display.c"
 
 
 int main() {
