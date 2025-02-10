@@ -118,6 +118,9 @@ void capture(struct Supemon *opSupemon, struct Player *joueur) {
     }
     else {
         printf("\nOh nooo, you failed to capture %s !\n",opSupemon->nameSupe);
+        usleep(2000000);
+        system("clear");
+        enemyMove(opSupemon, joueur);
     }
 };
 
