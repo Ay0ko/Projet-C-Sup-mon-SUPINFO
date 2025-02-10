@@ -15,7 +15,8 @@
 #include "Donnees/Combat.c"
 
 
-int main(){
+int main() {
+    srand(time(NULL));
     system("clear");
     initializeSupemons();
     initializeItems();

@@ -61,27 +61,27 @@ void niveauSup(struct Supemon *jSupemon) {
 };
 
 void doMove(struct Supemon *opSupemon, struct Player *joueur) {
-    printf("");
+    printf("m");
 };
 
 void changeSupemon(struct Player *joueur) {
-    printf("");
+    printf("m");
 };
 
 void useItem(struct Player *joueur) {
-    printf("");
+    printf("m");
 };
 
 void catchSupemon(struct Supemon *opSupemon, struct Player *joueur) {
-    printf("");
+    printf("m");
 };
 
 void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
-    printf("You've come across a %c.\n");
+    printf("You've come across a %s.\n", opSupemon->nameSupe);
     usleep(350000);
     system("clear");
     printf("Your turn...\n");
-    printf("%s  (enemy)\n", opSupemon.nameSupe);
+    printf("%49s  (enemy)\n", opSupemon->nameSupe);
     printf("----------------------------------------\n");
     printf("    HP: %3d/%-3d           Lvl: %2d\n", opSupemon->HP, opSupemon->maxHP, opSupemon->lvl);
     printf("    Atk: %2d               Def: %2d\n", opSupemon->actuATK, opSupemon->actuDEF);
@@ -89,9 +89,9 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     printf("----------------------------------------\n");
     printf("%s  (%s)\n", joueur->selectedSupemon->nameSupe, joueur->name);
     printf("----------------------------------------\n");
-    printf("    HP: %3d/%-3d           Lvl: %2d\n", joueur->selectedSupemon->HP, joueur->selectedSupemon->maxHP, joueur.selectedSupemon->lvl);
-    printf("    Atk: %2d               Def: %2d\n", joueur.selectedSupemon->ATK, joueur.selectedSupemon->DEF);
-    printf("    Acc: %2d               Eva: %2d\n", joueur.selectedSupemon->speed, joueur.selectedSupemon->evasion);
+    printf("    HP: %3d/%-3d           Lvl: %2d\n", joueur->selectedSupemon->HP, joueur->selectedSupemon->maxHP, joueur->selectedSupemon->lvl);
+    printf("    Atk: %2d               Def: %2d\n", joueur->selectedSupemon->actuATK, joueur->selectedSupemon->actuDEF);
+    printf("    Acc: %2d               Eva: %2d\n", joueur->selectedSupemon->actuAccuracy, joueur->selectedSupemon->actuEvasion);
     printf("----------------------------------------\n");
 
     printf("\n+--------------------------------------+\n");
@@ -110,18 +110,18 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
         option = choix();
     }
     if (option == 1) {
-        printf("");
+        printf("m");
     }
     else if (option == 2) {
-        printf("");
+        printf("m");
     }
     else if (option == 3) {
-        printf("");
+        printf("m");
     }
     else if (option == 4) {
-        printf("");
+        printf("m");
     }
     else {
-        printf("");
+        printf("m");
     }
 };
