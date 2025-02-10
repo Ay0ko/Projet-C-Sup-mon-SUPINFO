@@ -69,7 +69,7 @@ void niveauSup(struct Supemon *jSupemon) {
 void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
    if (joueur->selectedSupemon->moves[choosed].name == "Scratch" || joueur->selectedSupemon->moves[choosed].name == "Pound") {
         if (!chanceEsquive(opSupemon, joueur->selectedSupemon)) {
-            opSupemon->HP-=aleaArrondi(joueur->selectedSupemon->actuATK*joueur->selectedSupemon->moves[choosed].damage/opSupemon->actuDEF);
+            opSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
             battleOption(opSupemon, joueur);
         }
         else {
@@ -91,10 +91,10 @@ void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
    }
 };
 
-void enemyMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
-    if (opSupemon->moves[choosed] == "Scratch" || opSupemon->moves[choosed] == "Pound") {
+void choixEnemymove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
+    if (opSupemon->moves[choosed].name == "Scratch" || opSupemon->moves[choosed].name == "Pound") {
         if (!chanceEsquive(joueur->selectedSupemon, opSupemon)) {
-            joueur->selectedSupemon->HP-=aleaArrondi(opSupemon->actuATK*opSupemon->moves[choosed].damage/joueur->selectedSupemon->actuDEF);
+            joueur->selectedSupemon->HP-=opSupemon->moves[choosed].damage;
             battleOption(opSupemon, joueur);
         }
         else {
@@ -103,15 +103,15 @@ void enemyMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
         }
     }
     else if (opSupemon->moves[choosed].name == "Shell") {
-        opSupemon->selectedSupemon->actuDEF+=jo->opSupemon->moves[choosed].BoostDEF;
+        opSupemon->actuDEF+=opSupemon->moves[choosed].BoostDEF;
         battleOption(opSupemon, joueur);
        }
        else if (opSupemon->moves[choosed].name == "Grawl") {
-        opSupemon->selectedSupemon->actuATK+=opSupemon->moves[choosed].BoostATK;
+        opSupemon->actuATK+=opSupemon->moves[choosed].BoostATK;
         battleOption(opSupemon, joueur);
        }
        else {
-        opSupemon->selectedSupemon->actuEvasion+=opSupemon->moves[choosed].BoostEvasion;
+        opSupemon->actuEvasion+=opSupemon->moves[choosed].BoostEvasion;
         battleOption(opSupemon, joueur);
        }
 };
@@ -168,7 +168,7 @@ void enemyMove(struct Supemon *opSupemon, struct Player *joueur) {
     printf("%s uses %s!\n", opSupemon->nameSupe, opSupemon->moves[attaque].name);
     usleep(2000000);
     system("clear");
-    doMove(opSupemon, joueur, attaque + 1); 
+    choixEnemymove(opSupemon, joueur, attaque);
 };
 
 

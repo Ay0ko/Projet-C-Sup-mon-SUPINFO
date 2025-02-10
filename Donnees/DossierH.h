@@ -104,6 +104,7 @@ bool chanceEsquive(struct Supemon *jSupemon, struct Supemon *opSupemon);
 bool captureSupemon(struct Supemon *opSupemon);
 void niveauSup(struct Supemon *jSupemon);
 void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed);
+void choixEnemymove(struct Supemon *opSupemon, struct Player *joueur, int choosed);
 void changeSupemon(struct Player *joueur);
 void capture(struct Supemon *opSupemon, struct Player *joueur);
 void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur);
