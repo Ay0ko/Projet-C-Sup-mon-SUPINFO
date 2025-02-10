@@ -59,6 +59,8 @@ void removeItem(struct Item *object, struct Player *joueur) {
 
 void buyOption(struct Player *joueur) {
     printf("+--------------------------------------+\n");
+    printf("| You have : %4d Supcoins.            |\n", joueur->Supcoins);
+    printf("|                                      |\n");
     printf("| What do you want to buy ?            |\n");
     printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.cost);
     printf("|      2 - Super Potion (%3d Supcoins) |\n", SuperPotion.cost);
@@ -184,6 +186,8 @@ void buyOption(struct Player *joueur) {
 
 void sellOption(struct Player *joueur) {
     printf("+--------------------------------------+\n");
+    printf("| You have : %4d Supcoins.            |\n", joueur->Supcoins);
+    printf("|                                      |\n");
     printf("| What do you want to sell ?           |\n");
     printf("|      1 - Potion (%3d Supcoins)       |\n", Potion.sell);
     printf("|      2 - Super Potion (%3d Supcoins) |\n", SuperPotion.sell);
