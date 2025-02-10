@@ -27,7 +27,21 @@ void choisirDirection(struct Player *joueuractu) {
     if (choice2 == 1) {
         system("clear");
         printf("\nYou venture into the wild !\n");
-        SetBattle(&listSupemons[aleaSupemon()], joueuractu);
+        int joueurLevel = joueuractu->selectedSupemon->lvl;
+        struct Supemon *sameLevelSupemons[10]; 
+        int count = 0;
+        for (int i = 0; i < sizeof(listSupemons) / sizeof(listSupemons[0]); i++) {
+            if (listSupemons[i].lvl == joueurLevel) {
+                sameLevelSupemons[count] = &listSupemons[i];
+                count++;
+            }
+        }
+        if (count > 0) {
+            srand(time(NULL));
+            struct Supemon *wildSupemon = sameLevelSupemons[rand() % count];
+
+            SetBattle(wildSupemon, joueuractu);
+        }
     } else if (choice2 == 2) {
         system("clear");
         printf("\nWelcome to the shop !\n");
