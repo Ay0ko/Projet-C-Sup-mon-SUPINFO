@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <assert.h>
 #include <time.h>
+#include <unistd.h>
 #include "DossierH.h"
 
 
@@ -77,6 +78,31 @@ void catchSupemon(struct Supemon *opSupemon, struct Player *joueur) {
 
 void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     printf("You've come across a %c.\n");
+    usleep(350000);
+    system("clear");
+    printf("Your turn...\n");
+    printf("%s  (enemy)\n", opSupemon.nameSupe);
+    printf("----------------------------------------\n");
+    printf("    HP: %3d/%-3d           Lvl: %2d\n", opSupemon->HP, opSupemon->maxHP, opSupemon->lvl);
+    printf("    Atk: %2d               Def: %2d\n", opSupemon->actuATK, opSupemon->actuDEF);
+    printf("    Acc: %2d               Eva: %2d\n", opSupemon->actuAccuracy, opSupemon->actuEvasion);
+    printf("----------------------------------------\n");
+    printf("%s  (%s)\n", joueur->selectedSupemon->nameSupe, joueur->name);
+    printf("----------------------------------------\n");
+    printf("    HP: %3d/%-3d           Lvl: %2d\n", joueur->selectedSupemon->HP, joueur->selectedSupemon->maxHP, joueur.selectedSupemon->lvl);
+    printf("    Atk: %2d               Def: %2d\n", joueur.selectedSupemon->ATK, joueur.selectedSupemon->DEF);
+    printf("    Acc: %2d               Eva: %2d\n", joueur.selectedSupemon->speed, joueur.selectedSupemon->evasion);
+    printf("----------------------------------------\n");
+
+    printf("\n+--------------------------------------+\n");
+    printf("| What will you do ?                   |\n");
+    printf("|   1 - Move                           |\n");
+    printf("|   2 - Change Supemon                 |\n");
+    printf("|   3 - Use item                       |\n");
+    printf("|   4 - Capture                        |\n");
+    printf("|   5 - Run away                       |\n");
+    printf("+--------------------------------------+\n");
+    printf("1, 2, 3, 4 or 5: ");
     int option = choix();
     while (option < 1 || option > 4) {
         printf("\nInvalid choice ! Choose a valid option.\n");
