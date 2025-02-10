@@ -23,6 +23,7 @@ void restore_hp(struct Player *joueur) {
         choice = choix();
     }
     if (choice == 1) {
+        joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;
         for (int i = 0; i < joueur->SupemonCount; i++) {
             joueur->team[i].HP = joueur->team[i].maxHP;
         }
