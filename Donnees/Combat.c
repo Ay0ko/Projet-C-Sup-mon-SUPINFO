@@ -11,7 +11,7 @@
 
 
 int aleaSupemon() {
-    return (rand() % 9) + 1;
+    int i = (rand() % 9) + 1;
 };
 
 int aleaArrondi(float val) {
@@ -78,7 +78,7 @@ void catchSupemon(struct Supemon *opSupemon, struct Player *joueur) {
 
 void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     printf("You've come across a %s.\n", opSupemon->nameSupe);
-    usleep(350000);
+    usleep(600000);
     system("clear");
     printf("Your turn...\n");
     printf("%49s  (enemy)\n", opSupemon->nameSupe);
