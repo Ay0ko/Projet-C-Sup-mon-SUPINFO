@@ -20,7 +20,7 @@ struct Move {
 
 
 struct Supemon {
-    char nameSupe[50];
+    char nameSupe[15];
     int id;
     int lvl;
     int xp;
@@ -82,6 +82,9 @@ void leChoix(struct Player *joueur);
 void initializeSupemons();
 void initializeItems();
 void initializePlayer(struct Player *player, const char *name);
+
+void addSupemon(struct Supemon *sup, struct Player *dresseur);
+int countSupemons(struct Player *joueur);
 
 bool checkMoula(int price, struct Player *joueur);
 bool addItem(struct Item *addedItem, struct Player *joueur);

@@ -59,14 +59,17 @@ void leChoix(struct Player *joueur) {
     }
     if (nombre == 1) {
         joueur->selectedSupemon = &Supmander;
+        joueur->team[0] = Supmander;
         system("clear");
         printf("\nYou chose Supmander !\n");
     } else if (nombre == 2) {
         joueur->selectedSupemon = &Supasaur;
+        joueur->team[0] = Supasaur;
         system("clear");
         printf("\nYou chose Supasaur !\n");
     } else {
         joueur->selectedSupemon = &Supirtle;
+        joueur->team[0] = Supirtle;
         system("clear");
         printf("\nYou chose Supirtle !\n");
     }
@@ -99,6 +102,12 @@ void addSupemon(struct Supemon *sup, struct Player *dresseur) {
     }
 };
 
-int countSupemons(struct Player*joueur) {
-
+int countSupemons(struct Player *joueur) {
+    int j = 0;
+    for (int i = 0; i < 7; i++) {
+        if (joueur->team[0].id != 0) {
+            j+=1;
+        }
+    }
+    return j;
 };

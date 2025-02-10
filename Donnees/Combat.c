@@ -64,26 +64,31 @@ void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
    if (joueur->selectedSupemon->moves[choosed].name == "Scratch" || joueur->selectedSupemon->moves[choosed].name == "Pound") {
         if (!chanceEsquive(opSupemon, joueur->selectedSupemon)) {
             opSupemon->HP-=aleaArrondi(joueur->selectedSupemon->actuATK*joueur->selectedSupemon->moves[0].damage/opSupemon->actuDEF);
+            battleOption(opSupemon, joueur);
         }
         else {
             printf("Oh no, %s managed to dodge your attack !", opSupemon->nameSupe);
+            battleOption(opSupemon, joueur);
         }
    }
    else if (joueur->selectedSupemon->moves[choosed].name == "Shell") {
     joueur->selectedSupemon->actuDEF+=joueur->selectedSupemon->moves[choosed].BoostDEF;
+    battleOption(opSupemon, joueur);
    }
    else if (joueur->selectedSupemon->moves[choosed].name == "Grawl") {
     joueur->selectedSupemon->actuATK+=joueur->selectedSupemon->moves[choosed].BoostATK;
+    battleOption(opSupemon, joueur);
    }
    else {
     joueur->selectedSupemon->actuEvasion+=joueur->selectedSupemon->moves[choosed].BoostEvasion;
+    battleOption(opSupemon, joueur);
    }
 };
 
 void changeSupemon(struct Player *joueur) {
-  printf("\n+--------------------------------------+\n");
-    printf("| Supemon : %d/6                       |\n");
-    printf("| -->%49s                              |\n", joueur->team[0].nameSupe);
+    printf("\n+--------------------------------------+\n");
+    printf("| Supemon : %d/6                        |\n", countSupemons(joueur));
+    printf("| --> %14s                   |\n", joueur->team[0].nameSupe);
     printf("|   2 - Change Supemon                 |\n");
     printf("|   3 - Use item                       |\n");
     printf("|   4 - Capture                        |\n");
@@ -104,7 +109,7 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     usleep(3000000);
     system("clear");
     printf("Your turn...\n");
-    printf("%49s  (enemy)\n", opSupemon->nameSupe);
+    printf("%14s  (enemy)\n", opSupemon->nameSupe);
     printf("----------------------------------------\n");
     printf("    HP: %3d/%-3d           Lvl: %2d\n", opSupemon->HP, opSupemon->maxHP, opSupemon->lvl);
     printf("    Atk: %2d               Def: %2d\n", opSupemon->actuATK, opSupemon->actuDEF);
@@ -133,9 +138,12 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
         option = choix();
     }
     if (option == 1) {
-        printf("1 - %s\n", joueur->selectedSupemon->moves[0].name);
+        printf("\n1 - %s\n", joueur->selectedSupemon->moves[0].name);
         printf("2 - %s\n", joueur->selectedSupemon->moves[1].name);
         printf("3 - Cancel\n");
+        printf("Enter 1, 2 or 3: ");
+        int mvt = choix();
+        doMove(opSupemon, joueur, mvt);
     }
     else if (option == 2) {
         changeSupemon(joueur);

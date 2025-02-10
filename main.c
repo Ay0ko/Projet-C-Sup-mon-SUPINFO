@@ -18,16 +18,21 @@
 int main() {
     srand(time(NULL));
     system("clear");
+
     initializeSupemons();
     initializeItems();
-    struct Player Supdresseur;
-    char namePlayer;
-    printf("Hello trainer, what's your name ? \n");
-    scanf("%49s", &namePlayer);
-    initializePlayer(&Supdresseur, &namePlayer);
-    system("clear");
-    printf("\nHello %s !\nWelcome in Supemon World ! \n", Supdresseur.name);
 
+    struct Player Supdresseur;
+
+    char namePlayer;
+    printf("\nHello trainer, what's your name ? \n");
+    scanf("%49s", &namePlayer);
+
+    initializePlayer(&Supdresseur, &namePlayer);
+
+    system("clear");
+
+    printf("\nHello %s !\nWelcome in Supemon World ! \n", Supdresseur.name);
     printf("+--------------------------------------+\n");
     printf("| Choose your starter Supémon:         |\n");
     printf("|                                      |\n");
