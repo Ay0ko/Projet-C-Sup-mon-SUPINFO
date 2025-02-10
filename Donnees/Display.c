@@ -10,17 +10,17 @@
 
 
 void displayBattle(struct Supemon *opSupemon, struct Player *joueur) {
-    printf("\n%14s  (enemy)\n", opSupemon->nameSupe);
+    printf("\n%s  (enemy)\n", opSupemon->nameSupe);
     printf("----------------------------------------\n");
-    printf("    HP: %3d/%-3d           Lvl: %2d\n", opSupemon->HP, opSupemon->maxHP, opSupemon->lvl);
-    printf("    Atk: %2d               Def: %2d\n", opSupemon->actuATK, opSupemon->actuDEF);
-    printf("    Acc: %2d               Eva: %2d\n", opSupemon->actuAccuracy, opSupemon->actuEvasion);
+    printf("    HP: %3d/%-3d          Lvl: %2d\n", opSupemon->HP, opSupemon->maxHP, opSupemon->lvl);
+    printf("    ATK: %2d              DEF: %2d\n", opSupemon->actuATK, opSupemon->actuDEF);
+    printf("    Acc: %2d              Eva: %2d\n", opSupemon->actuAccuracy, opSupemon->actuEvasion);
     printf("----------------------------------------\n");
     printf("%s  (%s)\n", joueur->selectedSupemon->nameSupe, joueur->name);
     printf("----------------------------------------\n");
-    printf("    HP: %3d/%-3d           Lvl: %2d\n", joueur->selectedSupemon->HP, joueur->selectedSupemon->maxHP, joueur->selectedSupemon->lvl);
-    printf("    Atk: %2d               Def: %2d\n", joueur->selectedSupemon->actuATK, joueur->selectedSupemon->actuDEF);
-    printf("    Acc: %2d               Eva: %2d\n", joueur->selectedSupemon->actuAccuracy, joueur->selectedSupemon->actuEvasion);
+    printf("    HP: %3d/%-3d          Lvl: %2d\n", joueur->selectedSupemon->HP, joueur->selectedSupemon->maxHP, joueur->selectedSupemon->lvl);
+    printf("    Atk: %2d              Def: %2d\n", joueur->selectedSupemon->actuATK, joueur->selectedSupemon->actuDEF);
+    printf("    Acc: %2d              Eva: %2d\n", joueur->selectedSupemon->actuAccuracy, joueur->selectedSupemon->actuEvasion);
     printf("----------------------------------------\n");
 
     printf("\n+--------------------------------------+\n");

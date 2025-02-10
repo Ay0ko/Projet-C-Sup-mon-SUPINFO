@@ -15,7 +15,6 @@ int aleaSupemon() {
 };
 
 int aleaArrondi(float val) {
-    srand(time(NULL));
     int kifkif = rand() % 2;
     switch(kifkif) {
         case 0:
@@ -46,7 +45,7 @@ bool captureSupemon(struct Supemon *opSupemon) {
 };
 
 void niveauSup(struct Supemon *jSupemon) {
-    if (jSupemon->xp > jSupemon->lvl-1 * 1000 + 500) {
+    if (jSupemon->xp > ((jSupemon->lvl-1) * 1000 + 500)) {
         jSupemon->lvl+=1;
         float stat = 0;
         stat = jSupemon->maxHP * 1.30;
@@ -67,7 +66,7 @@ void niveauSup(struct Supemon *jSupemon) {
 };
 
 void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
-   if (joueur->selectedSupemon->moves[choosed].name == "Scratch" || joueur->selectedSupemon->moves[choosed].name == "Pound") {
+   if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Scratch") || strcmp(joueur->selectedSupemon->moves[choosed].name, "Pound")) {
         if (!chanceEsquive(opSupemon, joueur->selectedSupemon)) {
             opSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
             battleOption(opSupemon, joueur);
@@ -92,7 +91,7 @@ void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
 };
 
 void choixEnemymove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
-    if (opSupemon->moves[choosed].name == "Scratch" || opSupemon->moves[choosed].name == "Pound") {
+    if (strcmp(opSupemon->moves[choosed].name, "Scratch") || strcmp(opSupemon->moves[choosed].name, "Pound")) {
         if (!chanceEsquive(joueur->selectedSupemon, opSupemon)) {
             joueur->selectedSupemon->HP-=opSupemon->moves[choosed].damage;
             battleOption(opSupemon, joueur);
@@ -200,7 +199,7 @@ void SetBattle(struct Supemon *opSupemon, struct Player *joueur) {
                 printf("3 - Cancel\n");
                 printf("Enter 1, 2 or 3: ");
                 int mvt = choix();
-                doMove(opSupemon, joueur, mvt);
+                doMove(opSupemon, joueur, mvt - 1);
             } else if (option == 2) {
                 changeSupemon(joueur);
             } else if (option == 3) {
