@@ -27,6 +27,8 @@ struct Supemon Abra;
 struct Supemon Turtwig;
 struct Supemon Glaceon;
 
+struct Supemon listSupemons[9];
+
 void initializeSupemons() {
     Supmander = (struct Supemon) {"SUPMANDER", 1, 1, 0, 0, 10, 10, 1, 1, 1, 1, 1, 1, 2, 2, 1, {Scratch, Grawl}};
     Supasaur = (struct Supemon) {"SUPASAUR", 2, 1, 0, 0, 9, 9, 1, 1, 1, 1, 3, 3, 2, 2, 2, {Pound, Foliage}};
@@ -37,6 +39,15 @@ void initializeSupemons() {
     Abra = (struct Supemon) {"ABRA", 7, 2, 6500, 170, 11, 11, 1, 1, 1, 1, 2, 2, 2, 2, 0, {Foliage, Grawl}};
     Turtwig = (struct Supemon) {"TURTWIG", 8, 3, 7500, 190, 12, 12, 3, 3, 2, 2, 1, 1, 2, 2, 2, {Scratch, Foliage}};
     Glaceon = (struct Supemon) {"GLACEON", 9, 3, 8500, 200, 12, 12, 2, 2, 1, 1, 2, 2, 1, 1, 3, {Pound, Shell}};
+    listSupemons[0] = Supmander;
+    listSupemons[1] = Supasaur;
+    listSupemons[2] = Supirtle;
+    listSupemons[3] = Patrat;
+    listSupemons[4] = Eevee;
+    listSupemons[5] = Grimer;
+    listSupemons[6] = Abra;
+    listSupemons[7] = Turtwig;
+    listSupemons[8] = Glaceon;
 };
 
 void leChoix(struct Player *joueur) {

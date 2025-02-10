@@ -74,7 +74,6 @@ extern struct Supemon Grimer;
 extern struct Supemon Abra;
 extern struct Supemon Turtwig;
 extern struct Supemon Glaceon;
-
 extern struct Supemon listSupemons[9];
 
 int choix();
