@@ -149,7 +149,7 @@ void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
         printf("m");
     }
     else if (option == 4) {
-        printf("m");
+        capture(opSupemon, joueur);
     }
     else {
         printf("m");
