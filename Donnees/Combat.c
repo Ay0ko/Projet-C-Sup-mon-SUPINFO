@@ -100,17 +100,10 @@ void changeSupemon(struct Player *joueur) {
 void capture(struct Supemon *opSupemon, struct Player *joueur) {
     if (captureSupemon(opSupemon)) {
         addSupemon(opSupemon, joueur);
-        printf("+---------------------------------------+\n");
-        printf("|             Congratulations,          |\n");
-        printf("|           you've captured %s !        |\n",opSupemon->nameSupe);
-        printf("|         %s as joined your team !      |\n",opSupemon->nameSupe);
-        printf("+---------------------------------------+\n");
+        printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opSupemon->nameSupe, opSupemon->nameSupe);
     }
     else {
-        printf("+---------------------------------------+\n");
-        printf("|               Oh nooo,                |\n");
-        printf("|      You failed to capture %s !       |\n",opSupemon->nameSupe);
-        printf("+---------------------------------------+\n");
+        printf("\nOh nooo, you failed to capture %s\n",opSupemon->nameSupe);
     }
 };
 
