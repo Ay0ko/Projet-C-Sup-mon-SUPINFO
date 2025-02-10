@@ -75,6 +75,8 @@ extern struct Supemon Abra;
 extern struct Supemon Turtwig;
 extern struct Supemon Glaceon;
 
+extern struct Supemon listSupemons[9];
+
 int choix();
 void leChoix(struct Player *joueur);
 

@@ -61,3 +61,6 @@ void niveauSup(struct Supemon *jSupemon) {
     }
 };
 
+void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
+    printf("You've come across a %c.\n");
+};
