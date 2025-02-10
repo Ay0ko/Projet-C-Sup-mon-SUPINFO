@@ -69,7 +69,7 @@ void niveauSup(struct Supemon *jSupemon) {
 void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
    if (joueur->selectedSupemon->moves[choosed].name == "Scratch" || joueur->selectedSupemon->moves[choosed].name == "Pound") {
         if (!chanceEsquive(opSupemon, joueur->selectedSupemon)) {
-            opSupemon->HP-=aleaArrondi(joueur->selectedSupemon->actuATK*joueur->selectedSupemon->moves[0].damage/opSupemon->actuDEF);
+            opSupemon->HP-=aleaArrondi(joueur->selectedSupemon->actuATK*joueur->selectedSupemon->moves[choosed].damage/opSupemon->actuDEF);
             battleOption(opSupemon, joueur);
         }
         else {
@@ -89,6 +89,14 @@ void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
     joueur->selectedSupemon->actuEvasion+=joueur->selectedSupemon->moves[choosed].BoostEvasion;
     battleOption(opSupemon, joueur);
    }
+};
+
+void enemyMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
+    if (opSupemon->moves[choosed] == "Scratch" || opSupemon->moves[choosed] == "Pound") {
+        if (!chanceEsquive(joueur->selectedSupemon, opSupemon)) {
+            joueur->selectedSupemon->HP-=aleaArrondi(opSupemon->actuATK*opSupemon->moves[choosed]);
+        }
+    }
 };
 
 void changeSupemon(struct Player *joueur) {
