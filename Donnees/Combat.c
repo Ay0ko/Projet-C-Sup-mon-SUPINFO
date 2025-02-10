@@ -35,8 +35,8 @@ bool chanceEsquive(struct Supemon *jSupemon, struct Supemon *opSupemon) {
 
 bool captureSupemon(struct Supemon *opSupemon) {
     float capture = 0.0;
-    capture = (opSupemon->maxHP - opSupemon->HP) / opSupemon->maxHP - 0.5;
-    return (rand()/(double)RAND_MAX) < capture ? 1 : 0;
+    capture = ((opSupemon->maxHP - opSupemon->HP) / (float)opSupemon->maxHP) - 0.5;
+    return (rand() / (double)RAND_MAX) < capture;
 };
 
 void niveauSup(struct Supemon *jSupemon) {
