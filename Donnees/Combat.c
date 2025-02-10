@@ -10,9 +10,7 @@
 
 
 int aleaSupemon() {
-    int debut = 4;
-    int fin = 9;
-    return debut + rand() % (fin - debut + 1);
+    return (rand() % 9) + 1;
 };
 
 int aleaArrondi(float val) {
@@ -59,12 +57,6 @@ void niveauSup(struct Supemon *jSupemon) {
         stat = jSupemon->moves[1].damage * 1.30;
         jSupemon->moves[1].damage = aleaArrondi(stat);
     }
-};
-
-int supemonAlea() {
-    int i = rand(0, 9);
-    printf("%d", i);
-    return i;
 };
 
 void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
