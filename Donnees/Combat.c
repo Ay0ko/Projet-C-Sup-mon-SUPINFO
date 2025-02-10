@@ -120,6 +120,7 @@ void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur) {
         choisirDirection(joueur);
     }
     else {
+        system("clear");
         printf("\nYou failed to escape !\n");
         battleOption(opSupemon, joueur);
     }

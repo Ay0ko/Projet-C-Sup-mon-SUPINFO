@@ -27,7 +27,7 @@ void choisirDirection(struct Player *joueuractu) {
     if (choice2 == 1) {
         system("clear");
         printf("\nYou venture into the wild !\n");
-        battleOption(&listSupemons[aleaSupemon()], joueuractu);
+        SetBattle(&listSupemons[aleaSupemon()], joueuractu);
     } else if (choice2 == 2) {
         system("clear");
         printf("\nWelcome to the shop !\n");
