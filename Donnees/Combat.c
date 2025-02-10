@@ -103,7 +103,7 @@ void capture(struct Supemon *opSupemon, struct Player *joueur) {
         printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opSupemon->nameSupe, opSupemon->nameSupe);
     }
     else {
-        printf("\nOh nooo, you failed to capture %s\n",opSupemon->nameSupe);
+        printf("\nOh nooo, you failed to capture %s !\n",opSupemon->nameSupe);
     }
 };
 
