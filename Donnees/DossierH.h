@@ -113,5 +113,13 @@ void choisirDirection(struct Player *joueuractu);
 
 void restore_hp(struct Player *joueur);
 
+void displayBattle(struct Supemon *opSupemon, struct Player *joueur);
+void displayShop();
+void displayBuy(struct Player *joueur);
+void displaySell(struct Player *joueur);
+void displayPotion();
+void displaySuperpotion();
+void displayRarecandy()
+
 
 #endif // DOSSIERH_H_INCLUDED
