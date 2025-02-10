@@ -101,6 +101,7 @@ void shopOption(struct Player *joueur);
 int aleaSupemon();
 int aleaArrondi(float val);
 bool chanceEsquive(struct Supemon *jSupemon, struct Supemon *opSupemon);
+bool chancefuite(struct Supemon *jSupemon, struct Supemon *opSupemon);
 bool captureSupemon(struct Supemon *opSupemon);
 void niveauSup(struct Supemon *jSupemon);
 void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed);
