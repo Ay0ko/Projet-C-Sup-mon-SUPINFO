@@ -96,6 +96,10 @@ int aleaArrondi(float val);
 bool chanceEsquive(struct Supemon *jSupemon, struct Supemon *opSupemon);
 bool captureSupemon(struct Supemon *opSupemon);
 void niveauSup(struct Supemon *jSupemon);
+void doMove(struct Supemon *opSupemon, struct Player *joueur);
+void changeSupemon(struct Player *joueur);
+void useItem(struct Player *joueur);
+void catchSupemon(struct Supemon *opSupemon, struct Player *joueur);
 void battleOption(struct Supemon *opSupemon, struct Player *joueur);
 
 void choisirDirection(struct Player *joueuractu);

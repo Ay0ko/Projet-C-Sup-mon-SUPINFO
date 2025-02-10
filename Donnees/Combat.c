@@ -59,6 +59,43 @@ void niveauSup(struct Supemon *jSupemon) {
     }
 };
 
+void doMove(struct Supemon *opSupemon, struct Player *joueur) {
+    printf("");
+};
+
+void changeSupemon(struct Player *joueur) {
+    printf("");
+};
+
+void useItem(struct Player *joueur) {
+    printf("");
+};
+
+void catchSupemon(struct Supemon *opSupemon, struct Player *joueur) {
+    printf("");
+};
+
 void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
     printf("You've come across a %c.\n");
+    int option = choix();
+    while (option < 1 || option > 4) {
+        printf("\nInvalid choice ! Choose a valid option.\n");
+        printf("Enter 1, 2, 3, 4 or 5: ");
+        option = choix();
+    }
+    if (option == 1) {
+        printf("");
+    }
+    else if (option == 2) {
+        printf("");
+    }
+    else if (option == 3) {
+        printf("");
+    }
+    else if (option == 4) {
+        printf("");
+    }
+    else {
+        printf("");
+    }
 };
