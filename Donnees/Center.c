@@ -23,7 +23,7 @@ void restore_hp(struct Player *joueur) {
         choice = choix();
     }
     if (choice == 1) {
-        for (int i = 0; i < joueur->SupemonCount + 1; i++) {
+        for (int i = 0; i < joueur->SupemonCount; i++) {
             joueur->team[i].HP = joueur->team[i].maxHP;
         }
         printf("+---------------------------------------+\n");
@@ -33,7 +33,8 @@ void restore_hp(struct Player *joueur) {
         printf("+---------------------------------------+\n");
         usleep(2000000);
         system("clear");
-        restore_hp(joueur);
+        choisirDirection(joueur);
+        
     }
     else {
         system("clear");
