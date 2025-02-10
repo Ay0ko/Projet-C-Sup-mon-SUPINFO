@@ -105,7 +105,7 @@ void addSupemon(struct Supemon *sup, struct Player *dresseur) {
 int countSupemons(struct Player *joueur) {
     int j = 0;
     for (int i = 0; i < 7; i++) {
-        if (joueur->team[0].id != 0) {
+        if (joueur->team[i].id != 0) {
             j+=1;
         }
     }

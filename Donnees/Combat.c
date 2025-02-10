@@ -89,10 +89,11 @@ void changeSupemon(struct Player *joueur) {
     printf("\n+--------------------------------------+\n");
     printf("| Supemon : %d/6                        |\n", countSupemons(joueur));
     printf("| --> %14s                   |\n", joueur->team[0].nameSupe);
-    printf("|   2 - Change Supemon                 |\n");
-    printf("|   3 - Use item                       |\n");
-    printf("|   4 - Capture                        |\n");
-    printf("|   5 - Run away                       |\n");
+    printf("| --> %14s                   |\n", joueur->team[1].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[2].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[3].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[4].nameSupe);
+    printf("| --> %14s                   |\n", joueur->team[5].nameSupe);
     printf("+--------------------------------------+\n");
 };
 
