@@ -12,6 +12,7 @@
 #include "Donnees/Player.c"
 #include "Donnees/Direction.c"
 #include "Donnees/Center.c"
+#include "Donnees/Combat.c"
 
 
 int main(){
