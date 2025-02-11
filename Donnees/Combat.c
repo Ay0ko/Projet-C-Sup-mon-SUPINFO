@@ -52,7 +52,7 @@ int gainExperience(int enemyLevel) {
     srand(time(NULL));  
     int minXP = 100 * enemyLevel;
     int maxXP = 500 * enemyLevel;
-    Gainex = (rand() % (maxXP - minXP + 1)) + minXP;
+    int Gainex = (rand() % (maxXP - minXP + 1)) + minXP;
     printf("\nYou've earned %d XP!\n", Gainex);
 }
 
