@@ -141,35 +141,35 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
 
 
 void changeSupemon(struct Player *opSupemon, struct Player *joueur) {
-    printf("\n+--------------------------------------+\n");
-    printf("| Supemon : %d/6                        |\n", countSupemons(joueur));
-    printf("| --> %14s                   |\n", joueur->team[0].nameSupe);
-    printf("| --> %14s                   |\n", joueur->team[1].nameSupe);
-    printf("| --> %14s                   |\n", joueur->team[2].nameSupe);
-    printf("| --> %14s                   |\n", joueur->team[3].nameSupe);
-    printf("| --> %14s                   |\n", joueur->team[4].nameSupe);
-    printf("| --> %14s                   |\n", joueur->team[5].nameSupe);
-    printf("+--------------------------------------+\n");
-    printf("Wich Supemon would you like to swap with your %s ?\n", joueur->selectedSupemon->nameSupe);
-    printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
-    int supSwap = choix();
-    while(supSwap < 1 || supSwap > 7) {
-        printf("\nInvalid choice ! Choose a valid option.\n");
-        printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
-        int supSwap = choix();
-    }
-    if (supSwap == 7) {
-        // Going back
-    }
-    else {
-        if (strcmp(joueur->team[supSwap - 1].nameSupe, joueur->selectedSupemon->nameSupe) == 0) {
-            printf("\033[H\033[J");
-            printf("Wrong choice, you choosed the fighting Supemon ! Please pick another one.");
-            usleep(2500000);
-            printf("\033[H\033[J");
-            changeSupemon(joueur);
-        }
-    }
+    // printf("\n+--------------------------------------+\n");
+    // printf("| Supemon : %d/6                        |\n", countSupemons(joueur));
+    // printf("| --> %14s                   |\n", joueur->team[0].nameSupe);
+    // printf("| --> %14s                   |\n", joueur->team[1].nameSupe);
+    // printf("| --> %14s                   |\n", joueur->team[2].nameSupe);
+    // printf("| --> %14s                   |\n", joueur->team[3].nameSupe);
+    // printf("| --> %14s                   |\n", joueur->team[4].nameSupe);
+    // printf("| --> %14s                   |\n", joueur->team[5].nameSupe);
+    // printf("+--------------------------------------+\n");
+    // printf("Wich Supemon would you like to swap with your %s ?\n", joueur->selectedSupemon->nameSupe);
+    // printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
+    // int supSwap = choix();
+    // while(supSwap < 1 || supSwap > 7) {
+    //     printf("\nInvalid choice ! Choose a valid option.\n");
+    //     printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
+    //     int supSwap = choix();
+    // }
+    // if (supSwap == 7) {
+    //     // Going back
+    // }
+    // else {
+    //     if (strcmp(joueur->team[supSwap - 1].nameSupe, joueur->selectedSupemon->nameSupe) == 0) {
+    //         printf("\033[H\033[J");
+    //         printf("Wrong choice, you choosed the fighting Supemon ! Please pick another one.");
+    //         usleep(2500000);
+    //         printf("\033[H\033[J");
+    //         changeSupemon(opSupemon, joueur);
+    //     }
+    // }
 };
 
 
@@ -249,9 +249,15 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
         }
         if (joueur->selectedSupemon->HP <= 0) {
             printf("\nYour Supemon has been defeated ! You have been forced to flee !\n");
+            usleep(2500000);
+            printf("We'll take care of your Supemon");
+            usleep(2500000);
+            printf("\033[H\033[J");
         } else if (opJoueur->selectedSupemon->HP <= 0) {
             printf("\nYou have won %s !\n", opJoueur->selectedSupemon->nameSupe);
             RecompencePiece(joueur);
+            usleep(2500000);
+            printf("\033[H\033[J");
             choisirDirection(opJoueur, joueur);
         }
 };
