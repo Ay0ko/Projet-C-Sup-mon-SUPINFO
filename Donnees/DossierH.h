@@ -107,7 +107,7 @@ void niveauSup(struct Supemon *jSupemon);
 void doMove(struct Player *opJoueur, struct Player *joueur, int choosed);
 void RecompencePiece(struct Player *joueur);
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed);
-void changeSupemon(struct Player *joueur);
+void changeSupemon(struct Player *opSupemon, struct Player *joueur);
 void capture(struct Player *opJoueur, struct Player *joueur);
 void FuiteCombat(struct Player *opJoueur, struct Player *joueur);
 void useItem(struct Player *joueur);

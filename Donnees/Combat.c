@@ -14,6 +14,7 @@ int aleaSupemon() {
     int i = (rand() % 9) + 1;
 };
 
+
 int aleaArrondi(float val) {
     int kifkif = rand() % 2;
     switch(kifkif) {
@@ -26,11 +27,13 @@ int aleaArrondi(float val) {
     }
 };
 
+
 bool chanceEsquive(struct Supemon *jSupemon, struct Player *opJoueur) {
     float dodge = 0.0;
     dodge = jSupemon->actuAccuracy / (jSupemon->actuAccuracy + opJoueur->selectedSupemon->actuEvasion) + 0.1;
     return (rand()/(double)RAND_MAX) < dodge;
 };
+
 
 bool chancefuite(struct Supemon *jSupemon, struct Player *opJoueur) {
     float fuite = 0.0;
@@ -38,11 +41,13 @@ bool chancefuite(struct Supemon *jSupemon, struct Player *opJoueur) {
     return (rand() / (double)RAND_MAX) < fuite;
 };
 
+
 bool captureSupemon(struct Player *opJoueur) {
     float capture = 0.0;
     capture = ((opJoueur->selectedSupemon->maxHP - opJoueur->selectedSupemon->HP) / (float)opJoueur->selectedSupemon->maxHP) - 0.5;
     return (rand() / (double)RAND_MAX) < capture;
 };
+
 
 void niveauSup(struct Supemon *jSupemon) {
     if (jSupemon->xp > ((jSupemon->lvl-1) * 1000 + 500)) {
@@ -64,6 +69,7 @@ void niveauSup(struct Supemon *jSupemon) {
         jSupemon->moves[1].damage = aleaArrondi(stat);
     }
 };
+
 
 void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
    if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(joueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
@@ -105,14 +111,14 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
    }
 };
 
-void RecompencePiece(struct Player *joueur){
-    int RecompenseMin, RecompenseMax, Recompense;
-    RecompenseMin= 100;
-    RecompenseMax= 500;
-    Recompense = rand() % (RecompenseMax - RecompenseMin + 1) + RecompenseMin;
-    joueur->Supcoins+=Recompense;
-    printf("\nYou've earned %d Supcoins !\n", Recompense);
+
+void RecompencePiece(struct Player *joueur) {
+    int RecompenseMin = 100, RecompenseMax = 500;
+    int Recompense = rand() % (RecompenseMax - RecompenseMin + 1) + RecompenseMin;
+    joueur->Supcoins += Recompense;
+    printf("\nYou've earned %d Supcoins!\n", Recompense);
 };
+
 
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed) {
     if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || 
@@ -131,9 +137,10 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
             usleep(2500000);
         }
     }
-}
+};
 
-void changeSupemon(struct Player *joueur) {
+
+void changeSupemon(struct Player *opSupemon, struct Player *joueur) {
     printf("\n+--------------------------------------+\n");
     printf("| Supemon : %d/6                        |\n", countSupemons(joueur));
     printf("| --> %14s                   |\n", joueur->team[0].nameSupe);
@@ -165,6 +172,7 @@ void changeSupemon(struct Player *joueur) {
     }
 };
 
+
 void capture(struct Player *opJoueur, struct Player *joueur) {
     if (captureSupemon(opJoueur)) {
         addSupemon(opJoueur->selectedSupemon, joueur);
@@ -180,6 +188,7 @@ void capture(struct Player *opJoueur, struct Player *joueur) {
         choixEnemymove(opJoueur, joueur, rand() % 2);
     }
 };
+
 
 void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
     if (chancefuite(joueur->selectedSupemon, opJoueur)) {
@@ -198,9 +207,11 @@ void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
     }
 };
 
+
 void useItem(struct Player *joueur) {
     printf("m");
 };
+
 
 void enemyMove(struct Player *opJoueur, struct Player *joueur) {
     printf("\n%s's turn...\n", opJoueur->selectedSupemon->nameSupe);
@@ -208,7 +219,8 @@ void enemyMove(struct Player *opJoueur, struct Player *joueur) {
     srand(time(NULL));  
     int attaque = rand() % 2; 
     printf("\n%s uses %s!\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[attaque].name);
-    usleep(2000000);
+    usleep(2500000);
+    printf("\033[H\033[J");
     choixEnemymove(opJoueur, joueur, attaque);
 };
 
@@ -245,29 +257,25 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
 };
 
 
-
 void battleOption(struct Player *opJoueur, struct Player *joueur) {
     displayBattle(opJoueur, joueur);
-
     int option = choix();
     while (option < 1 || option > 5) {
         printf("\nInvalid choice! Choose a valid option.\n");
         printf("Enter 1, 2, 3, 4 or 5: ");
         option = choix();
     }
-
     if (option == 1) {
         printf("\n1 - %s\n", joueur->selectedSupemon->moves[0].name);
         printf("2 - %s\n", joueur->selectedSupemon->moves[1].name);
         printf("3 - Cancel\n");
         printf("Enter 1, 2 or 3: ");
         int mvt = choix();
-
         if (mvt == 1 || mvt == 2) {
             doMove(opJoueur, joueur, mvt - 1);
         }
     } else if (option == 2) {
-        changeSupemon(joueur);
+        changeSupemon(opJoueur, joueur);
     } else if (option == 3) {
         printf("m");
     } else if (option == 4) {
