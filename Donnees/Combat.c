@@ -229,6 +229,7 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
         } else if (opJoueur->selectedSupemon->HP <= 0) {
             printf("\nYou have won %s !\n", opJoueur->selectedSupemon->nameSupe);
             RecompencePiece(joueur);
+            choisirDirection(opJoueur, joueur);
         }
 };
 
