@@ -80,7 +80,6 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
             printf("This attack deals %d damages to the enemy's Supemon.", joueur->selectedSupemon->moves[choosed].damage);
             usleep(2500000);
             printf("\033[H\033[J");
-            choixEnemymove(opJoueur, joueur, rand() % 2);
         }
         else {
             printf("\033[H\033[J");
