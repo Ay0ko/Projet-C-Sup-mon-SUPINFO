@@ -76,9 +76,14 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
         if (!chanceEsquive(opJoueur->selectedSupemon, joueur)) {
             opJoueur->selectedSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
             printf("\033[H\033[J");
+            printf("Your %s used '%s' !\n", joueur->selectedSupemon->nameSupe, joueur->selectedSupemon->moves[choosed].name);
+            printf("This attack deals %d damages to the enemy's Supemon.", joueur->selectedSupemon->moves[choosed].damage);
+            usleep(2500000);
+            printf("\033[H\033[J");
             choixEnemymove(opJoueur, joueur, rand() % 2);
         }
         else {
+            printf("\033[H\033[J");
             printf("Oh no, %s managed to dodge your attack !", opJoueur->selectedSupemon->nameSupe);
             usleep(2500000);
             printf("\033[H\033[J");
@@ -121,9 +126,7 @@ void RecompencePiece(struct Player *joueur) {
 
 
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed) {
-    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || 
-        strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
-        
+    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
         if (!chanceEsquive(joueur->selectedSupemon, opJoueur)) {
             joueur->selectedSupemon->HP -= opJoueur->selectedSupemon->moves[choosed].damage;
             printf("\nThe enemy used %s! You took %d damage.\n",
@@ -135,6 +138,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
             printf("\033[H\033[J");
             printf("You managed to dodge the attack!\n");
             usleep(2500000);
+            printf("\033[H\033[J");
         }
     }
 };
@@ -254,8 +258,9 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
             joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;
             usleep(2500000);
             printf("\033[H\033[J");
+            choisirDirection(opJoueur, joueur);
         } else if (opJoueur->selectedSupemon->HP <= 0) {
-            printf("\nYou have won %s !\n", opJoueur->selectedSupemon->nameSupe);
+            printf("\nYou have won against %s !\n", opJoueur->selectedSupemon->nameSupe);
             RecompencePiece(joueur);
             usleep(2500000);
             printf("\033[H\033[J");
@@ -290,4 +295,4 @@ void battleOption(struct Player *opJoueur, struct Player *joueur) {
     } else {
         FuiteCombat(opJoueur, joueur);
     }
-}
+};
