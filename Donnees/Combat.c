@@ -296,6 +296,9 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
         } else if (opJoueur->selectedSupemon->HP <= 0) {
             printf("\nYou have won against %s !\n", opJoueur->selectedSupemon->nameSupe);
             RecompencePiece(joueur);
+            int gainedXP = gainExperience(opJoueur->selectedSupemon->lvl); 
+            joueur->selectedSupemon->xp += gainedXP;
+            niveauSup(joueur->selectedSupemon);
             usleep(3000000);
             printf("\033[H\033[J");
             choisirDirection(opJoueur, joueur);
