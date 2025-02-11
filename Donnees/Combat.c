@@ -251,6 +251,7 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
             printf("\nYour Supemon has been defeated ! You have been forced to flee !\n");
             usleep(2500000);
             printf("We'll take care of your Supemon");
+            joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;
             usleep(2500000);
             printf("\033[H\033[J");
         } else if (opJoueur->selectedSupemon->HP <= 0) {
