@@ -106,11 +106,12 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
 };
 
 void RecompencePiece(struct Player *joueur){
-    int RecompenceMin= 100;
-    int RecompenceMax= 500;
-    int Recompence = rand() % (RecompenceMax - RecompenceMin + 1) + RecompenceMin;
-    joueur->Supcoins+=Recompence;
-    printf("\nYou've earned %d Supcoins !\n", Recompence);
+    int RecompenseMin, RecompenseMax, Recompense;
+    RecompenseMin= 100;
+    RecompenseMax= 500;
+    Recompense = rand() % (RecompenseMax - RecompenseMin + 1) + RecompenseMin;
+    joueur->Supcoins+=Recompense;
+    printf("\nYou've earned %d Supcoins !\n", Recompense);
 };
 
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed) {
