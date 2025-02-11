@@ -140,6 +140,17 @@ void changeSupemon(struct Player *joueur) {
     printf("| --> %14s                   |\n", joueur->team[4].nameSupe);
     printf("| --> %14s                   |\n", joueur->team[5].nameSupe);
     printf("+--------------------------------------+\n");
+    printf("Wich Supemon would you like to swap with your %s ?\n", joueur->selectedSupemon->nameSupe);
+    printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
+    int supSwap = choix();
+    while(supSwap < 1 || supSwap > 7) {
+        printf("\nInvalid choice ! Choose a valid option.\n");
+        printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
+        int supSwap = choix();
+    }
+    if (supSwap == 7) {
+        int i;
+    }
 };
 
 void capture(struct Player *opJoueur, struct Player *joueur) {
