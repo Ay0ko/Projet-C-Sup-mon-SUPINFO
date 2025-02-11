@@ -105,6 +105,13 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
    }
 };
 
+void RecompencePiece(struct Player *joueur){
+    int RecompenceMin= 100;
+    int RecompenceMax= 500;
+    int Recompence = rand() % (RecompenceMax - RecompenceMin + 1) + RecompenceMin;
+    joueur->Supcoins+=Recompence;
+};
+
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed) {
     if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
         if (!chanceEsquive(joueur->selectedSupemon, opJoueur)) {
