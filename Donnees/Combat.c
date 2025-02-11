@@ -26,21 +26,21 @@ int aleaArrondi(float val) {
     }
 };
 
-bool chanceEsquive(struct Supemon *jSupemon, struct Supemon *opSupemon) {
+bool chanceEsquive(struct Supemon *jSupemon, struct Player *opJoueur) {
     float dodge = 0.0;
-    dodge = jSupemon->accuracy / (jSupemon->accuracy + opSupemon->evasion) + 0.1;
+    dodge = jSupemon->actuAccuracy / (jSupemon->actuAccuracy + opJoueur->selectedSupemon->actuEvasion) + 0.1;
     return (rand()/(double)RAND_MAX) < dodge;
 };
 
-bool chancefuite(struct Supemon *jSupemon, struct Supemon *opSupemon) {
+bool chancefuite(struct Supemon *jSupemon, struct Player *opJoueur) {
     float fuite = 0.0;
-    fuite = jSupemon->speed / (jSupemon->speed + opSupemon->speed);
+    fuite = jSupemon->speed / (jSupemon->speed + opJoueur->selectedSupemon->speed);
     return (rand() / (double)RAND_MAX) < fuite;
 };
 
-bool captureSupemon(struct Supemon *opSupemon) {
+bool captureSupemon(struct Player *opJoueur) {
     float capture = 0.0;
-    capture = ((opSupemon->maxHP - opSupemon->HP) / (float)opSupemon->maxHP) - 0.5;
+    capture = ((opJoueur->selectedSupemon->maxHP - opJoueur->selectedSupemon->HP) / (float)opJoueur->selectedSupemon->maxHP) - 0.5;
     return (rand() / (double)RAND_MAX) < capture;
 };
 
@@ -65,56 +65,56 @@ void niveauSup(struct Supemon *jSupemon) {
     }
 };
 
-void doMove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
+void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
    if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Scratch") || strcmp(joueur->selectedSupemon->moves[choosed].name, "Pound")) {
-        if (!chanceEsquive(opSupemon, joueur->selectedSupemon)) {
-            opSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
-            battleOption(opSupemon, joueur);
+        if (!chanceEsquive(opJoueur, joueur->selectedSupemon)) {
+            opJoueur->selectedSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
+            battleOption(opJoueur, joueur);
         }
         else {
             printf("Oh no, %s managed to dodge your attack !", opSupemon->nameSupe);
-            battleOption(opSupemon, joueur);
+            battleOption(opJoueur, joueur);
         }
    }
    else if (joueur->selectedSupemon->moves[choosed].name == "Shell") {
     joueur->selectedSupemon->actuDEF+=joueur->selectedSupemon->moves[choosed].BoostDEF;
-    battleOption(opSupemon, joueur);
+    battleOption(opJoueur, joueur);
    }
    else if (joueur->selectedSupemon->moves[choosed].name == "Grawl") {
     joueur->selectedSupemon->actuATK+=joueur->selectedSupemon->moves[choosed].BoostATK;
-    battleOption(opSupemon, joueur);
+    battleOption(opJoueur, joueur);
    }
    else {
     joueur->selectedSupemon->actuEvasion+=joueur->selectedSupemon->moves[choosed].BoostEvasion;
-    battleOption(opSupemon, joueur);
+    battleOption(opJoueur, joueur);
    }
 };
 
-void choixEnemymove(struct Supemon *opSupemon, struct Player *joueur, int choosed) {
-    if (strcmp(opSupemon->moves[choosed].name, "Scratch") || strcmp(opSupemon->moves[choosed].name, "Pound")) {
-        if (!chanceEsquive(joueur->selectedSupemon, opSupemon)) {
-            joueur->selectedSupemon->HP-=opSupemon->moves[choosed].damage;
-            battleOption(opSupemon, joueur);
+void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed) {
+    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") || strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound")) {
+        if (!chanceEsquive(joueur->selectedSupemon, opJoueur)) {
+            joueur->selectedSupemon->HP-=opJoueur->selectedSupemon->moves[choosed].damage;
+            battleOption(opJoueur, joueur);
         }
         else {
             system("clear");
             printf("You managed to dodge the attack !");
             usleep(2500000);
             system("clear");
-            battleOption(opSupemon, joueur);
+            battleOption(opJoueur, joueur);
         }
     }
-    else if (opSupemon->moves[choosed].name == "Shell") {
-        opSupemon->actuDEF+=opSupemon->moves[choosed].BoostDEF;
-        battleOption(opSupemon, joueur);
+    else if (opJoueur->selectedSupemon->moves[choosed].name == "Shell") {
+        opJoueur->selectedSupemon->actuDEF+=opJoueur->selectedSupemon->moves[choosed].BoostDEF;
+        battleOption(opJoueur, joueur);
        }
-       else if (opSupemon->moves[choosed].name == "Grawl") {
-        opSupemon->actuATK+=opSupemon->moves[choosed].BoostATK;
-        battleOption(opSupemon, joueur);
+       else if (opJoueur->selectedSupemon->moves[choosed].name == "Grawl") {
+        opJoueur->selectedSupemon->actuATK+=opJoueur->selectedSupemon->moves[choosed].BoostATK;
+        battleOption(opJoueur, joueur);
        }
        else {
-        opSupemon->actuEvasion+=opSupemon->moves[choosed].BoostEvasion;
-        battleOption(opSupemon, joueur);
+        opJoueur->selectedSupemon->actuEvasion+=opJoueur->selectedSupemon->moves[choosed].BoostEvasion;
+        battleOption(opJoueur, joueur);
        }
 };
 
@@ -130,7 +130,7 @@ void changeSupemon(struct Player *joueur) {
     printf("+--------------------------------------+\n");
 };
 
-void capture(struct Supemon *opSupemon, struct Player *joueur) {
+void capture(struct Player *opJoueur, struct Player *joueur) {
     if (captureSupemon(opSupemon)) {
         addSupemon(opSupemon, joueur);
         printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opSupemon->nameSupe, opSupemon->nameSupe);
@@ -176,7 +176,7 @@ void enemyMove(struct Supemon *opSupemon, struct Player *joueur) {
 };
 
 
-void SetBattle(struct Supemon *opSupemon, struct Player *joueur) {
+void SetBattle(struct Player *opJoueur, struct Player *joueur) {
     printf("\nYou've come across a %s.\n", opSupemon->nameSupe);
     usleep(3000000);
     system("clear");
@@ -220,7 +220,7 @@ void SetBattle(struct Supemon *opSupemon, struct Player *joueur) {
     }
 };
 
-void battleOption(struct Supemon *opSupemon, struct Player *joueur) {
+void battleOption(struct Player *opJoueur, struct Player *joueur) {
     displayBattle(opSupemon, joueur);
     int option = choix();
     while (option < 1 || option > 5) {

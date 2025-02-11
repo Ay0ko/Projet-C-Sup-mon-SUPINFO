@@ -112,13 +112,13 @@ void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur);
 void useItem(struct Player *joueur);
 void enemyMove(struct Supemon *opSupemon, struct Player *joueur);
 void SetBattle(struct Supemon *opSupemon, struct Player *joueur);
-void battleOption(struct Supemon *opSupemon, struct Player *joueur);
+void battleOption(struct Player *opJoueur, struct Player *joueur);
 
-void choisirDirection(struct Player *joueuractu);
+void choisirDirection(struct Player *opJoueur, struct Player *joueuractu);
 
 void restore_hp(struct Player *joueur);
 
-void displayBattle(struct Supemon *opSupemon, struct Player *joueur);
+void displayBattle(struct Player *opJoueur, struct Player *joueur);
 void displayShop();
 void displayBuy(struct Player *joueur);
 void displaySell(struct Player *joueur);

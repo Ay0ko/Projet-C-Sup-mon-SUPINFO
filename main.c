@@ -24,12 +24,14 @@ int main() {
     initializeItems();
 
     struct Player Supdresseur;
+    struct Player Enemy;
 
     char namePlayer;
     printf("\nHello trainer, what's your name ? \n");
     scanf("%49s", &namePlayer);
 
     initializePlayer(&Supdresseur, &namePlayer);
+    initializePlayer(&Enemy, "Enemy");
 
     system("clear");
 
@@ -45,7 +47,7 @@ int main() {
 
     leChoix(&Supdresseur);
 
-    choisirDirection(&Supdresseur);
+    choisirDirection(&Enemy, &Supdresseur);
 
     return 0;
 }

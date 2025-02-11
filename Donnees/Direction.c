@@ -9,7 +9,7 @@
 #include "DossierH.h"
 
 
-void choisirDirection(struct Player *joueuractu) {
+void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
     printf("\n+--------------------------------------+\n");
     printf("| Where do you want to go ?            |\n");
     printf("|      1 - Into the Wild               |\n");
@@ -39,8 +39,8 @@ void choisirDirection(struct Player *joueuractu) {
         if (count > 0) {
             srand(time(NULL));
             struct Supemon *wildSupemon = sameLevelSupemons[rand() % count];
-
-            SetBattle(wildSupemon, joueuractu);
+            opJoueur->selectedSupemon = &wildSupemon;
+            SetBattle(opJoueur, joueuractu);
         }
     } else if (choice2 == 2) {
         system("clear");
