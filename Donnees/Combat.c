@@ -149,7 +149,16 @@ void changeSupemon(struct Player *joueur) {
         int supSwap = choix();
     }
     if (supSwap == 7) {
-        int i;
+        // Going back
+    }
+    else {
+        if (strcmp(joueur->team[supSwap - 1].nameSupe, joueur->selectedSupemon->nameSupe) == 0) {
+            printf("\033[H\033[J");
+            printf("Wrong choice, you choosed the fighting Supemon ! Please pick another one.");
+            usleep(2500000);
+            printf("\033[H\033[J");
+            changeSupemon(joueur);
+        }
     }
 };
 
