@@ -151,6 +151,8 @@ void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur) {
         printf("\nYou failed to escape !\n");
         usleep(2000000);
         system("clear");
+        enemyMove(opSupemon, joueur);
+        system("clear");
         battleOption(opSupemon, joueur);
     }
 };
