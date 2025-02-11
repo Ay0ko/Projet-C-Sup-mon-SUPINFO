@@ -79,29 +79,29 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
             battleOption(opJoueur, joueur);
         }
    }
-   else if (joueur->selectedSupemon->moves[choosed].name == "Shell") {
+   else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Shell") == 0) {
     joueur->selectedSupemon->actuDEF+=joueur->selectedSupemon->moves[choosed].BoostDEF;
     printf("\033[H\033[J");
     printf("Your %s used 'Shell' !\n", joueur->selectedSupemon->nameSupe);
     usleep(2500000);
     printf("\033[H\033[J");
-    choixEnemymove(opJoueur, joueur, rand() % 2);
+    battleOption(opJoueur, joueur);
    }
-   else if (joueur->selectedSupemon->moves[choosed].name == "Grawl") {
+   else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Grawl") == 0) {
     joueur->selectedSupemon->actuATK+=joueur->selectedSupemon->moves[choosed].BoostATK;
     printf("\033[H\033[J");
     printf("Your %s used 'Grawl' !\n", joueur->selectedSupemon->nameSupe);
     usleep(2500000);
     printf("\033[H\033[J");
-    choixEnemymove(opJoueur, joueur, rand() % 2);
+    battleOption(opJoueur, joueur);
    }
-   else {
+   else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Foliage") == 0) {
     joueur->selectedSupemon->actuEvasion+=joueur->selectedSupemon->moves[choosed].BoostEvasion;
     printf("\033[H\033[J");
     printf("Your %s used 'Foliage' !\n", joueur->selectedSupemon->nameSupe);
     usleep(2500000);
     printf("\033[H\033[J");
-    choixEnemymove(opJoueur, joueur, rand() % 2);
+    battleOption(opJoueur, joueur);
    }
 };
 
@@ -115,7 +115,9 @@ void RecompencePiece(struct Player *joueur){
 };
 
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed) {
-    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
+    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || 
+        strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
+        
         if (!chanceEsquive(joueur->selectedSupemon, opJoueur)) {
             joueur->selectedSupemon->HP -= opJoueur->selectedSupemon->moves[choosed].damage;
             printf("\nThe enemy used %s! You took %d damage.\n",
@@ -129,7 +131,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
             usleep(2500000);
         }
     }
-};
+}
 
 void changeSupemon(struct Player *joueur) {
     printf("\n+--------------------------------------+\n");
