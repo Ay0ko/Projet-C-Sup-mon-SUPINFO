@@ -33,12 +33,12 @@ void restore_hp(struct Player *joueur, struct Player *opJoueur) {
         printf("|         Hope to see you again         |\n");
         printf("+---------------------------------------+\n");
         usleep(2000000);
-        system("clear");
+        printf("\033[H\033[J");
         choisirDirection(joueur, opJoueur);
         
     }
     else {
-        system("clear");
+        printf("\033[H\033[J");
         choisirDirection(joueur, opJoueur);
     }
 };

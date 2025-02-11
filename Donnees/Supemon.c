@@ -60,17 +60,17 @@ void leChoix(struct Player *joueur) {
     if (nombre == 1) {
         joueur->selectedSupemon = &Supmander;
         joueur->team[0] = Supmander;
-        system("clear");
+        printf("\033[H\033[J");
         printf("\nYou chose Supmander !\n");
     } else if (nombre == 2) {
         joueur->selectedSupemon = &Supasaur;
         joueur->team[0] = Supasaur;
-        system("clear");
+        printf("\033[H\033[J");
         printf("\nYou chose Supasaur !\n");
     } else {
         joueur->selectedSupemon = &Supirtle;
         joueur->team[0] = Supirtle;
-        system("clear");
+        printf("\033[H\033[J");
         printf("\nYou chose Supirtle !\n");
     }
 };

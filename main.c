@@ -18,7 +18,7 @@
 
 int main() {
     srand(time(NULL));
-    system("clear");
+    printf("\033[H\033[J");
 
     initializeSupemons();
     initializeItems();
@@ -33,7 +33,7 @@ int main() {
     initializePlayer(&Supdresseur, &namePlayer);
     initializePlayer(&Enemy, "Enemy");
 
-    system("clear");
+    printf("\033[H\033[J");
 
     printf("\nHello %s !\nWelcome in Supemon World ! \n", Supdresseur.name);
     printf("+--------------------------------------+\n");

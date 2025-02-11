@@ -25,7 +25,7 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
         choice2 = choix();  
     }
     if (choice2 == 1) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\nYou venture into the wild !\n");
         int joueurLevel = joueuractu->selectedSupemon->lvl;
         struct Supemon *sameLevelSupemons[10]; 
@@ -43,16 +43,16 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
             SetBattle(opJoueur, joueuractu);
         }
     } else if (choice2 == 2) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\nWelcome to the shop !\n");
         shopOption(opJoueur, joueuractu);
     } else if (choice2 == 3) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\nWelcome to the Supemon Center !\n");
         restore_hp(joueuractu, opJoueur);
     }
     else {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\nYou leave the game. Goodbye !\n");
         exit(0);
     }

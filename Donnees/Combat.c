@@ -69,26 +69,38 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
    if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(joueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
         if (!chanceEsquive(opJoueur->selectedSupemon, joueur)) {
             opJoueur->selectedSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
-            system("clear");
+            printf("\033[H\033[J");
             choixEnemymove(opJoueur, joueur, rand() % 2);
         }
         else {
             printf("Oh no, %s managed to dodge your attack !", opJoueur->selectedSupemon->nameSupe);
             usleep(2500000);
-            system("clear");
+            printf("\033[H\033[J");
             battleOption(opJoueur, joueur);
         }
    }
    else if (joueur->selectedSupemon->moves[choosed].name == "Shell") {
     joueur->selectedSupemon->actuDEF+=joueur->selectedSupemon->moves[choosed].BoostDEF;
+    printf("\033[H\033[J");
+    printf("Your %s used 'Shell' !\n", joueur->selectedSupemon->nameSupe);
+    usleep(2500000);
+    printf("\033[H\033[J");
     battleOption(opJoueur, joueur);
    }
    else if (joueur->selectedSupemon->moves[choosed].name == "Grawl") {
     joueur->selectedSupemon->actuATK+=joueur->selectedSupemon->moves[choosed].BoostATK;
+    printf("\033[H\033[J");
+    printf("Your %s used 'Grawll' !\n", joueur->selectedSupemon->nameSupe);
+    usleep(2500000);
+    printf("\033[H\033[J");
     battleOption(opJoueur, joueur);
    }
    else {
     joueur->selectedSupemon->actuEvasion+=joueur->selectedSupemon->moves[choosed].BoostEvasion;
+    printf("\033[H\033[J");
+    printf("Your %s used 'Foliage' !\n", joueur->selectedSupemon->nameSupe);
+    usleep(2500000);
+    printf("\033[H\033[J");
     battleOption(opJoueur, joueur);
    }
 };
@@ -100,10 +112,10 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
             battleOption(opJoueur, joueur);
         }
         else {
-            system("clear");
+            printf("\033[H\033[J");
             printf("You managed to dodge the attack !");
             usleep(2500000);
-            system("clear");
+            printf("\033[H\033[J");
             battleOption(opJoueur, joueur);
         }
     }
@@ -136,12 +148,15 @@ void changeSupemon(struct Player *joueur) {
 void capture(struct Player *opJoueur, struct Player *joueur) {
     if (captureSupemon(opJoueur)) {
         addSupemon(opJoueur->selectedSupemon, joueur);
+        printf("\033[H\033[J");
         printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->nameSupe);
+        usleep(2500000);
     }
     else {
+        printf("\033[H\033[J");
         printf("\nOh nooo, you failed to capture %s !\n",opJoueur->selectedSupemon->nameSupe);
-        usleep(2000000);
-        system("clear");
+        usleep(2500000);
+        printf("\033[H\033[J");
         choixEnemymove(opJoueur, joueur, rand() % 2);
     }
 };
@@ -149,16 +164,16 @@ void capture(struct Player *opJoueur, struct Player *joueur) {
 void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
     if (chancefuite(joueur->selectedSupemon, opJoueur)) {
         printf("\nYou're on the run !\n");
-        system("clear");
+        printf("\033[H\033[J");
         choisirDirection(opJoueur, joueur);
     }
     else {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\nYou failed to escape !\n");
         usleep(2000000);
-        system("clear");
+        printf("\033[H\033[J");
         enemyMove(opJoueur, joueur);
-        system("clear");
+        printf("\033[H\033[J");
         battleOption(opJoueur, joueur);
     }
 };
@@ -172,9 +187,9 @@ void enemyMove(struct Player *opJoueur, struct Player *joueur) {
     usleep(2500000);
     srand(time(NULL));  
     int attaque = rand() % 2; 
-    printf("%s uses %s!\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[attaque].name);
+    printf("\n%s uses %s!\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[attaque].name);
     usleep(2000000);
-    system("clear");
+    printf("\033[H\033[J");
     choixEnemymove(opJoueur, joueur, attaque);
 };
 
@@ -182,7 +197,7 @@ void enemyMove(struct Player *opJoueur, struct Player *joueur) {
 void SetBattle(struct Player *opJoueur, struct Player *joueur) {
     printf("\nYou've come across a %s.\n", opJoueur->selectedSupemon->nameSupe);
     usleep(3000000);
-    system("clear");
+    printf("\033[H\033[J");
     int joueurStart;
     if (joueur->selectedSupemon->speed > opJoueur->selectedSupemon->speed) {
         joueurStart = 1;
@@ -207,7 +222,7 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
                 printf("3 - Cancel\n");
                 printf("Enter 1, 2 or 3: ");
                 int mvt = choix();
-                doMove(opJoueur, joueur, mvt - 1);
+                doMove(opJoueur, joueur, mvt);
             } else if (option == 2) {
                 changeSupemon(joueur);
             } else if (option == 3) {

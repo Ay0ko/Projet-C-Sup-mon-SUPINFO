@@ -108,91 +108,91 @@ void buyOption(struct Player* joueur, struct Player *opJoueur) {
         choice = choix();
     }
     if (choice == 1) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\n");
         displayPotion();
         int buy = choix();
         if (buy == 1) {
             if (checkMoula(Potion.cost, joueur)) {
                 if (addItem(&Potion, joueur)) {
-                    system("clear");
+                    printf("\033[H\033[J");
                     usleep(300000);
                     printf("\nYour '%s' has been successfuly bought !\n", Potion.nameItem);
                     buyOption(joueur, opJoueur);
                 }
-                system("clear");
+                printf("\033[H\033[J");
                 usleep(300000);
                 printf("\nYour inventory is full ! Please sell items or use them in battles.\n");
                 buyOption(joueur, opJoueur);
             }
-            system("clear");
+            printf("\033[H\033[J");
             usleep(300000);
             printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
             buyOption(joueur, opJoueur);
         }
         else {
-            system("clear");
+            printf("\033[H\033[J");
             buyOption(joueur, opJoueur);
         }
     }
     else if (choice == 2) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\n");
         displaySuperpotion();
         int buy = choix();
         if (buy == 1) {
             if (checkMoula(SuperPotion.cost, joueur)) {
                 if (addItem(&SuperPotion, joueur)) {
-                    system("clear");
+                    printf("\033[H\033[J");
                     usleep(300000);
                     printf("\nYour '%s' has been successfuly bought !\n", SuperPotion.nameItem);
                     buyOption(joueur, opJoueur);
                 }
-                system("clear");
+                printf("\033[H\033[J");
                 usleep(300000);
                 printf("\nYour inventory is full ! Please sell items or use them in battles.\n");
                 buyOption(joueur, opJoueur);
             }
-            system("clear");
+            printf("\033[H\033[J");
             usleep(300000);
             printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
             buyOption(joueur, opJoueur);
         }
         else {
-            system("clear");
+            printf("\033[H\033[J");
             buyOption(joueur, opJoueur);
         }
     }
     else if (choice == 3) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\n");
         displayRarecandy();
         int buy = choix();
         if (buy == 1) {
             if (checkMoula(RareCandy.cost, joueur)) {
                 if (addItem(&RareCandy, joueur)) {
-                    system("clear");
+                    printf("\033[H\033[J");
                     usleep(300000);
                     printf("\nYour '%s' has been successfuly bought !\n", RareCandy.nameItem);
                     buyOption(joueur, opJoueur);
                 }
-                system("clear");
+                printf("\033[H\033[J");
                 usleep(300000);
                 printf("\nYour inventory is full ! Please sell items or use them in battles.\n");
                 buyOption(joueur, opJoueur);
             }
-            system("clear");
+            printf("\033[H\033[J");
             usleep(300000);
             printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
             buyOption(joueur, opJoueur);
         }
         else {
-            system("clear");
+            printf("\033[H\033[J");
             buyOption(joueur, opJoueur);
         }
     }
     else {
-        system("clear");
+        printf("\033[H\033[J");
         shopOption(joueur, opJoueur);
     }
 };
@@ -207,7 +207,7 @@ void sellOption(struct Player *joueur, struct Player *opJoueur) {
         choice = choix();
     }
     if (choice == 1) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\n");
         printf("+--------------------------------------+\n");
         printf("| Quick reminder: you are going to     |\n");
@@ -219,23 +219,23 @@ void sellOption(struct Player *joueur, struct Player *opJoueur) {
         if (sell == 1) {
             if (checkItem(&Potion, joueur)) {
                 removeItem(&Potion, joueur);
-                system("clear");
+                printf("\033[H\033[J");
                 usleep(300000);
                 printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n", Potion.nameItem, Potion.sell);
                 sellOption(joueur, opJoueur);
             }
-            system("clear");
+            printf("\033[H\033[J");
             usleep(300000);
             printf("\nYou don't have any '%s' in your inventory !\n", Potion.nameItem);
             sellOption(joueur, opJoueur);
         }
         else {
-            system("clear");
+            printf("\033[H\033[J");
             sellOption(joueur, opJoueur);
         }
     }
     else if (choice == 2) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\n");
         printf("+--------------------------------------+\n");
         printf("| Quick reminder: you are going to     |\n");
@@ -247,23 +247,23 @@ void sellOption(struct Player *joueur, struct Player *opJoueur) {
         if (sell == 1) {
             if (checkItem(&SuperPotion, joueur)) {
                 removeItem(&SuperPotion, joueur);
-                system("clear");
+                printf("\033[H\033[J");
                 usleep(300000);
                 printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n", SuperPotion.nameItem, SuperPotion.sell);
                 sellOption(joueur, opJoueur);
             }
-            system("clear");
+            printf("\033[H\033[J");
             usleep(300000);
             printf("\nYou don't have any '%s' in your inventory !\n", SuperPotion.nameItem);
             sellOption(joueur, opJoueur);
         }
         else {
-            system("clear");
+            printf("\033[H\033[J");
             sellOption(joueur, opJoueur);
         }  
     }
     else if (choice == 3) {
-        system("clear");
+        printf("\033[H\033[J");
         printf("\n");
         printf("+--------------------------------------+\n");
         printf("| Quick reminder: you are going to     |\n");
@@ -275,23 +275,23 @@ void sellOption(struct Player *joueur, struct Player *opJoueur) {
         if (sell == 1) {
             if (checkItem(&RareCandy, joueur)) {
                 removeItem(&RareCandy, joueur);
-                system("clear");
+                printf("\033[H\033[J");
                 usleep(300000);
                 printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n", RareCandy.nameItem, RareCandy.sell);
                 sellOption(joueur, opJoueur);
             }
-            system("clear");
+            printf("\033[H\033[J");
             usleep(300000);
             printf("\nYou don't have any '%s' in your inventory !\n", RareCandy.nameItem);
             sellOption(joueur, opJoueur);
         }
         else {
-            system("clear");
+            printf("\033[H\033[J");
             sellOption(joueur, opJoueur);
         }
     }
     else {
-        system("clear");
+        printf("\033[H\033[J");
         shopOption(joueur, opJoueur);
     }
 };
@@ -306,15 +306,15 @@ void shopOption(struct Player *joueur, struct Player *opJoueur) {
         choice = choix();
     }
     if (choice == 1) {
-        system("clear");
+        printf("\033[H\033[J");
         buyOption(joueur, opJoueur);
     }
     else if (choice == 2) {
-        system("clear");
+        printf("\033[H\033[J");
         sellOption(joueur, opJoueur);
     }
     else {
-        system("clear");
+        printf("\033[H\033[J");
         choisirDirection(opJoueur, joueur);
     }
 };
