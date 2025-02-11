@@ -48,6 +48,14 @@ bool captureSupemon(struct Player *opJoueur) {
     return (rand() / (double)RAND_MAX) < capture;
 };
 
+int gainExperience(int enemyLevel) {
+    srand(time(NULL));  
+    int minXP = 100 * enemyLevel;
+    int maxXP = 500 * enemyLevel;
+    Gainex = (rand() % (maxXP - minXP + 1)) + minXP;
+    printf("\nYou've earned %d XP!\n", Gainex);
+}
+
 
 void niveauSup(struct Supemon *jSupemon) {
     if (jSupemon->xp > ((jSupemon->lvl-1) * 1000 + 500)) {
