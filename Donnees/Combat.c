@@ -69,6 +69,7 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
    if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Scratch") || strcmp(joueur->selectedSupemon->moves[choosed].name, "Pound")) {
         if (!chanceEsquive(opJoueur->selectedSupemon, joueur)) {
             opJoueur->selectedSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
+            system("clear");
             battleOption(opJoueur, joueur);
         }
         else {
