@@ -229,7 +229,7 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
                 printf("3 - Cancel\n");
                 printf("Enter 1, 2 or 3: ");
                 int mvt = choix();
-                doMove(opJoueur, joueur, mvt);
+                doMove(opJoueur, joueur, mvt - 1);
             } else if (option == 2) {
                 changeSupemon(joueur);
             } else if (option == 3) {
@@ -259,7 +259,7 @@ void battleOption(struct Player *opJoueur, struct Player *joueur) {
         printf("3 - Cancel\n");
         printf("Enter 1, 2 or 3: ");
         int mvt = choix();
-        doMove(opJoueur, joueur, mvt);
+        doMove(opJoueur, joueur, mvt - 1);
     }
     else if (option == 2) {
         changeSupemon(joueur);
