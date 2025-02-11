@@ -70,7 +70,7 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
         if (!chanceEsquive(opJoueur->selectedSupemon, joueur)) {
             opJoueur->selectedSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
             system("clear");
-            battleOption(opJoueur, joueur);
+            choixEnemymove(opJoueur, joueur, rand() % 2);
         }
         else {
             printf("Oh no, %s managed to dodge your attack !", opJoueur->selectedSupemon->nameSupe);
