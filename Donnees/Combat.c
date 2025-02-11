@@ -73,6 +73,8 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
         }
         else {
             printf("Oh no, %s managed to dodge your attack !", opJoueur->selectedSupemon->nameSupe);
+            usleep(2500000);
+            system("clear");
             battleOption(opJoueur, joueur);
         }
    }
