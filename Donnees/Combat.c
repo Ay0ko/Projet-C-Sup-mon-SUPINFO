@@ -94,7 +94,6 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
     printf("Your %s used 'Shell' ! This ability increases your Supemon's DEF by %d.\n", joueur->selectedSupemon->nameSupe, joueur->selectedSupemon->moves[choosed].BoostDEF);
     usleep(3000000);
     printf("\033[H\033[J");
-    enemyMove(opJoueur, joueur);
    }
    else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Grawl") == 0) {
     joueur->selectedSupemon->actuATK+=joueur->selectedSupemon->moves[choosed].BoostATK;
@@ -102,7 +101,6 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
     printf("Your %s used 'Grawl' ! This ability increases your Supemon's ATK by %d.\n", joueur->selectedSupemon->nameSupe, joueur->selectedSupemon->moves[choosed].BoostATK);
     usleep(3000000);
     printf("\033[H\033[J");
-    enemyMove(opJoueur, joueur);
    }
    else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Foliage") == 0) {
     joueur->selectedSupemon->actuEvasion+=joueur->selectedSupemon->moves[choosed].BoostEvasion;
@@ -110,7 +108,6 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
     printf("Your %s used 'Foliage' ! This ability increases your Supemon's Evasion by %d.\n", joueur->selectedSupemon->nameSupe, joueur->selectedSupemon->moves[choosed].BoostEvasion);
     usleep(3000000);
     printf("\033[H\033[J");
-    enemyMove(opJoueur, joueur);
    }
 };
 
