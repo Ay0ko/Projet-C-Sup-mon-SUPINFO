@@ -97,7 +97,10 @@ void choixEnemymove(struct Supemon *opSupemon, struct Player *joueur, int choose
             battleOption(opSupemon, joueur);
         }
         else {
+            system("clear");
             printf("You managed to dodge the attack !");
+            usleep(2500000);
+            system("clear");
             battleOption(opSupemon, joueur);
         }
     }
