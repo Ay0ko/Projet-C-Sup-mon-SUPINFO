@@ -85,15 +85,15 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
     printf("Your %s used 'Shell' !\n", joueur->selectedSupemon->nameSupe);
     usleep(2500000);
     printf("\033[H\033[J");
-    battleOption(opJoueur, joueur);
+    choixEnemymove(opJoueur, joueur, rand() % 2);
    }
    else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Grawl") == 0) {
     joueur->selectedSupemon->actuATK+=joueur->selectedSupemon->moves[choosed].BoostATK;
     printf("\033[H\033[J");
-    printf("Your %s used 'Grawll' !\n", joueur->selectedSupemon->nameSupe);
+    printf("Your %s used 'Grawl' !\n", joueur->selectedSupemon->nameSupe);
     usleep(2500000);
     printf("\033[H\033[J");
-    battleOption(opJoueur, joueur);
+    choixEnemymove(opJoueur, joueur, rand() % 2);
    }
    else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Foliage") == 0) {
     joueur->selectedSupemon->actuEvasion+=joueur->selectedSupemon->moves[choosed].BoostEvasion;
@@ -101,7 +101,7 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
     printf("Your %s used 'Foliage' !\n", joueur->selectedSupemon->nameSupe);
     usleep(2500000);
     printf("\033[H\033[J");
-    battleOption(opJoueur, joueur);
+    choixEnemymove(opJoueur, joueur, rand() % 2);
    }
 };
 
@@ -112,9 +112,7 @@ void RecompencePiece(struct Player *joueur){
 };
 
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed) {
-    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || 
-        strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
-        
+    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
         if (!chanceEsquive(joueur->selectedSupemon, opJoueur)) {
             joueur->selectedSupemon->HP -= opJoueur->selectedSupemon->moves[choosed].damage;
             printf("\nThe enemy used %s! You took %d damage.\n",
@@ -126,7 +124,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
             usleep(2500000);
         }
     }
-}
+};
 
 void changeSupemon(struct Player *joueur) {
     displayTeam(joueur);
