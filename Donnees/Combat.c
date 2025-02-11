@@ -66,7 +66,7 @@ void niveauSup(struct Supemon *jSupemon) {
 };
 
 void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
-   if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Scratch") || strcmp(joueur->selectedSupemon->moves[choosed].name, "Pound")) {
+   if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(joueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
         if (!chanceEsquive(opJoueur->selectedSupemon, joueur)) {
             opJoueur->selectedSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
             system("clear");
@@ -94,7 +94,7 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
 };
 
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed) {
-    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") || strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound")) {
+    if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
         if (!chanceEsquive(joueur->selectedSupemon, opJoueur)) {
             joueur->selectedSupemon->HP-=opJoueur->selectedSupemon->moves[choosed].damage;
             battleOption(opJoueur, joueur);
