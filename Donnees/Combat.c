@@ -129,9 +129,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
     if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Scratch") == 0 || strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Pound") == 0) {
         if (!chanceEsquive(joueur->selectedSupemon, opJoueur)) {
             joueur->selectedSupemon->HP -= opJoueur->selectedSupemon->moves[choosed].damage;
-            printf("\nThe enemy used %s! You took %d damage.\n",
-                   opJoueur->selectedSupemon->moves[choosed].name,
-                   opJoueur->selectedSupemon->moves[choosed].damage);
+            printf("\nThe enemy used %s! It will deals %d damages to your Supemon.\n", opJoueur->selectedSupemon->moves[choosed].name, opJoueur->selectedSupemon->moves[choosed].damage);
             usleep(2500000);
             printf("\033[H\033[J");
         } else {
