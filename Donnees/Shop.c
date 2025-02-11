@@ -296,7 +296,7 @@ void sellOption(struct Player *joueur) {
     }
 };
 
-void shopOption(struct Player *joueur) {
+void shopOption(struct Player *joueur, struct Player *opJoueur) {
     printf("\n");
     displayShop();
     int choice = choix();
@@ -315,6 +315,6 @@ void shopOption(struct Player *joueur) {
     }
     else {
         system("clear");
-        choisirDirection(joueur);
+        choisirDirection(opJoueur, joueur);
     }
 };

@@ -45,7 +45,7 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
     } else if (choice2 == 2) {
         system("clear");
         printf("\nWelcome to the shop !\n");
-        shopOption(joueuractu);
+        shopOption(opJoueur, joueuractu);
     } else if (choice2 == 3) {
         system("clear");
         printf("\nWelcome to the Supemon Center !\n");

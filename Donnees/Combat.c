@@ -131,20 +131,20 @@ void changeSupemon(struct Player *joueur) {
 };
 
 void capture(struct Player *opJoueur, struct Player *joueur) {
-    if (captureSupemon(opSupemon)) {
-        addSupemon(opSupemon, joueur);
-        printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opSupemon->nameSupe, opSupemon->nameSupe);
+    if (captureSupemon(opJoueur)) {
+        addSupemon(opJoueur, joueur);
+        printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->nameSupe);
     }
     else {
-        printf("\nOh nooo, you failed to capture %s !\n",opSupemon->nameSupe);
+        printf("\nOh nooo, you failed to capture %s !\n",opJoueur->selectedSupemon->nameSupe);
         usleep(2000000);
         system("clear");
-        enemyMove(opSupemon, joueur);
+        enemyMove(opJoueur, joueur);
     }
 };
 
-void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur) {
-    if (chancefuite(joueur->selectedSupemon, opSupemon)) {
+void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
+    if (chancefuite(joueur->selectedSupemon, opJoueur)) {
         printf("\nYou're on the run !\n");
         system("clear");
         choisirDirection(joueur);
@@ -154,9 +154,9 @@ void FuiteCombat(struct Supemon *opSupemon, struct Player *joueur) {
         printf("\nYou failed to escape !\n");
         usleep(2000000);
         system("clear");
-        enemyMove(opSupemon, joueur);
+        enemyMove(opJoueur, joueur);
         system("clear");
-        battleOption(opSupemon, joueur);
+        battleOption(opJoueur, joueur);
     }
 };
 
@@ -164,15 +164,15 @@ void useItem(struct Player *joueur) {
     printf("m");
 };
 
-void enemyMove(struct Supemon *opSupemon, struct Player *joueur) {
-    printf("\n%s's turn...\n", opSupemon->nameSupe);
+void enemyMove(struct Player *opJoueur, struct Player *joueur) {
+    printf("\n%s's turn...\n", opJoueur->selectedSupemon->nameSupe);
     usleep(2500000);
     srand(time(NULL));  
     int attaque = rand() % 2; 
-    printf("%s uses %s!\n", opSupemon->nameSupe, opSupemon->moves[attaque].name);
+    printf("%s uses %s!\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[attaque].name);
     usleep(2000000);
     system("clear");
-    choixEnemymove(opSupemon, joueur, attaque);
+    choixEnemymove(opJoueur, joueur, attaque);
 };
 
 
@@ -191,7 +191,7 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
     while (1) { 
         if (joueurStart) {
             printf("\nYour turn...\n");
-            displayBattle(opSupemon, joueur);
+            displayBattle(opJoueur, joueur);
             int option = choix();
             while (option < 1 || option > 5) {
                 printf("\nInvalid choice! Choose a valid option.\n");
@@ -204,24 +204,24 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
                 printf("3 - Cancel\n");
                 printf("Enter 1, 2 or 3: ");
                 int mvt = choix();
-                doMove(opSupemon, joueur, mvt - 1);
+                doMove(opJoueur, joueur, mvt - 1);
             } else if (option == 2) {
                 changeSupemon(joueur);
             } else if (option == 3) {
                 printf("m");
             } else if (option == 4) {
-                capture(opSupemon, joueur);
+                capture(opJoueur, joueur);
             } else {
-                FuiteCombat(opSupemon, joueur);
+                FuiteCombat(opJoueur, joueur);
             }
         } else {
-            enemyMove(opSupemon, joueur);
+            enemyMove(opJoueur, joueur);
         }
     }
 };
 
 void battleOption(struct Player *opJoueur, struct Player *joueur) {
-    displayBattle(opSupemon, joueur);
+    displayBattle(opJoueur, joueur);
     int option = choix();
     while (option < 1 || option > 5) {
         printf("\nInvalid choice ! Choose a valid option.\n");
@@ -234,7 +234,7 @@ void battleOption(struct Player *opJoueur, struct Player *joueur) {
         printf("3 - Cancel\n");
         printf("Enter 1, 2 or 3: ");
         int mvt = choix();
-        doMove(opSupemon, joueur, mvt);
+        doMove(opJoueur, joueur, mvt);
     }
     else if (option == 2) {
         changeSupemon(joueur);
@@ -243,9 +243,9 @@ void battleOption(struct Player *opJoueur, struct Player *joueur) {
         printf("m");
     }
     else if (option == 4) {
-        capture(opSupemon, joueur);
+        capture(opJoueur, joueur);
     }
     else {
-        FuiteCombat(opSupemon, joueur);
+        FuiteCombat(opJoueur, joueur);
     }
 };
