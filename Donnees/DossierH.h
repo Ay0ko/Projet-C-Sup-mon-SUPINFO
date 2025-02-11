@@ -94,8 +94,8 @@ int getPotion(struct Player *joueur);
 int getSuperpotion(struct Player *joueur);
 int getRarecandy(struct Player *joueur);
 int getNbitems(struct Player *joueur);
-void buyOption(struct Player *joueur);
-void sellOption(struct Player *joueur);
+void buyOption(struct Player *joueur, struct Player *opJoueur);
+void sellOption(struct Player *joueur, struct Player *opJoueur);
 void shopOption(struct Player *joueur, struct Player *opJoueur);
 
 int aleaSupemon();
@@ -116,7 +116,7 @@ void battleOption(struct Player *opJoueur, struct Player *joueur);
 
 void choisirDirection(struct Player *opJoueur, struct Player *joueuractu);
 
-void restore_hp(struct Player *joueur);
+void restore_hp(struct Player *joueur, struct Player *opJoueur);
 
 void displayBattle(struct Player *opJoueur, struct Player *joueur);
 void displayShop();

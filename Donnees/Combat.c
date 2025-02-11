@@ -67,12 +67,12 @@ void niveauSup(struct Supemon *jSupemon) {
 
 void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
    if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Scratch") || strcmp(joueur->selectedSupemon->moves[choosed].name, "Pound")) {
-        if (!chanceEsquive(opJoueur, joueur->selectedSupemon)) {
+        if (!chanceEsquive(opJoueur->selectedSupemon, joueur)) {
             opJoueur->selectedSupemon->HP-=joueur->selectedSupemon->moves[choosed].damage;
             battleOption(opJoueur, joueur);
         }
         else {
-            printf("Oh no, %s managed to dodge your attack !", opSupemon->nameSupe);
+            printf("Oh no, %s managed to dodge your attack !", opJoueur->selectedSupemon->nameSupe);
             battleOption(opJoueur, joueur);
         }
    }
@@ -132,14 +132,14 @@ void changeSupemon(struct Player *joueur) {
 
 void capture(struct Player *opJoueur, struct Player *joueur) {
     if (captureSupemon(opJoueur)) {
-        addSupemon(opJoueur, joueur);
+        addSupemon(opJoueur->selectedSupemon, joueur);
         printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->nameSupe);
     }
     else {
         printf("\nOh nooo, you failed to capture %s !\n",opJoueur->selectedSupemon->nameSupe);
         usleep(2000000);
         system("clear");
-        enemyMove(opJoueur, joueur);
+        choixEnemymove(opJoueur, joueur, rand() % 2);
     }
 };
 
@@ -147,7 +147,7 @@ void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
     if (chancefuite(joueur->selectedSupemon, opJoueur)) {
         printf("\nYou're on the run !\n");
         system("clear");
-        choisirDirection(joueur);
+        choisirDirection(opJoueur, joueur);
     }
     else {
         system("clear");
@@ -177,13 +177,13 @@ void enemyMove(struct Player *opJoueur, struct Player *joueur) {
 
 
 void SetBattle(struct Player *opJoueur, struct Player *joueur) {
-    printf("\nYou've come across a %s.\n", opSupemon->nameSupe);
+    printf("\nYou've come across a %s.\n", opJoueur->selectedSupemon->nameSupe);
     usleep(3000000);
     system("clear");
     int joueurStart;
-    if (joueur->selectedSupemon->speed > opSupemon->speed) {
+    if (joueur->selectedSupemon->speed > opJoueur->selectedSupemon->speed) {
         joueurStart = 1;
-    } else if (joueur->selectedSupemon->speed < opSupemon->speed) {
+    } else if (joueur->selectedSupemon->speed < opJoueur->selectedSupemon->speed) {
         joueurStart = 0;
     } else {
         joueurStart = aleaArrondi(0.5); 

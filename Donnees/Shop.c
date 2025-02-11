@@ -98,7 +98,7 @@ int getNbitems(struct Player *joueur) {
     return j;
 };
 
-void buyOption(struct Player *joueur) {
+void buyOption(struct Player* joueur, struct Player *opJoueur) {
     printf("\n");
     displayBuy(joueur);
     int choice = choix();
@@ -118,21 +118,21 @@ void buyOption(struct Player *joueur) {
                     system("clear");
                     usleep(300000);
                     printf("\nYour '%s' has been successfuly bought !\n", Potion.nameItem);
-                    buyOption(joueur);
+                    buyOption(joueur, opJoueur);
                 }
                 system("clear");
                 usleep(300000);
                 printf("\nYour inventory is full ! Please sell items or use them in battles.\n");
-                buyOption(joueur);
+                buyOption(joueur, opJoueur);
             }
             system("clear");
             usleep(300000);
             printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
-            buyOption(joueur);
+            buyOption(joueur, opJoueur);
         }
         else {
             system("clear");
-            buyOption(joueur);
+            buyOption(joueur, opJoueur);
         }
     }
     else if (choice == 2) {
@@ -146,21 +146,21 @@ void buyOption(struct Player *joueur) {
                     system("clear");
                     usleep(300000);
                     printf("\nYour '%s' has been successfuly bought !\n", SuperPotion.nameItem);
-                    buyOption(joueur);
+                    buyOption(joueur, opJoueur);
                 }
                 system("clear");
                 usleep(300000);
                 printf("\nYour inventory is full ! Please sell items or use them in battles.\n");
-                buyOption(joueur);
+                buyOption(joueur, opJoueur);
             }
             system("clear");
             usleep(300000);
             printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
-            buyOption(joueur);
+            buyOption(joueur, opJoueur);
         }
         else {
             system("clear");
-            buyOption(joueur);
+            buyOption(joueur, opJoueur);
         }
     }
     else if (choice == 3) {
@@ -174,30 +174,30 @@ void buyOption(struct Player *joueur) {
                     system("clear");
                     usleep(300000);
                     printf("\nYour '%s' has been successfuly bought !\n", RareCandy.nameItem);
-                    buyOption(joueur);
+                    buyOption(joueur, opJoueur);
                 }
                 system("clear");
                 usleep(300000);
                 printf("\nYour inventory is full ! Please sell items or use them in battles.\n");
-                buyOption(joueur);
+                buyOption(joueur, opJoueur);
             }
             system("clear");
             usleep(300000);
             printf("\nYou don't have enought 'Supcoins' to buy this one, please go earn more 'Supcoins' in battles or by selling some items of yours.\n");
-            buyOption(joueur);
+            buyOption(joueur, opJoueur);
         }
         else {
             system("clear");
-            buyOption(joueur);
+            buyOption(joueur, opJoueur);
         }
     }
     else {
         system("clear");
-        shopOption(joueur);
+        shopOption(joueur, opJoueur);
     }
 };
 
-void sellOption(struct Player *joueur) {
+void sellOption(struct Player *joueur, struct Player *opJoueur) {
     printf("\n");
     displaySell(joueur);
     int choice = choix();
@@ -222,16 +222,16 @@ void sellOption(struct Player *joueur) {
                 system("clear");
                 usleep(300000);
                 printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n", Potion.nameItem, Potion.sell);
-                sellOption(joueur);
+                sellOption(joueur, opJoueur);
             }
             system("clear");
             usleep(300000);
             printf("\nYou don't have any '%s' in your inventory !\n", Potion.nameItem);
-            sellOption(joueur);
+            sellOption(joueur, opJoueur);
         }
         else {
             system("clear");
-            sellOption(joueur);
+            sellOption(joueur, opJoueur);
         }
     }
     else if (choice == 2) {
@@ -250,16 +250,16 @@ void sellOption(struct Player *joueur) {
                 system("clear");
                 usleep(300000);
                 printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n", SuperPotion.nameItem, SuperPotion.sell);
-                sellOption(joueur);
+                sellOption(joueur, opJoueur);
             }
             system("clear");
             usleep(300000);
             printf("\nYou don't have any '%s' in your inventory !\n", SuperPotion.nameItem);
-            sellOption(joueur);
+            sellOption(joueur, opJoueur);
         }
         else {
             system("clear");
-            sellOption(joueur);
+            sellOption(joueur, opJoueur);
         }  
     }
     else if (choice == 3) {
@@ -278,21 +278,21 @@ void sellOption(struct Player *joueur) {
                 system("clear");
                 usleep(300000);
                 printf("\nYou have successfuly sold your '%s' for %d Supcoins.\n", RareCandy.nameItem, RareCandy.sell);
-                sellOption(joueur);
+                sellOption(joueur, opJoueur);
             }
             system("clear");
             usleep(300000);
             printf("\nYou don't have any '%s' in your inventory !\n", RareCandy.nameItem);
-            sellOption(joueur);
+            sellOption(joueur, opJoueur);
         }
         else {
             system("clear");
-            sellOption(joueur);
+            sellOption(joueur, opJoueur);
         }
     }
     else {
         system("clear");
-        shopOption(joueur);
+        shopOption(joueur, opJoueur);
     }
 };
 
@@ -307,11 +307,11 @@ void shopOption(struct Player *joueur, struct Player *opJoueur) {
     }
     if (choice == 1) {
         system("clear");
-        buyOption(joueur);
+        buyOption(joueur, opJoueur);
     }
     else if (choice == 2) {
         system("clear");
-        sellOption(joueur);
+        sellOption(joueur, opJoueur);
     }
     else {
         system("clear");

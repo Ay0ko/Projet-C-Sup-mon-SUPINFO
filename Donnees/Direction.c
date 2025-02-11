@@ -39,7 +39,7 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
         if (count > 0) {
             srand(time(NULL));
             struct Supemon *wildSupemon = sameLevelSupemons[rand() % count];
-            opJoueur->selectedSupemon = &wildSupemon;
+            opJoueur->selectedSupemon = wildSupemon;
             SetBattle(opJoueur, joueuractu);
         }
     } else if (choice2 == 2) {
@@ -49,7 +49,7 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
     } else if (choice2 == 3) {
         system("clear");
         printf("\nWelcome to the Supemon Center !\n");
-        restore_hp(joueuractu);
+        restore_hp(joueuractu, opJoueur);
     }
     else {
         system("clear");
