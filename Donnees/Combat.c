@@ -216,17 +216,26 @@ void capture(struct Player *opJoueur, struct Player *joueur) {
     if (captureSupemon(opJoueur)) {
         addSupemon(opJoueur->selectedSupemon, joueur);
         printf("\033[H\033[J");
-        printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->nameSupe);
+        printf("\nCongratulations, you've captured %s ! %s has joined your team !\n", 
+               opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->nameSupe);
+        fflush(stdout); // S'assurer que le texte s'affiche
         usleep(3000000);
         choisirDirection(opJoueur, joueur);
-    }
-    else {
-        printf("\033[H\033[J");
-        printf("\nOh nooo, you failed to capture %s !\n",opJoueur->selectedSupemon->nameSupe);
+    } else {
+        
+        printf("\nOh nooo, you failed to capture %s !\n", opJoueur->selectedSupemon->nameSupe);
+        fflush(stdout);
         usleep(3000000);
-        printf("\033[H\033[J");
+
+        printf("\033[H\033[J"); // Nettoyage de l'écran après attente
+        fflush(stdout);
+        
+        enemyMove(opJoueur, joueur);
     }
-};
+}
+
+
+
 
 
 void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
