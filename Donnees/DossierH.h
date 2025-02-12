@@ -108,7 +108,7 @@ bool captureSupemon(struct Player *opJoueur);
 int gainExperience(int enemyLevel);
 void niveauSup(struct Supemon *jSupemon);
 void doMove(struct Player *opJoueur, struct Player *joueur, int choosed);
-void RecompencePiece(struct Player *joueur);
+int RecompencePiece(struct Player *joueur);
 void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed);
 void changeSupemon(struct Player *opSupemon, struct Player *joueur);
 void capture(struct Player *opJoueur, struct Player *joueur);

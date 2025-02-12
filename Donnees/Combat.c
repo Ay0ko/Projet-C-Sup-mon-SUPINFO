@@ -54,6 +54,7 @@ int gainExperience(int enemyLevel) {
     int maxXP = 500 * enemyLevel;
     int Gainex = (rand() % (maxXP - minXP + 1)) + minXP;
     printf("\nYou've earned %d XP!\n", Gainex);
+    return Gainex;
 }
 
 
@@ -120,11 +121,11 @@ void doMove(struct Player *opJoueur, struct Player *joueur, int choosed) {
 };
 
 
-void RecompencePiece(struct Player *joueur) {
+int RecompencePiece(struct Player *joueur) {
     int RecompenseMin = 100, RecompenseMax = 500;
     int Recompense = rand() % (RecompenseMax - RecompenseMin + 1) + RecompenseMin;
-    joueur->Supcoins += Recompense;
     printf("\nYou've earned %d Supcoins!\n", Recompense);
+    return Recompense;
 };
 
 
@@ -390,7 +391,7 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
                     break;
                 }
             }
-            RecompencePiece(joueur);
+            joueur->Supcoins += RecompencePiece(joueur);
             int gainedXP = gainExperience(opJoueur->selectedSupemon->lvl); 
             joueur->selectedSupemon->xp += gainedXP;
             niveauSup(joueur->selectedSupemon);
