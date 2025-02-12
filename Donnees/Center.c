@@ -39,7 +39,7 @@ void restore_hp(struct Player *joueur) {
             joueur->selectedSupemon->actuAccuracy = joueur->selectedSupemon->accuracy;
         }
         
-        for (int i = 0; i < joueur->SupemonCount; i++) {
+        for (int i = 1; i < joueur->SupemonCount + 1; i++) {
             joueur->team[i].HP = joueur->team[i].maxHP;
             joueur->team[i].actuATK = joueur->team[i].ATK;
             joueur->team[i].actuDEF = joueur->team[i].DEF;
