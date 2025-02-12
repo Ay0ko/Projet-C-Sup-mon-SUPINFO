@@ -22,7 +22,7 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
         listSupemons[i].actuAccuracy = listSupemons[i].accuracy;
     }
 
-    while (1) {  // Boucle principale au lieu de la récursion
+    while (1) {
         printf("+--------------------------------------+\n");
         printf("|                                      |\n");
         printf("| %14s's XP: %4d/%-4d       |\n", 
@@ -70,19 +70,19 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
                     opJoueur->selectedSupemon = wildSupemon;
                     SetBattle(opJoueur, joueuractu);
                 }
-                return;  // Sortir après le combat
+                return;
             }
             
             case 2: {
                 printf("\nWelcome to the shop !\n");
                 shopOption(joueuractu, opJoueur);
-                return;  // Sortir après le shop
+                return;
             }
             
             case 3: {
                 printf("\nWelcome to the Supemon Center !\n");
                 restore_hp(joueuractu);
-                break;  // Retour au menu principal
+                break;
             }
             
             case 4: {
