@@ -14,6 +14,13 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
         printf("Error: Invalid player or Supemon data!\n");
         return;
     }
+    for (int i = 0; i < 10; i++) {
+        listSupemons[i].HP = listSupemons[i].maxHP;
+        listSupemons[i].actuATK = listSupemons[i].ATK;
+        listSupemons[i].actuDEF = listSupemons[i].DEF;
+        listSupemons[i].actuEvasion = listSupemons[i].evasion;
+        listSupemons[i].actuAccuracy = listSupemons[i].accuracy;
+    }
 
     while (1) {  // Boucle principale au lieu de la récursion
         printf("+--------------------------------------+\n");
