@@ -358,6 +358,16 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
         }
         if (joueur->selectedSupemon->HP <= 0) {
             printf("\nYour Supemon has been defeated ! You have been forced to flee !\n");
+            for (int i = 0; i < 7; i++) {
+                if (strcmp(opJoueur->selectedSupemon->nameSupe, listSupemons[i].nameSupe) == 0) {
+                    listSupemons[i].HP = listSupemons[i].maxHP;
+                    listSupemons[i].actuATK = listSupemons[i].ATK;
+                    listSupemons[i].actuDEF = listSupemons[i].DEF;
+                    listSupemons[i].actuEvasion = listSupemons[i].evasion;
+                    listSupemons[i].actuAccuracy = listSupemons[i].accuracy;
+                    break;
+                }
+            }
             usleep(3000000);
             printf("We'll take care of your Supemon");
             joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;
@@ -370,6 +380,16 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
             choisirDirection(opJoueur, joueur);
         } else if (opJoueur->selectedSupemon->HP <= 0) {
             printf("\nYou have won against %s !\n", opJoueur->selectedSupemon->nameSupe);
+            for (int i = 0; i < 7; i++) {
+                if (strcmp(opJoueur->selectedSupemon->nameSupe, listSupemons[i].nameSupe) == 0) {
+                    listSupemons[i].HP = listSupemons[i].maxHP;
+                    listSupemons[i].actuATK = listSupemons[i].ATK;
+                    listSupemons[i].actuDEF = listSupemons[i].DEF;
+                    listSupemons[i].actuEvasion = listSupemons[i].evasion;
+                    listSupemons[i].actuAccuracy = listSupemons[i].accuracy;
+                    break;
+                }
+            }
             RecompencePiece(joueur);
             int gainedXP = gainExperience(opJoueur->selectedSupemon->lvl); 
             joueur->selectedSupemon->xp += gainedXP;
