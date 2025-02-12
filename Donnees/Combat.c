@@ -388,16 +388,6 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
             }
             usleep(3000000);
             printf("We'll take care of your Supemon");
-            joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;
-            joueur->selectedSupemon->actuATK = joueur->selectedSupemon->ATK;
-            joueur->selectedSupemon->actuDEF = joueur->selectedSupemon->DEF;
-            joueur->selectedSupemon->actuEvasion = joueur->selectedSupemon->evasion;
-            joueur->selectedSupemon->actuAccuracy = joueur->selectedSupemon->accuracy;
-            usleep(3000000);
-            printf("\033[H\033[J");
-            choisirDirection(opJoueur, joueur);
-        } else if (opJoueur->selectedSupemon->HP <= 0) {
-            printf("\nYou have won against %s !\n", opJoueur->selectedSupemon->nameSupe);
             for (int i = 0; i < joueur->SupemonCount + 1; i++) {
                 joueur->team[i].HP = joueur->team[i].maxHP;
                 joueur->team[i].actuATK = joueur->team[i].ATK;
@@ -405,10 +395,36 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
                 joueur->team[i].actuEvasion = joueur->team[i].evasion;
                 joueur->team[i].actuAccuracy = joueur->team[i].accuracy;
             }
+            for (int i = 0; i < opJoueur->SupemonCount + 1; i++) {
+                opJoueur->team[i].HP = opJoueur->team[i].maxHP;
+                opJoueur->team[i].actuATK = opJoueur->team[i].ATK;
+                opJoueur->team[i].actuDEF = opJoueur->team[i].DEF;
+                opJoueur->team[i].actuEvasion = opJoueur->team[i].evasion;
+                opJoueur->team[i].actuAccuracy = opJoueur->team[i].accuracy;
+            }
+            usleep(3000000);
+            printf("\033[H\033[J");
+            choisirDirection(opJoueur, joueur);
+        } else if (opJoueur->selectedSupemon->HP <= 0) {
+            printf("\nYou have won against %s !\n", opJoueur->selectedSupemon->nameSupe);
             joueur->Supcoins += RecompencePiece(joueur);
             int gainedXP = gainExperience(opJoueur->selectedSupemon->lvl); 
             joueur->selectedSupemon->xp += gainedXP;
             niveauSup(joueur->selectedSupemon);
+            for (int i = 0; i < joueur->SupemonCount + 1; i++) {
+                joueur->team[i].HP = joueur->team[i].maxHP;
+                joueur->team[i].actuATK = joueur->team[i].ATK;
+                joueur->team[i].actuDEF = joueur->team[i].DEF;
+                joueur->team[i].actuEvasion = joueur->team[i].evasion;
+                joueur->team[i].actuAccuracy = joueur->team[i].accuracy;
+            }
+            for (int i = 0; i < opJoueur->SupemonCount + 1; i++) {
+                opJoueur->team[i].HP = opJoueur->team[i].maxHP;
+                opJoueur->team[i].actuATK = opJoueur->team[i].ATK;
+                opJoueur->team[i].actuDEF = opJoueur->team[i].DEF;
+                opJoueur->team[i].actuEvasion = opJoueur->team[i].evasion;
+                opJoueur->team[i].actuAccuracy = opJoueur->team[i].accuracy;
+            }
             usleep(3000000);
             printf("\033[H\033[J");
             choisirDirection(opJoueur, joueur);
