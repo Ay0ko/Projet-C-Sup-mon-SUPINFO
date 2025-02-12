@@ -149,13 +149,17 @@ void buyOption(struct Player* joueur, struct Player *opJoueur) {
 
 bool handleItemPurchase(struct Player *joueur, struct Item *item) {
     printf("\n");
-    if (strcmp(item->nameItem, "Potion") == 0) {
-        displayPotion();
-    } else if (strcmp(item->nameItem, "Super Potion") == 0) {
-        displaySuperpotion();
-    } else if (strcmp(item->nameItem, "Rare Candy") == 0) {
-        displayRarecandy();
-    }    
+    switch(item->idItem) { 
+        case 1:
+            displayPotion();
+            break;
+        case 2:
+            displaySuperpotion();
+            break;
+        case 3:
+            displayRarecandy();
+            break;
+    }   
     int buy = choix();
     
     if (buy == 1) {
