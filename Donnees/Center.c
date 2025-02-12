@@ -23,11 +23,11 @@ void restore_hp(struct Player *joueur) {
     printf("+---------------------------------------+\n");
     printf("Enter 1 or 2: ");
 
-    int choice = choix();
+    int choice = choix(1, 2);
     while (choice < 1 || choice > 2) {
         printf("Invalid choice! Choose a valid option.\n");
         printf("Enter 1 or 2: ");
-        choice = choix();
+        choice = choix(1, 2);
     }
 
     if (choice == 1) {

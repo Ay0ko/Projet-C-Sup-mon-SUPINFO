@@ -35,11 +35,11 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
         printf("+--------------------------------------+\n");
         printf("Enter 1, 2, 3 or 4: ");
         
-        int choice2 = choix();
+        int choice2 = choix(1, 4);
         while (choice2 < 1 || choice2 > 4) {  
             printf("\nInvalid choice ! Please try again !\n");
             printf("Enter 1, 2, 3 or 4 : ");
-            choice2 = choix();  
+            choice2 = choix(1, 4);  
         }
 
         printf("\033[H\033[J");
