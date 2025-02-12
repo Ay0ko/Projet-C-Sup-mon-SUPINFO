@@ -217,13 +217,13 @@ void capture(struct Player *opJoueur, struct Player *joueur) {
         printf("\033[H\033[J");
         printf("\nCongratulations, you've captured %s ! %s as joined your team !\n",opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->nameSupe);
         usleep(3000000);
+        choisirDirection(opJoueur, joueur);
     }
     else {
         printf("\033[H\033[J");
         printf("\nOh nooo, you failed to capture %s !\n",opJoueur->selectedSupemon->nameSupe);
         usleep(3000000);
         printf("\033[H\033[J");
-        choixEnemymove(opJoueur, joueur, rand() % 2);
     }
 };
 
@@ -240,8 +240,6 @@ void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
         usleep(3000000);
         printf("\033[H\033[J");
         enemyMove(opJoueur, joueur);
-        printf("\033[H\033[J");
-        battleOption(opJoueur, joueur);
     }
 };
 
@@ -290,6 +288,10 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
             usleep(3000000);
             printf("We'll take care of your Supemon");
             joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;
+            joueur->selectedSupemon->actuATK = joueur->selectedSupemon->ATK;
+            joueur->selectedSupemon->actuDEF = joueur->selectedSupemon->DEF;
+            joueur->selectedSupemon->actuEvasion = joueur->selectedSupemon->evasion;
+            joueur->selectedSupemon->actuAccuracy = joueur->selectedSupemon->accuracy;
             usleep(2500000);
             printf("\033[H\033[J");
             choisirDirection(opJoueur, joueur);
