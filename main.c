@@ -50,4 +50,4 @@ int main() {
     choisirDirection(&Enemy, &Supdresseur);
 
     return 0;
-}
+};

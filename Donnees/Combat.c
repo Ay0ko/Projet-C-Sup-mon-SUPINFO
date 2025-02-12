@@ -244,29 +244,25 @@ void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
 };
 
 
-void useItem(struct Player *opJoueur, struct Player *joueur) {
-    int itemChoice = 0;  
-    while (1) {
-        printf("\nWhat object would you like to use ?\n");
-        printf("1. Potion (5 HP)\n");
-        printf("2. Super Potion (10 HP)\n");
-        printf("3. Rare Candy (level up)\n");
-        printf("4. Cancel \n");
-        printf("Enter 1, 2, 3 or 4 : ");
-        scanf("%d", &itemChoice);
-
-        if (itemChoice > 1 && itemChoice < 4) {
-            printf("Invalid choice. Please choose between 1 and 4.\n");
-            break;
-        } else if (itemChoice == 4) {
-            battleOption(opJoueur, joueur);
-        } else {
-            
-        }
+void useItem(struct Player *opJoueur, struct Player *joueur) { 
+    printf("\nWhat object would you like to use ?\n");
+    printf("1. Potion (5 HP)\n");
+    printf("2. Super Potion (10 HP)\n");
+    printf("3. Rare Candy (level up)\n");
+    printf("4. Cancel \n");
+    printf("Enter 1, 2, 3 or 4 : ");
+    int itemChoice = choix(); 
+    while (itemChoice < 1 && itemChoice < 4) {
+        printf("Invalid choice. Please choose between 1 and 4.\n");
+        itemChoice = choix();
+    } 
+    if (itemChoice == 4) {
+        printf("\033[H\033[J");
+        battleOption(opJoueur, joueur);      
     }
-    if (itemChoice == 1) {  
-        if (joueur->inventory->potion > 0) {
-            joueur->inventory->potion--;  
+    else if (itemChoice == 1) {  
+        if (checkItem(&Potion, joueur)) {
+            removeItem(&Potion, joueur); 
             int healAmount = 5;
             joueur->selectedSupemon->HP += healAmount;
             if (joueur->selectedSupemon->HP > joueur->selectedSupemon->maxHP) {
@@ -275,14 +271,17 @@ void useItem(struct Player *opJoueur, struct Player *joueur) {
             printf("%s healed for %d HP!\n", joueur->selectedSupemon->nameSupe, healAmount);
             usleep(3000000);
             printf("\033[H\033[J");
-            break;  
+            useItem(opJoueur, joueur);
         } else {
             printf("You don't have any Potions left!\n");
+            usleep(3000000);
+            printf("\033[H\033[J");
+            useItem(opJoueur, joueur);
         }
-
-    } else if (itemChoice == 2) {  
-        if (joueur->inventory->superPotion > 0) {
-            joueur->inventory->superPotion--;  
+    } 
+    else if (itemChoice == 2) {  
+        if (checkItem(&SuperPotion, joueur)) {
+            removeItem(&SuperPotion, joueur);
             int healAmount = 10;
             joueur->selectedSupemon->HP += healAmount;
             if (joueur->selectedSupemon->HP > joueur->selectedSupemon->maxHP) {
@@ -291,25 +290,34 @@ void useItem(struct Player *opJoueur, struct Player *joueur) {
             printf("%s healed for %d HP!\n", joueur->selectedSupemon->nameSupe, healAmount);
             usleep(3000000);
             printf("\033[H\033[J");
-            break;
+            useItem(opJoueur, joueur);
         } else {
             printf("You don't have any Super Potions left!\n");
+            usleep(3000000);
+            printf("\033[H\033[J");
+            useItem(opJoueur, joueur);
         }
-
-    } else if (itemChoice == 3) {  
-        if (joueur->inventory->rareCandy > 0) {
-            joueur->inventory->rareCandy--;  
+    }
+    else if (itemChoice == 3) {  
+        if (checkItem(&RareCandy, joueur)) {
+            removeItem(&RareCandy, joueur);
             printf("%s used a Rare Candy!\n", joueur->selectedSupemon->nameSupe);
+            if (joueur->selectedSupemon->lvl == 1) {
+                joueur->selectedSupemon->xp+=500;
+            }
+            else {
+                joueur->selectedSupemon->xp+=1000;
+            }
             niveauSup(joueur->selectedSupemon);
             usleep(3000000);
             printf("\033[H\033[J");
-            break;
+            useItem(opJoueur, joueur);
         } else {
             printf("You don't have any Rare Candy left!\n");
+            usleep(3000000);
+            printf("\033[H\033[J");
+            useItem(opJoueur, joueur);
         }
-
-    } else {
-        printf("Invalid choice. Please choose between 1 and 4.\n");
     }
 };
 
@@ -357,7 +365,7 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
             joueur->selectedSupemon->actuDEF = joueur->selectedSupemon->DEF;
             joueur->selectedSupemon->actuEvasion = joueur->selectedSupemon->evasion;
             joueur->selectedSupemon->actuAccuracy = joueur->selectedSupemon->accuracy;
-            usleep(2500000);
+            usleep(3000000);
             printf("\033[H\033[J");
             choisirDirection(opJoueur, joueur);
         } else if (opJoueur->selectedSupemon->HP <= 0) {
@@ -389,6 +397,9 @@ void battleOption(struct Player *opJoueur, struct Player *joueur) {
         int mvt = choix();
         if (mvt == 1 || mvt == 2) {
             doMove(opJoueur, joueur, mvt - 1);
+        }
+        else if (mvt == 3) {
+            battleOption(opJoueur, joueur);
         }
     } else if (option == 2) {
         changeSupemon(opJoueur, joueur);
