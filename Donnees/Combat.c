@@ -247,7 +247,7 @@ void FuiteCombat(struct Player *opJoueur, struct Player *joueur) {
 void useItem(struct Player *opJoueur, struct Player *joueur) {
     int itemChoice = 0;  
     while (1) {
-        printf("What object would you like to use ?\n");
+        printf("\nWhat object would you like to use ?\n");
         printf("1. Potion (5 HP)\n");
         printf("2. Super Potion (10 HP)\n");
         printf("3. Rare Candy (level up)\n");
@@ -270,6 +270,8 @@ void useItem(struct Player *opJoueur, struct Player *joueur) {
             joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP; 
         }
         printf("%s healed for %d HP!\n", joueur->selectedSupemon->nameSupe, healAmount);
+        usleep(3000000);
+        printf("\033[H\033[J");
 
     } else if (itemChoice == 2) {  
         int healAmount = 10;
@@ -278,10 +280,14 @@ void useItem(struct Player *opJoueur, struct Player *joueur) {
             joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;  
         }
         printf("%s healed for %d HP!\n", joueur->selectedSupemon->nameSupe, healAmount);
+        usleep(3000000);
+        printf("\033[H\033[J");
 
     } else if (itemChoice == 3) {  
         printf("%s used a Rare Candy!\n", joueur->selectedSupemon->nameSupe);
-        niveauSup(joueur->selectedSupemon);  
+        niveauSup(joueur->selectedSupemon);
+        usleep(3000000);
+        printf("\033[H\033[J");  
     }
     printf("\n");
 }
