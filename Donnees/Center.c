@@ -33,10 +33,18 @@ void restore_hp(struct Player *joueur) {
     if (choice == 1) {
         if (joueur->selectedSupemon) {
             joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;
+            joueur->selectedSupemon->actuATK = joueur->selectedSupemon->ATK;
+            joueur->selectedSupemon->actuDEF = joueur->selectedSupemon->DEF;
+            joueur->selectedSupemon->actuEvasion = joueur->selectedSupemon->evasion;
+            joueur->selectedSupemon->actuAccuracy = joueur->selectedSupemon->accuracy;
         }
-
+        
         for (int i = 0; i < joueur->SupemonCount; i++) {
             joueur->team[i].HP = joueur->team[i].maxHP;
+            joueur->team[i].actuATK = joueur->team[i].ATK;
+            joueur->team[i].actuDEF = joueur->team[i].DEF;
+            joueur->team[i].actuEvasion = joueur->team[i].evasion;
+            joueur->team[i].actuAccuracy = joueur->team[i].accuracy;
         }
 
         printf("+---------------------------------------+\n");
