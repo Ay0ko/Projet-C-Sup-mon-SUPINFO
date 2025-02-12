@@ -95,7 +95,9 @@ int getSuperpotion(struct Player *joueur);
 int getRarecandy(struct Player *joueur);
 int getNbitems(struct Player *joueur);
 void buyOption(struct Player *joueur, struct Player *opJoueur);
+bool handleItemPurchase(struct Player *joueur, struct Item *item);
 void sellOption(struct Player *joueur, struct Player *opJoueur);
+bool handleItemSale(struct Player *joueur, struct Item *item);
 void shopOption(struct Player *joueur, struct Player *opJoueur);
 
 int aleaSupemon();

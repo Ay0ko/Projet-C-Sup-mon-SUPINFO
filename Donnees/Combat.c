@@ -148,7 +148,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
     else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Shell") == 0) {
         opJoueur->selectedSupemon->actuDEF+=opJoueur->selectedSupemon->moves[choosed].BoostDEF;
         printf("\033[H\033[J");
-        printf("%s uses 'Shell' ! This ability will increase its Supemon's DEF by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostDEF);
+        printf("\n%s uses 'Shell' ! This ability will increase its Supemon's DEF by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostDEF);
         usleep(3000000);
         printf("\033[H\033[J");
         displayBattle(opJoueur, joueur);
@@ -158,7 +158,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
        else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Grawl") == 0) {
         opJoueur->selectedSupemon->actuATK+=opJoueur->selectedSupemon->moves[choosed].BoostATK;
         printf("\033[H\033[J");
-        printf("%s used 'Grawl' ! This ability will increase its Supemon's ATK by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostATK);
+        printf("\n%s used 'Grawl' ! This ability will increase its Supemon's ATK by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostATK);
         usleep(3000000);
         printf("\033[H\033[J");
         displayBattle(opJoueur, joueur);
@@ -168,7 +168,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
        else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Foliage") == 0) {
         opJoueur->selectedSupemon->actuEvasion+=opJoueur->selectedSupemon->moves[choosed].BoostEvasion;
         printf("\033[H\033[J");
-        printf("%s used 'Foliage' ! This ability will increase its Supemon's Evasion by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostEvasion);
+        printf("\n%s used 'Foliage' ! This ability will increase its Supemon's Evasion by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostEvasion);
         usleep(3000000);
         printf("\033[H\033[J");
         displayBattle(opJoueur, joueur);
