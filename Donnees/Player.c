@@ -26,6 +26,6 @@ void initializePlayer(struct Player *player, const char *name) {
     memset(player->team, 0, sizeof(player->team));
     player->selectedSupemon = NULL;
     player->Supcoins = 0;
-    player->SupemonCount = 0; 
+    player->SupemonCount = 500; 
     memset(player->inventory, 0, sizeof(player->inventory));
 }
