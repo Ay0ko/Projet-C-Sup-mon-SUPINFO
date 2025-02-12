@@ -393,15 +393,12 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
             choisirDirection(opJoueur, joueur);
         } else if (opJoueur->selectedSupemon->HP <= 0) {
             printf("\nYou have won against %s !\n", opJoueur->selectedSupemon->nameSupe);
-            for (int i = 0; i < 7; i++) {
-                if (strcmp(opJoueur->selectedSupemon->nameSupe, listSupemons[i].nameSupe) == 0) {
-                    listSupemons[i].HP = listSupemons[i].maxHP;
-                    listSupemons[i].actuATK = listSupemons[i].ATK;
-                    listSupemons[i].actuDEF = listSupemons[i].DEF;
-                    listSupemons[i].actuEvasion = listSupemons[i].evasion;
-                    listSupemons[i].actuAccuracy = listSupemons[i].accuracy;
-                    break;
-                }
+            for (int i = 0; i < countSupemons; i++) {  
+                listSupemons[i].HP = listSupemons[i].maxHP;  
+                listSupemons[i].actuATK = listSupemons[i].ATK; 
+                listSupemons[i].actuDEF = listSupemons[i].DEF;  
+                listSupemons[i].actuEvasion = listSupemons[i].evasion;  
+                listSupemons[i].actuAccuracy = listSupemons[i].accuracy; 
             }
             joueur->Supcoins += RecompencePiece(joueur);
             int gainedXP = gainExperience(opJoueur->selectedSupemon->lvl); 
