@@ -111,7 +111,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
 void changeSupemon(struct Player *opSupemon, struct Player *joueur);
 void capture(struct Player *opJoueur, struct Player *joueur);
 void FuiteCombat(struct Player *opJoueur, struct Player *joueur);
-void useItem(struct Player *joueur);
+void useItem(struct Player *opJoueur, struct Player *joueur);
 void enemyMove(struct Player *opJoueur, struct Player *joueur);
 void SetBattle(struct Player *opJoueur, struct Player *joueur);
 void battleOption(struct Player *opJoueur, struct Player *joueur);
