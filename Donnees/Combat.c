@@ -155,7 +155,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
         int next = choix();
         doMove(opJoueur, joueur, next - 1);
        }
-       else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Grawl") == 0) {
+       else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Grawl") == 0) {
         opJoueur->selectedSupemon->actuATK+=opJoueur->selectedSupemon->moves[choosed].BoostATK;
         printf("\033[H\033[J");
         printf("%s used 'Grawl' ! This ability will increase its Supemon's ATK by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostATK);
@@ -165,7 +165,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
         int next = choix();
         doMove(opJoueur, joueur, next - 1);
        }
-       else if (strcmp(joueur->selectedSupemon->moves[choosed].name, "Foliage") == 0) {
+       else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Foliage") == 0) {
         opJoueur->selectedSupemon->actuEvasion+=opJoueur->selectedSupemon->moves[choosed].BoostEvasion;
         printf("\033[H\033[J");
         printf("%s used 'Foliage' ! This ability will increase its Supemon's Evasion by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostEvasion);
