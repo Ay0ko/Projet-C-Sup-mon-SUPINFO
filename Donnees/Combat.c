@@ -142,7 +142,7 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
             usleep(3000000);
             printf("\033[H\033[J");
             displayBattle(opJoueur, joueur);
-            int next = choix();
+            int next = choix(1, 5);
             doMove(opJoueur, joueur, next - 1);
         }
     }
@@ -153,29 +153,29 @@ void choixEnemymove(struct Player *opJoueur, struct Player *joueur, int choosed)
         usleep(3000000);
         printf("\033[H\033[J");
         displayBattle(opJoueur, joueur);
-        int next = choix();
+        int next = choix(1, 5);
         doMove(opJoueur, joueur, next - 1);
-       }
-       else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Grawl") == 0) {
-        opJoueur->selectedSupemon->actuATK+=opJoueur->selectedSupemon->moves[choosed].BoostATK;
-        printf("\033[H\033[J");
-        printf("\n%s used 'Grawl' ! This ability will increase its Supemon's ATK by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostATK);
-        usleep(3000000);
-        printf("\033[H\033[J");
-        displayBattle(opJoueur, joueur);
-        int next = choix();
-        doMove(opJoueur, joueur, next - 1);
-       }
-       else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Foliage") == 0) {
-        opJoueur->selectedSupemon->actuEvasion+=opJoueur->selectedSupemon->moves[choosed].BoostEvasion;
-        printf("\033[H\033[J");
-        printf("\n%s used 'Foliage' ! This ability will increase its Supemon's Evasion by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostEvasion);
-        usleep(3000000);
-        printf("\033[H\033[J");
-        displayBattle(opJoueur, joueur);
-        int next = choix();
-        doMove(opJoueur, joueur, next - 1);
-       }
+    }
+    else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Grawl") == 0) {
+    opJoueur->selectedSupemon->actuATK+=opJoueur->selectedSupemon->moves[choosed].BoostATK;
+    printf("\033[H\033[J");
+    printf("\n%s used 'Grawl' ! This ability will increase its Supemon's ATK by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostATK);
+    usleep(3000000);
+    printf("\033[H\033[J");
+    displayBattle(opJoueur, joueur);
+    int next = choix(1, 5);
+    doMove(opJoueur, joueur, next - 1);
+    }
+    else if (strcmp(opJoueur->selectedSupemon->moves[choosed].name, "Foliage") == 0) {
+    opJoueur->selectedSupemon->actuEvasion+=opJoueur->selectedSupemon->moves[choosed].BoostEvasion;
+    printf("\033[H\033[J");
+    printf("\n%s used 'Foliage' ! This ability will increase its Supemon's Evasion by %d.\n", opJoueur->selectedSupemon->nameSupe, opJoueur->selectedSupemon->moves[choosed].BoostEvasion);
+    usleep(3000000);
+    printf("\033[H\033[J");
+    displayBattle(opJoueur, joueur);
+    int next = choix(1, 5);
+    doMove(opJoueur, joueur, next - 1);
+    }
 };
 
 
@@ -191,18 +191,18 @@ void changeSupemon(struct Player *opJoueur, struct Player *joueur) {
     printf("+--------------------------------------+\n");
     printf("Wich Supemon would you like to swap with your %s ?\n", joueur->selectedSupemon->nameSupe);
     printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
-    int supSwap = choix();
+    int supSwap = choix(1, 7);
     while(supSwap < 1 || supSwap > 7) {
         printf("\nInvalid choice ! Choose a valid option.\n");
         printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
-        int supSwap = choix();
+        int supSwap = choix(1, 7);
     }
     if (supSwap == 7) {
         battleOption(opJoueur, joueur);
     }
     if (supSwap == 1) {
-        printf("You can't change the Supemon wich is fighting ! Please choose another one.");
-        supSwap = choix();
+        printf("You can't change the Supemon wich is fighting ! Please choose another one.\n");
+        supSwap = choix(1, 7);
     }
     else {
         if (joueur->team[supSwap - 1].nameSupe[0] != '\0') {
@@ -214,7 +214,7 @@ void changeSupemon(struct Player *opJoueur, struct Player *joueur) {
         else {
             printf("\nInvalid choice ! Choose a number where there is a Supemon.\n");
             printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
-            int supSwap = choix();
+            int supSwap = choix(1, 7);
         }
     }
 };
@@ -269,10 +269,10 @@ void useItem(struct Player *opJoueur, struct Player *joueur) {
     printf("3. Rare Candy (level up)\n");
     printf("4. Cancel \n");
     printf("Enter 1, 2, 3 or 4 : ");
-    int itemChoice = choix(); 
+    int itemChoice = choix(1, 4); 
     while (itemChoice < 1 && itemChoice < 4) {
         printf("Invalid choice. Please choose between 1 and 4.\n");
-        itemChoice = choix();
+        itemChoice = choix(1, 4);
     } 
     if (itemChoice == 4) {
         printf("\033[H\033[J");
@@ -434,18 +434,18 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
 
 void battleOption(struct Player *opJoueur, struct Player *joueur) {
     displayBattle(opJoueur, joueur);
-    int option = choix();
+    int option = choix(1, 5);
     while (option < 1 || option > 5) {
         printf("\nInvalid choice! Choose a valid option.\n");
         printf("Enter 1, 2, 3, 4 or 5: ");
-        option = choix();
+        option = choix(1, 5);
     }
     if (option == 1) {
         printf("\n1 - %s\n", joueur->selectedSupemon->moves[0].name);
         printf("2 - %s\n", joueur->selectedSupemon->moves[1].name);
         printf("3 - Cancel\n");
         printf("Enter 1, 2 or 3: ");
-        int mvt = choix();
+        int mvt = choix(1, 3);
         if (mvt == 1 || mvt == 2) {
             doMove(opJoueur, joueur, mvt - 1);
         }
