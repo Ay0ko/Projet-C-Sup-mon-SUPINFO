@@ -52,11 +52,11 @@ void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
             opJoueur->selectedSupemon = wildSupemon;
             SetBattle(opJoueur, joueuractu);
         }
-    } 
+    }   
     else if (choice2 == 2) {  
         printf("\033[H\033[J");
         printf("\nWelcome to the shop !\n");
-        shopOption(opJoueur, joueuractu);
+        shopOption(joueuractu, opJoueur);
     } 
     else if (choice2 == 3) {  
         printf("\033[H\033[J");
