@@ -16,9 +16,16 @@ int choix(){
 };
 
 void initializePlayer(struct Player *player, const char *name) {
-    strncpy(player->name, name, 50);
+    if (!player || !name) {
+        return;
+    }
+    
+    strncpy(player->name, name, 49);
+    player->name[49] = '\0';  +
+    
     memset(player->team, 0, sizeof(player->team));
     player->selectedSupemon = NULL;
     player->Supcoins = 0;
+    player->SupemonCount = 0; 
     memset(player->inventory, 0, sizeof(player->inventory));
-};
+}

@@ -51,29 +51,40 @@ void initializeSupemons() {
 };
 
 void leChoix(struct Player *joueur) {
+    if (!joueur) {
+        printf("Error: Player is not initialized!\n");
+        return;
+    }
+    joueur->SupemonCount = 1;  
     int nombre = choix();
-        while (nombre < 1 || nombre > 3) {  
+    while (nombre < 1 || nombre > 3) {  
         printf("\nInvalid choice ! Choose your Supemon again!\n");
         printf("Enter 1, 2, or 3: ");
         nombre = choix();  
     }
+    joueur->selectedSupemon = (struct Supemon*)malloc(sizeof(struct Supemon));
+    if (!joueur->selectedSupemon) {
+        printf("Memory allocation failed!\n");
+        return;
+    }
+
     if (nombre == 1) {
-        joueur->selectedSupemon = &Supmander;
+        *joueur->selectedSupemon = Supmander;  
         joueur->team[0] = Supmander;
         printf("\033[H\033[J");
         printf("\nYou chose Supmander !\n");
     } else if (nombre == 2) {
-        joueur->selectedSupemon = &Supasaur;
+        *joueur->selectedSupemon = Supasaur;
         joueur->team[0] = Supasaur;
         printf("\033[H\033[J");
         printf("\nYou chose Supasaur !\n");
     } else {
-        joueur->selectedSupemon = &Supirtle;
+        *joueur->selectedSupemon = Supirtle;
         joueur->team[0] = Supirtle;
         printf("\033[H\033[J");
         printf("\nYou chose Supirtle !\n");
     }
-};
+}
 
 void addSupemon(struct Supemon *sup, struct Player *dresseur) {
     for (int i = 0; i < 7; i++) {

@@ -118,7 +118,7 @@ void battleOption(struct Player *opJoueur, struct Player *joueur);
 
 void choisirDirection(struct Player *opJoueur, struct Player *joueuractu);
 
-void restore_hp(struct Player *joueur, struct Player *opJoueur);
+void restore_hp(struct Player *joueur);
 
 void displayBattle(struct Player *opJoueur, struct Player *joueur);
 void displayShop();

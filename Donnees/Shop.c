@@ -191,7 +191,7 @@ void buyOption(struct Player* joueur, struct Player *opJoueur) {
             buyOption(joueur, opJoueur);
         }
     }
-    else {
+    else if (choice == 4) {
         printf("\033[H\033[J");
         shopOption(joueur, opJoueur);
     }
