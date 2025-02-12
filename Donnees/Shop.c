@@ -120,21 +120,18 @@ void buyOption(struct Player* joueur, struct Player *opJoueur) {
         
         switch(choice) {
             case 1: {
-                // Logique pour Potion
                 if (handleItemPurchase(joueur, &Potion)) {
                     continueShopping = false;
                 }
                 break;
             }
             case 2: {
-                // Logique pour SuperPotion
                 if (handleItemPurchase(joueur, &SuperPotion)) {
                     continueShopping = false;
                 }
                 break;
             }
             case 3: {
-                // Logique pour RareCandy
                 if (handleItemPurchase(joueur, &RareCandy)) {
                     continueShopping = false;
                 }
@@ -147,7 +144,9 @@ void buyOption(struct Player* joueur, struct Player *opJoueur) {
             }
         }
     }
-}
+};
+
+
 bool handleItemPurchase(struct Player *joueur, struct Item *item) {
     printf("\n");
     if (strcmp(item->nameItem, "Potion") == 0) {
@@ -165,20 +164,20 @@ bool handleItemPurchase(struct Player *joueur, struct Item *item) {
                 printf("\033[H\033[J");
                 usleep(300000);
                 printf("\nYour '%s' has been successfully bought!\n", item->nameItem);
-                return false;  // Continue shopping
+                return false;
             }
             printf("\033[H\033[J");
             usleep(300000);
             printf("\nYour inventory is full! Please sell items or use them in battles.\n");
-            return false;  // Continue shopping
+            return false;
         }
         printf("\033[H\033[J");
         usleep(300000);
         printf("\nYou don't have enough 'Supcoins' to buy this one.\n");
-        return false;  // Continue shopping
+        return false;
     }
-    return false;  // Continue shopping
-}
+    return false;
+};
 
 void sellOption(struct Player *joueur, struct Player *opJoueur) {
     if (!joueur || !opJoueur) {
@@ -220,7 +219,7 @@ void sellOption(struct Player *joueur, struct Player *opJoueur) {
 bool handleItemSale(struct Player *joueur, struct Item *item) {
     printf("\n+--------------------------------------+\n");
     printf("| Quick reminder: you are going to     |\n");
-    printf("| sell a '%s' for %d Supcoins.        |\n", item->nameItem, item->sell);
+    printf("| sell this item for %3d Supcoins.     |\n", item->sell);
     printf("+--------------------------------------+\n");
     printf("Are you sure you want to sell one (1 for yes, 0 for no)? ");
     
@@ -232,14 +231,14 @@ bool handleItemSale(struct Player *joueur, struct Item *item) {
             usleep(300000);
             printf("\nYou have successfully sold your '%s' for %d Supcoins.\n", 
                    item->nameItem, item->sell);
-            return false;  // Continue selling
+            return false;
         }
         printf("\033[H\033[J");
         usleep(300000);
         printf("\nYou don't have any '%s' in your inventory!\n", item->nameItem);
-        return false;  // Continue selling
+        return false;
     }
-    return false;  // Continue selling
+    return false;
 }
 
 void shopOption(struct Player *joueur, struct Player *opJoueur) {
@@ -248,7 +247,7 @@ void shopOption(struct Player *joueur, struct Player *opJoueur) {
         return;
     }
 
-    while (1) {  // Boucle principale au lieu de la récursion
+    while (1) {
         printf("\n");
         displayShop();
         int choice = choix();
@@ -263,14 +262,14 @@ void shopOption(struct Player *joueur, struct Player *opJoueur) {
         switch (choice) {
             case 1:
                 buyOption(joueur, opJoueur);
-                return;  // Retourner après l'achat
+                return;
                 
             case 2:
                 sellOption(joueur, opJoueur);
-                return;  // Retourner après la vente
+                return;
                 
             case 3:
-                choisirDirection(opJoueur, joueur);  // Garder l'ordre original des arguments
+                choisirDirection(opJoueur, joueur);
                 return;
         }
     }
