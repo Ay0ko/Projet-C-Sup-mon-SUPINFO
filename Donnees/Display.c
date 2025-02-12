@@ -104,7 +104,7 @@ void displayPotion() {
     printf("| costs 100 Supcoins and you can sell  |\n");
     printf("| it for half its price : 50 Supcoins. |\n");
     printf("+--------------------------------------+\n");
-    printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+    printf("Are you sure you want to buy one (1 for yes, 2 for no) ? ");
 };
 
 void displaySuperpotion() {
@@ -116,7 +116,7 @@ void displaySuperpotion() {
     printf("| you can sell it for half its price : |\n");
     printf("| 150 Supcoins.                        |\n");
     printf("+--------------------------------------+\n");
-    printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+    printf("Are you sure you want to buy one (1 for yes, 2 for no) ? ");
 };
 
 void displayRarecandy() {
@@ -128,5 +128,5 @@ void displayRarecandy() {
     printf("| you can sell it for half its price : |\n");
     printf("| 350 Supcoins.                        |\n");
     printf("+--------------------------------------+\n");
-    printf("Are you sure you want to buy one (1 for yes, 0 for no) ? ");
+    printf("Are you sure you want to buy one (1 for yes, 2 for no) ? ");
 };

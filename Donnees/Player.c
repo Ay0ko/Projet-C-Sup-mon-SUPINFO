@@ -21,7 +21,7 @@ void initializePlayer(struct Player *player, const char *name) {
     }
     
     strncpy(player->name, name, 49);
-    player->name[49] = '\0';  +
+    player->name[49] = '\0';
     
     memset(player->team, 0, sizeof(player->team));
     player->selectedSupemon = NULL;
