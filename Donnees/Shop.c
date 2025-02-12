@@ -248,23 +248,30 @@ void shopOption(struct Player *joueur, struct Player *opJoueur) {
         return;
     }
 
-    printf("\n");
-    displayShop();
-    int choice = choix();
-    while (choice < 1 || choice > 3) {
-        printf("\nInvalid choice ! Choose a valid option.\n");
-        printf("Enter 1, 2 or 3: ");
-        choice = choix();
-    }
-    
-    printf("\033[H\033[J");
-    if (choice == 1) {
-        buyOption(joueur, opJoueur);
-    }
-    else if (choice == 2) {
-        sellOption(joueur, opJoueur);
-    }
-    else {
-        choisirDirection(joueur, opJoueur);  // Inverser l'ordre des arguments si nécessaire
+    while (1) {  // Boucle principale au lieu de la récursion
+        printf("\n");
+        displayShop();
+        int choice = choix();
+        while (choice < 1 || choice > 3) {
+            printf("\nInvalid choice ! Choose a valid option.\n");
+            printf("Enter 1, 2 or 3: ");
+            choice = choix();
+        }
+        
+        printf("\033[H\033[J");
+        
+        switch (choice) {
+            case 1:
+                buyOption(joueur, opJoueur);
+                return;  // Retourner après l'achat
+                
+            case 2:
+                sellOption(joueur, opJoueur);
+                return;  // Retourner après la vente
+                
+            case 3:
+                choisirDirection(opJoueur, joueur);  // Garder l'ordre original des arguments
+                return;
+        }
     }
 }
