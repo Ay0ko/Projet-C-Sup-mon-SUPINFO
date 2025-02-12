@@ -8,12 +8,39 @@
 #include <time.h>
 #include "DossierH.h"
 
-
-int choix(){
+int choix() {
     int choice;
-    scanf("%d", &choice);
-    return choice;
-};
+    char buffer[100];
+    while (1) {
+        fflush(stdout);
+        if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+            buffer[strcspn(buffer, "\n")] = 0;
+            if (buffer[0] == '\0') {
+                continue;
+            }
+            int valid = 1;
+            for (int i = 0; buffer[i] != '\0'; i++) {
+                if (!isdigit(buffer[i])) {
+                    valid = 0;
+                    break;
+                }
+            }
+            if (valid) {
+                choice = atoi(buffer);
+                if (choice >= 1 && choice <= 3) {
+                    return choice;
+                } else {
+                    printf("Erreur : veuillez entrer un nombre entre 1 et 3.\n");
+                }
+            } else {
+                printf("Erreur : veuillez entrer un nombre valide.\n");
+            }
+        } else {
+            printf("Erreur de lecture, veuillez réessayer.\n");
+            clearerr(stdin);
+        }
+    }
+}
 
 void initializePlayer(struct Player *player, const char *name) {
     if (!player || !name) {
