@@ -205,11 +205,16 @@ void changeSupemon(struct Player *opJoueur, struct Player *joueur) {
         supSwap = choix();
     }
     else {
-        if (joueur->team[supSwap - 1]) {
+        if (joueur->team[supSwap - 1].nameSupe[0] != '\0') {
             struct Supemon temp = joueur->team[0];
             joueur->team[0] = joueur->team[supSwap - 1];
             joueur->team[supSwap - 1] = temp;
             joueur->selectedSupemon = &joueur->team[0];
+        }
+        else {
+            printf("\nInvalid choice ! Choose a number where there is a Supemon.\n");
+            printf("Enter 1, 2, 3, 4, 5, 6 or 7 to cancel: ");
+            int supSwap = choix();
         }
     }
 };
@@ -393,7 +398,7 @@ void SetBattle(struct Player *opJoueur, struct Player *joueur) {
             choisirDirection(opJoueur, joueur);
         } else if (opJoueur->selectedSupemon->HP <= 0) {
             printf("\nYou have won against %s !\n", opJoueur->selectedSupemon->nameSupe);
-            for (int i = 0; i < countSupemons; i++) {  
+            for (int i = 0; i < countSupemons(joueur); i++) {  
                 listSupemons[i].HP = listSupemons[i].maxHP;  
                 listSupemons[i].actuATK = listSupemons[i].ATK; 
                 listSupemons[i].actuDEF = listSupemons[i].DEF;  
