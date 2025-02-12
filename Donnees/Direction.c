@@ -12,7 +12,7 @@
 void choisirDirection(struct Player *opJoueur, struct Player *joueuractu) {
     printf("+--------------------------------------+\n");
     printf("|                                      |\n");
-    printf("|   %14s's XP: %2d/%-2d       |\n", joueuractu->selectedSupemon->nameSupe, ((joueuractu->selectedSupemon->lvl-1)*1000 + 500) - joueuractu->selectedSupemon->xp, (joueuractu->selectedSupemon->lvl-1)*1000 + 500);
+    printf("|   %14s's XP: %2d/%-2d       |\n", joueuractu->selectedSupemon->nameSupe, joueuractu->selectedSupemon->xp, (joueuractu->selectedSupemon->lvl-1)*1000 + 500);
     printf("|                                      |\n");
     printf("|        Your Supcoins: %4d           |\n", joueuractu->Supcoins);
     printf("|                                      |\n");
