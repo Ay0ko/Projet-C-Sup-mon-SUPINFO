@@ -255,12 +255,13 @@ void useItem(struct Player *opJoueur, struct Player *joueur) {
         printf("Enter 1, 2, 3 or 4 : ");
         scanf("%d", &itemChoice);
 
-        if (itemChoice >= 1 && itemChoice <= 3) {
+        if (itemChoice > 1 && itemChoice < 4) {
+            printf("Invalid choice. Please choose between 1 and 4.\n");
             break;
         } else if (itemChoice == 4) {
             battleOption(opJoueur, joueur);
         } else {
-            printf("Invalid choice. Please choose between 1 and 4.\n");
+            
         }
     }
     if (itemChoice == 1) {  
@@ -290,7 +291,7 @@ void useItem(struct Player *opJoueur, struct Player *joueur) {
         printf("\033[H\033[J");  
     }
     printf("\n");
-}
+};
 
 
 void enemyMove(struct Player *opJoueur, struct Player *joueur) {
