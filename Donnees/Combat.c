@@ -265,32 +265,52 @@ void useItem(struct Player *opJoueur, struct Player *joueur) {
         }
     }
     if (itemChoice == 1) {  
-        int healAmount = 5;
-        joueur->selectedSupemon->HP += healAmount;
-        if (joueur->selectedSupemon->HP > joueur->selectedSupemon->maxHP) {
-            joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP; 
+        if (joueur->inventory->potion > 0) {
+            joueur->inventory->potion--;  
+            int healAmount = 5;
+            joueur->selectedSupemon->HP += healAmount;
+            if (joueur->selectedSupemon->HP > joueur->selectedSupemon->maxHP) {
+                joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP; 
+            }
+            printf("%s healed for %d HP!\n", joueur->selectedSupemon->nameSupe, healAmount);
+            usleep(3000000);
+            printf("\033[H\033[J");
+            break;  
+        } else {
+            printf("You don't have any Potions left!\n");
         }
-        printf("%s healed for %d HP!\n", joueur->selectedSupemon->nameSupe, healAmount);
-        usleep(3000000);
-        printf("\033[H\033[J");
 
     } else if (itemChoice == 2) {  
-        int healAmount = 10;
-        joueur->selectedSupemon->HP += healAmount;
-        if (joueur->selectedSupemon->HP > joueur->selectedSupemon->maxHP) {
-            joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;  
+        if (joueur->inventory->superPotion > 0) {
+            joueur->inventory->superPotion--;  
+            int healAmount = 10;
+            joueur->selectedSupemon->HP += healAmount;
+            if (joueur->selectedSupemon->HP > joueur->selectedSupemon->maxHP) {
+                joueur->selectedSupemon->HP = joueur->selectedSupemon->maxHP;  
+            }
+            printf("%s healed for %d HP!\n", joueur->selectedSupemon->nameSupe, healAmount);
+            usleep(3000000);
+            printf("\033[H\033[J");
+            break;
+        } else {
+            printf("You don't have any Super Potions left!\n");
         }
-        printf("%s healed for %d HP!\n", joueur->selectedSupemon->nameSupe, healAmount);
-        usleep(3000000);
-        printf("\033[H\033[J");
 
     } else if (itemChoice == 3) {  
-        printf("%s used a Rare Candy!\n", joueur->selectedSupemon->nameSupe);
-        niveauSup(joueur->selectedSupemon);
-        usleep(3000000);
-        printf("\033[H\033[J");  
+        if (joueur->inventory->rareCandy > 0) {
+            joueur->inventory->rareCandy--;  
+            printf("%s used a Rare Candy!\n", joueur->selectedSupemon->nameSupe);
+            niveauSup(joueur->selectedSupemon);
+            usleep(3000000);
+            printf("\033[H\033[J");
+            break;
+        } else {
+            printf("You don't have any Rare Candy left!\n");
+        }
+
+    } else {
+        printf("Invalid choice. Please choose between 1 and 4.\n");
     }
-    printf("\n");
 };
 
 
