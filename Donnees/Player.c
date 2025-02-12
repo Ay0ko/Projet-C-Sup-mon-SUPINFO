@@ -8,7 +8,7 @@
 #include <time.h>
 #include "DossierH.h"
 
-int choix() {
+int choix(int debut, int fin) {
     int choice;
     char buffer[100];
     while (1) {
@@ -27,10 +27,10 @@ int choix() {
             }
             if (valid) {
                 choice = atoi(buffer);
-                if (choice >= 1 && choice <= 3) {
+                if (choice >= debut && choice <= fin) {
                     return choice;
                 } else {
-                    printf("Erreur : veuillez entrer un nombre entre 1 et 3.\n");
+                    printf("Erreur : veuillez entrer un nombre entre %d et %d.\n", debut, fin);
                 }
             } else {
                 printf("Erreur : veuillez entrer un nombre valide.\n");

@@ -108,12 +108,12 @@ void buyOption(struct Player* joueur, struct Player *opJoueur) {
     while (continueShopping) {
         printf("\n");
         displayBuy(joueur);
-        int choice = choix();
+        int choice = choix(1, 4);
         
         while (choice < 1 || choice > 4) {
             printf("\nInvalid choice ! Choose a valid option.\n");
             printf("Enter 1, 2, 3 or 4: ");
-            choice = choix();
+            choice = choix(1, 4);
         }
 
         printf("\033[H\033[J");
@@ -160,7 +160,7 @@ bool handleItemPurchase(struct Player *joueur, struct Item *item) {
             displayRarecandy();
             break;
     }   
-    int buy = choix();
+    int buy = choix(1, 2);
     
     if (buy == 1) {
         if (checkMoula(item->cost, joueur)) {
@@ -193,12 +193,12 @@ void sellOption(struct Player *joueur, struct Player *opJoueur) {
     while (continueSelling) {
         printf("\n");
         displaySell(joueur);
-        int choice = choix();
+        int choice = choix(1, 4);
         
         while (choice < 1 || choice > 4) {
             printf("\nInvalid choice ! Choose a valid option.\n");
             printf("Enter 1, 2, 3 or 4: ");
-            choice = choix();
+            choice = choix(1, 4);
         }
 
         printf("\033[H\033[J");
@@ -227,7 +227,7 @@ bool handleItemSale(struct Player *joueur, struct Item *item) {
     printf("+--------------------------------------+\n");
     printf("Are you sure you want to sell one (1 for yes, 0 for no)? ");
     
-    int sell = choix();
+    int sell = choix(1, 2);
     if (sell == 1) {
         if (checkItem(item, joueur)) {
             removeItem(item, joueur);
@@ -254,11 +254,11 @@ void shopOption(struct Player *joueur, struct Player *opJoueur) {
     while (1) {
         printf("\n");
         displayShop();
-        int choice = choix();
+        int choice = choix(1, 3);
         while (choice < 1 || choice > 3) {
             printf("\nInvalid choice ! Choose a valid option.\n");
             printf("Enter 1, 2 or 3: ");
-            choice = choix();
+            choice = choix(1, 3);
         }
         
         printf("\033[H\033[J");

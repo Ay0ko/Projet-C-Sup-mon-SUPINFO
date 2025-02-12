@@ -56,11 +56,11 @@ void leChoix(struct Player *joueur) {
         return;
     }
     joueur->SupemonCount = 1;  
-    int nombre = choix();
+    int nombre = choix(1, 3);
     while (nombre < 1 || nombre > 3) {  
         printf("\nInvalid choice ! Choose your Supemon again!\n");
         printf("Enter 1, 2, or 3: ");
-        nombre = choix();  
+        nombre = choix(1, 3);  
     }
     joueur->selectedSupemon = (struct Supemon*)malloc(sizeof(struct Supemon));
     if (!joueur->selectedSupemon) {

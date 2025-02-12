@@ -76,7 +76,7 @@ extern struct Supemon Turtwig;
 extern struct Supemon Glaceon;
 extern struct Supemon listSupemons[9];
 
-int choix();
+int choix(int debut, int fin);
 void leChoix(struct Player *joueur);
 
 void initializeSupemons();
